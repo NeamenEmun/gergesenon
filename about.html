@@ -1,109 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us - Gergeson</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <style>
-    .am { display: none; }
-  </style>
-  <script>
-    function toggleLang(lang) {
-      if (lang === 'en') {
-        document.querySelectorAll('.en').forEach(e => e.style.display = 'block');
-        document.querySelectorAll('.am').forEach(e => e.style.display = 'none');
-      } else {
-        document.querySelectorAll('.en').forEach(e => e.style.display = 'none');
-        document.querySelectorAll('.am').forEach(e => e.style.display = 'block');
-      }
-    }
-  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us - Gergeson Shelter</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-gray-50 text-gray-800">
-  <!-- Navbar -->
-  <nav class="bg-white shadow p-4 flex justify-between items-center">
-    <a href="index.html" class="text-xl font-bold text-indigo-600">Gergeson</a>
-    <div class="space-x-4">
-      <a href="index.html" class="text-gray-600 hover:text-indigo-600">Home</a>
-      <a href="about.html" class="text-gray-600 hover:text-indigo-600 font-semibold">About</a>
-      <a href="contact.html" class="text-gray-600 hover:text-indigo-600">Contact</a>
-      <button onclick="toggleLang('en')" class="px-2 py-1 border rounded">EN</button>
-      <button onclick="toggleLang('am')" class="px-2 py-1 border rounded">AM</button>
+<body>
+  <!-- Shared Header -->
+  <header>
+    <div class="logo">Gergeson Shelter</div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="programs.html">Programs</a>
+      <a href="stories.html">Stories</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="lang-toggle">
+      <button id="en-btn">EN</button>
+      <button id="am-btn">AM</button>
     </div>
-  </nav>
+  </header>
 
-  <!-- Hero -->
-  <section class="bg-indigo-600 text-white py-20 text-center">
-    <h1 class="text-4xl font-bold mb-4 en">About Us</h1>
-    <h1 class="text-4xl font-bold mb-4 am">ስለ እኛ</h1>
-    <p class="en">Learn more about our mission, vision, and the people behind Gergeson.</p>
-    <p class="am">ስለ ተልዕኳችን፣ ራእያችን እና ከገርገሰን በኋላ ያሉትን ሰዎች ይወቁ።</p>
-  </section>
+  <!-- Main Content -->
+  <main>
+    <section class="hero small-hero">
+      <h1>About Us</h1>
+      <p>Learn more about our mission and story.</p>
+    </section>
 
-  <!-- Mission & Vision -->
-  <section class="py-16 px-6 max-w-5xl mx-auto">
-    <div class="grid md:grid-cols-2 gap-10">
-      <div>
-        <h2 class="text-2xl font-bold mb-3 en">Our Mission</h2>
-        <h2 class="text-2xl font-bold mb-3 am">ተልዕኳችን</h2>
-        <p class="text-gray-700 en">
-          Our mission is to provide support, resources, and community for those in need,
-          helping individuals and families build brighter futures.
-        </p>
-        <p class="text-gray-700 am">
-          ተልዕኳችን ለሚያስፈልጋቸው ድጋፍ፣ ሀብት እና ማህበረሰብ በመስጠት ግለሰቦችና ቤተሰቦች እንዲያበሩ መርዳት ነው።
-        </p>
-      </div>
-      <div>
-        <h2 class="text-2xl font-bold mb-3 en">Our Vision</h2>
-        <h2 class="text-2xl font-bold mb-3 am">ራእያችን</h2>
-        <p class="text-gray-700 en">
-          We envision a world where every person has access to shelter, dignity, and the tools 
-          they need to thrive.
-        </p>
-        <p class="text-gray-700 am">
-          እያንዳንዱ ሰው መጠለያ፣ ክብር እና የሚያስፈልጉትን መሣሪያዎች ያገኙበት ዓለም እንደምንገነባ እናምናለን።
-        </p>
-      </div>
-    </div>
-  </section>
+    <section class="content">
+      <h2>Our Mission</h2>
+      <p>We provide safe shelter, meals, and resources to families and individuals in need...</p>
 
-  <!-- Team -->
-  <section class="bg-gray-100 py-16 px-6">
-    <div class="max-w-5xl mx-auto text-center">
-      <h2 class="text-3xl font-bold mb-10 en">Meet Our Team</h2>
-      <h2 class="text-3xl font-bold mb-10 am">ቡድናችንን ያግኙ</h2>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="bg-white p-6 rounded-lg shadow">
-          <img src="https://via.placeholder.com/150" class="mx-auto rounded-full mb-4" alt="team">
-          <h3 class="font-bold en">Alemu Bekele</h3>
-          <h3 class="font-bold am">አለሙ በቀለ</h3>
-          <p class="text-gray-600 en">Founder & Director</p>
-          <p class="text-gray-600 am">ተመሳሳይ እና ዳይሬክተር</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-          <img src="https://via.placeholder.com/150" class="mx-auto rounded-full mb-4" alt="team">
-          <h3 class="font-bold en">Sara Abebe</h3>
-          <h3 class="font-bold am">ሳራ አበበ</h3>
-          <p class="text-gray-600 en">Community Outreach</p>
-          <p class="text-gray-600 am">ማህበረሰብ ድጋፍ</p>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow">
-          <img src="https://via.placeholder.com/150" class="mx-auto rounded-full mb-4" alt="team">
-          <h3 class="font-bold en">Mulugeta Tesfaye</h3>
-          <h3 class="font-bold am">ሙሉጌታ ተስፋዬ</h3>
-          <p class="text-gray-600 en">Program Coordinator</p>
-          <p class="text-gray-600 am">ፕሮግራም መቀነቃኛ</p>
-        </div>
-      </div>
-    </div>
-  </section>
+      <h2>Our Story</h2>
+      <p>Founded in [year], Gergeson Shelter has grown into a vital community resource...</p>
 
-  <!-- Footer -->
-  <footer class="bg-indigo-600 text-white py-6 text-center">
-    <p class="en">&copy; 2025 Gergeson. All rights reserved.</p>
-    <p class="am">&copy; 2025 ገርገሰን። ሁሉም መብቶች ተጠብቀዋል።</p>
+      <h2>Our Team</h2>
+      <p>Our dedicated staff and volunteers work every day to make sure no one is left behind...</p>
+    </section>
+  </main>
+
+  <!-- Shared Footer -->
+  <footer>
+    <p>&copy; 2025 Gergeson Shelter. All rights reserved.</p>
   </footer>
+
+  <script src="lang-toggle.js"></script>
 </body>
 </html>
