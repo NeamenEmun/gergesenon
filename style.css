@@ -1,0 +1,84 @@
+/* style.css */
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2c3e50;
+  padding: 15px 30px;
+  color: #fff;
+}
+
+header .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 12px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a.active {
+  border-bottom: 2px solid #f39c12;
+}
+
+.lang-toggle button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  border: none;
+  background: #f39c12;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* Hero Sections */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: url('shelter-bg.jpg') no-repeat center/cover;
+  color: white;
+}
+
+.small-hero {
+  padding: 50px 20px;
+  background: url('about-bg.jpg') no-repeat center/cover;
+}
+
+/* Content Sections */
+.content {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.content h2 {
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.content p {
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background: #2c3e50;
+  color: white;
+  padding: 20px;
+  margin-top: 40px;
+}
