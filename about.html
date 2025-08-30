@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <link rel="stylesheet" href="style.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Community Hope — Nonprofit Homepage</title>
+  <title>About Us — Community Hope</title>
   <style>
     :root{
       --bg: #f8fafc;           /* light slate */
@@ -27,8 +27,9 @@
     .brand{display:flex;align-items:center;gap:.6rem;font-weight:800}
     .brand .logo{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--brand-2));display:grid;place-items:center;color:white;font-weight:900}
     .navlinks{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
-    .navlinks a{padding:.4rem .6rem;border-radius:9px}
+    .navlinks a{padding:.4rem .6rem;border-radius:9px;color:var(--ink);font-weight:500}
     .navlinks a:hover{background:#eef2ff}
+    .navlinks a.active{background:var(--brand);color:white}
     .lang{display:flex;gap:.5rem;align-items:center}
     .lang button{border:1px solid #cbd5e1;background:#fff;padding:.35rem .6rem;border-radius:9px;cursor:pointer}
     .lang button.active{border-color:var(--brand);box-shadow:0 0 0 3px var(--ring)}
@@ -53,6 +54,7 @@
     @media(min-width:700px){
       .card.span-4{grid-column:span 4}
       .card.span-6{grid-column:span 6}
+      .card.span-8{grid-column:span 8}
     }
 
     .section-title{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1rem}
@@ -85,8 +87,8 @@
         </div>
       </div>
       <nav class="navlinks" aria-label="Primary">
-        <a href="#home" data-i18n="nav_home">Home</a>
-        <a href="about.html" data-i18n="nav_about">About Us</a>
+        <a href="index.html" data-i18n="nav_home">Home</a>
+        <a href="about.html" class="active" data-i18n="nav_about">About Us</a>
         <a href="#history" data-i18n="nav_history">Our History</a>
         <a href="#programs" data-i18n="nav_programs">Programs</a>
         <a href="#donate" data-i18n="nav_donate">Donate</a>
@@ -100,113 +102,124 @@
   </header>
 
   <!-- Hero -->
-  <section id="home" class="hero">
+  <section class="hero">
     <div class="media">
       <img alt="Community gathering" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=2070&auto=format&fit=crop"/>
       <div class="shade"></div>
     </div>
     <div class="container content">
-      <h1 data-i18n="hero_title">Building Hope. Strengthening Community.</h1>
-      <p class="lead" data-i18n="hero_sub">Together, we provide support, shelter, and opportunities for a better future.</p>
+      <h1 data-i18n="about_hero_title">About Community Hope</h1>
+      <p class="lead" data-i18n="about_hero_sub">Learn about our mission, our story, and the dedicated team behind our community impact.</p>
       <div class="cta">
-        <a href="#donate" class="btn primary" data-i18n="cta_donate">Donate Now</a>
-        <a href="#about" class="btn ghost" data-i18n="cta_learn">Learn More</a>
+        <a href="#mission" class="btn primary" data-i18n="cta_learn">Learn More</a>
+        <a href="#contact" class="btn ghost" data-i18n="cta_contact">Get in Touch</a>
       </div>
     </div>
   </section>
 
-  <!-- About Preview -->
-  <section id="about">
+  <!-- Mission -->
+  <section id="mission">
     <div class="container">
       <div class="section-title">
-        <h2 data-i18n="about_title">Who We Are</h2>
-        <span class="muted" data-i18n="about_kicker">Community‑driven • Nonprofit • Local impact</span>
+        <h2 data-i18n="mission_title">Our Mission</h2>
+        <span class="muted" data-i18n="mission_kicker">Empowering families • Building futures • Strengthening communities</span>
+      </div>
+      <div class="cards">
+        <article class="card span-8">
+          <h3 data-i18n="mission_h">What We Do</h3>
+          <p class="muted" data-i18n="mission_p">We empower families and individuals through safe shelter, education, and wraparound support services. Our comprehensive approach addresses the root causes of homelessness and poverty, providing not just immediate relief but long-term solutions for sustainable change.</p>
+          <p class="muted" data-i18n="mission_p2">Every person who walks through our doors receives personalized care, respect, and the tools they need to rebuild their lives. We believe that everyone deserves dignity, safety, and the opportunity to thrive.</p>
+        </article>
+        <article class="card span-4">
+          <h3 data-i18n="mission_values_h">Our Values</h3>
+          <div>
+            <span class="tag" data-i18n="value_dignity">Dignity</span>
+            <span class="tag" data-i18n="value_compassion">Compassion</span>
+            <span class="tag" data-i18n="value_community">Community</span>
+            <span class="tag" data-i18n="value_equity">Equity</span>
+            <span class="tag" data-i18n="value_hope">Hope</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section id="history">
+    <div class="container">
+      <div class="section-title">
+        <h2 data-i18n="story_title">Our Story</h2>
+        <span class="muted" data-i18n="story_kicker">From neighbors to community leaders</span>
       </div>
       <div class="cards">
         <article class="card span-6">
-          <h3 data-i18n="about_mission_h">Our Mission</h3>
-          <p class="muted" data-i18n="about_mission_p">We empower families and individuals through safe shelter, education, and wraparound support services.</p>
+          <h3 data-i18n="story_founded_h">How It Started</h3>
+          <p class="muted" data-i18n="story_founded_p">Founded in 2012 by a group of concerned neighbors, Community Hope began as a small grassroots effort to address the growing homelessness crisis in our community. What started with a few volunteers providing meals has grown into a comprehensive support system.</p>
+          <p class="quote" data-i18n="story_quote">"We saw a need in our community and decided to be part of the solution."</p>
+          <div class="muted small" data-i18n="story_quote_attr">— Sarah Johnson, Co-founder</div>
         </article>
         <article class="card span-6">
-          <h3 data-i18n="about_story_h">Our Story</h3>
-          <p class="muted" data-i18n="about_story_p">Founded by neighbors who care, we’ve served thousands with dignity and compassion since 2012.</p>
-          <a href="#history" class="btn" style="margin-top:.5rem" data-i18n="about_story_cta">Read Our History</a>
+          <h3 data-i18n="story_growth_h">Our Growth</h3>
+          <p class="muted" data-i18n="story_growth_p">Over the past decade, we've expanded from serving 50 families annually to helping over 2,000 individuals each year. Our programs have evolved to meet the changing needs of our community, always guided by the principle that every person deserves a chance to succeed.</p>
+          <div>
+            <span class="tag" data-i18n="stat_2012">2012: Founded</span>
+            <span class="tag" data-i18n="stat_2015">2015: First shelter</span>
+            <span class="tag" data-i18n="stat_2018">2018: Education programs</span>
+            <span class="tag" data-i18n="stat_2022">2022: 10th anniversary</span>
+          </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- Programs -->
-  <section id="programs">
+  <!-- Team -->
+  <section id="team">
     <div class="container">
       <div class="section-title">
-        <h2 data-i18n="programs_title">Programs & Services</h2>
-        <a href="#programs" class="small" data-i18n="programs_viewall">View all programs →</a>
+        <h2 data-i18n="team_title">Our Team</h2>
+        <span class="muted" data-i18n="team_kicker">Dedicated professionals and volunteers</span>
       </div>
       <div class="cards">
         <article class="card span-4">
           <div class="program-icon">S</div>
-          <h3 data-i18n="prog1_h">Shelter & Support</h3>
-          <p class="muted" data-i18n="prog1_p">Emergency beds, case management, and pathways to stable housing.</p>
+          <h3 data-i18n="team_leadership_h">Leadership</h3>
+          <p class="muted" data-i18n="team_leadership_p">Our experienced leadership team brings decades of combined experience in social services, community development, and nonprofit management.</p>
         </article>
         <article class="card span-4">
-          <div class="program-icon">Y</div>
-          <h3 data-i18n="prog2_h">Youth Education</h3>
-          <p class="muted" data-i18n="prog2_p">After‑school tutoring, mentorship, and STEM clubs for teens.</p>
+          <div class="program-icon">S</div>
+          <h3 data-i18n="team_staff_h">Staff</h3>
+          <p class="muted" data-i18n="team_staff_p">Our dedicated staff includes social workers, educators, case managers, and support specialists who work directly with our community members.</p>
         </article>
         <article class="card span-4">
-          <div class="program-icon">C</div>
-          <h3 data-i18n="prog3_h">Community Services</h3>
-          <p class="muted" data-i18n="prog3_p">Food pantry, legal clinics, and job readiness workshops.</p>
+          <div class="program-icon">V</div>
+          <h3 data-i18n="team_volunteers_h">Volunteers</h3>
+          <p class="muted" data-i18n="team_volunteers_p">Over 200 volunteers contribute their time and skills each month, from serving meals to tutoring children to providing administrative support.</p>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- Stories / Testimonials -->
+  <!-- Impact -->
   <section>
     <div class="container">
       <div class="section-title">
-        <h2 data-i18n="stories_title">Voices from Our Community</h2>
-        <span class="muted" data-i18n="stories_kicker">Real stories. Real impact.</span>
+        <h2 data-i18n="impact_title">Our Impact</h2>
+        <span class="muted" data-i18n="impact_kicker">Real results. Real change.</span>
       </div>
       <div class="cards">
         <article class="card span-6">
-          <h3 data-i18n="t1_h">Resident Story</h3>
-          <p class="quote" data-i18n="t1_p">“With your help, my children have a safe place to sleep and a chance to learn.”</p>
-          <div class="muted small" data-i18n="t1_a">— Amina, mother of two</div>
-        </article>
-        <article class="card span-6">
-          <h3 data-i18n="t2_h">Volunteer Reflection</h3>
-          <p class="quote" data-i18n="t2_p">“I came to give back and found a family. Serving here changed my life.”</p>
-          <div class="muted small" data-i18n="t2_a">— Daniel, mentor</div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Donate / Get Involved -->
-  <section id="donate">
-    <div class="container">
-      <div class="section-title">
-        <h2 data-i18n="donate_title">Your Support Makes a Difference</h2>
-        <span class="muted" data-i18n="donate_kicker">Give once or monthly — every gift matters.</span>
-      </div>
-      <div class="cards">
-        <article class="card span-6">
-          <h3 data-i18n="donate_methods_h">Ways to Donate</h3>
+          <h3 data-i18n="impact_numbers_h">By the Numbers</h3>
           <div>
-            <span class="tag" data-i18n="donate_bank">Bank Transfer</span>
-            <span class="tag" data-i18n="donate_cash">Cash</span>
-            <span class="tag" data-i18n="donate_paypal">PayPal</span>
-            <span class="tag" data-i18n="donate_gfm">GoFundMe</span>
+            <span class="tag" data-i18n="impact_families">2,000+ families served</span>
+            <span class="tag" data-i18n="impact_housing">85% housing success rate</span>
+            <span class="tag" data-i18n="impact_education">500+ children in education programs</span>
+            <span class="tag" data-i18n="impact_volunteers">200+ active volunteers</span>
           </div>
-          <a href="#" class="btn primary" style="margin-top:.9rem" data-i18n="donate_cta">Donate Today</a>
         </article>
         <article class="card span-6">
-          <h3 data-i18n="vol_h">Volunteer</h3>
-          <p class="muted" data-i18n="vol_p">Join our team of neighbors helping neighbors. One hour can change a life.</p>
-          <a href="#contact" class="btn" data-i18n="vol_cta">Sign Up to Volunteer</a>
+          <h3 data-i18n="impact_stories_h">Success Stories</h3>
+          <p class="quote" data-i18n="impact_story">"Community Hope didn't just give us a place to stay—they gave us the tools to build a new life."</p>
+          <div class="muted small" data-i18n="impact_story_attr">— Maria and her family, now in stable housing</div>
         </article>
       </div>
     </div>
@@ -223,7 +236,7 @@
         </div>
         <div class="footercol">
           <div style="font-weight:800;font-size:1.1rem" data-i18n="footer_quick">Quick Links</div>
-          <div class="small"><a href="#about" data-i18n="footer_about">About</a> • <a href="#programs" data-i18n="footer_programs">Programs</a> • <a href="#donate" data-i18n="footer_donate">Donate</a></div>
+          <div class="small"><a href="index.html" data-i18n="footer_home">Home</a> • <a href="#programs" data-i18n="footer_programs">Programs</a> • <a href="#donate" data-i18n="footer_donate">Donate</a></div>
         </div>
         <div class="footercol">
           <div style="font-weight:800;font-size:1.1rem" data-i18n="footer_social">Follow</div>
@@ -246,48 +259,55 @@
         nav_programs: "Programs",
         nav_donate: "Donate",
         nav_contact: "Contact",
-        hero_title: "Building Hope. Strengthening Community.",
-        hero_sub: "Together, we provide support, shelter, and opportunities for a better future.",
-        cta_donate: "Donate Now",
+        about_hero_title: "About Community Hope",
+        about_hero_sub: "Learn about our mission, our story, and the dedicated team behind our community impact.",
         cta_learn: "Learn More",
-        about_title: "Who We Are",
-        about_kicker: "Community‑driven • Nonprofit • Local impact",
-        about_mission_h: "Our Mission",
-        about_mission_p: "We empower families and individuals through safe shelter, education, and wraparound support services.",
-        about_story_h: "Our Story",
-        about_story_p: "Founded by neighbors who care, we’ve served thousands with dignity and compassion since 2012.",
-        about_story_cta: "Read Our History",
-        programs_title: "Programs & Services",
-        programs_viewall: "View all programs →",
-        prog1_h: "Shelter & Support",
-        prog1_p: "Emergency beds, case management, and pathways to stable housing.",
-        prog2_h: "Youth Education",
-        prog2_p: "After‑school tutoring, mentorship, and STEM clubs for teens.",
-        prog3_h: "Community Services",
-        prog3_p: "Food pantry, legal clinics, and job readiness workshops.",
-        stories_title: "Voices from Our Community",
-        stories_kicker: "Real stories. Real impact.",
-        t1_h: "Resident Story",
-        t1_p: "\u201CWith your help, my children have a safe place to sleep and a chance to learn.\u201D",
-        t1_a: "\u2014 Amina, mother of two",
-        t2_h: "Volunteer Reflection",
-        t2_p: "\u201CI came to give back and found a family. Serving here changed my life.\u201D",
-        t2_a: "\u2014 Daniel, mentor",
-        donate_title: "Your Support Makes a Difference",
-        donate_kicker: "Give once or monthly — every gift matters.",
-        donate_methods_h: "Ways to Donate",
-        donate_bank: "Bank Transfer",
-        donate_cash: "Cash",
-        donate_paypal: "PayPal",
-        donate_gfm: "GoFundMe",
-        donate_cta: "Donate Today",
-        vol_h: "Volunteer",
-        vol_p: "Join our team of neighbors helping neighbors. One hour can change a life.",
-        vol_cta: "Sign Up to Volunteer",
+        cta_contact: "Get in Touch",
+        mission_title: "Our Mission",
+        mission_kicker: "Empowering families • Building futures • Strengthening communities",
+        mission_h: "What We Do",
+        mission_p: "We empower families and individuals through safe shelter, education, and wraparound support services. Our comprehensive approach addresses the root causes of homelessness and poverty, providing not just immediate relief but long-term solutions for sustainable change.",
+        mission_p2: "Every person who walks through our doors receives personalized care, respect, and the tools they need to rebuild their lives. We believe that everyone deserves dignity, safety, and the opportunity to thrive.",
+        mission_values_h: "Our Values",
+        value_dignity: "Dignity",
+        value_compassion: "Compassion",
+        value_community: "Community",
+        value_equity: "Equity",
+        value_hope: "Hope",
+        story_title: "Our Story",
+        story_kicker: "From neighbors to community leaders",
+        story_founded_h: "How It Started",
+        story_founded_p: "Founded in 2012 by a group of concerned neighbors, Community Hope began as a small grassroots effort to address the growing homelessness crisis in our community. What started with a few volunteers providing meals has grown into a comprehensive support system.",
+        story_quote: "\"We saw a need in our community and decided to be part of the solution.\"",
+        story_quote_attr: "— Sarah Johnson, Co-founder",
+        story_growth_h: "Our Growth",
+        story_growth_p: "Over the past decade, we've expanded from serving 50 families annually to helping over 2,000 individuals each year. Our programs have evolved to meet the changing needs of our community, always guided by the principle that every person deserves a chance to succeed.",
+        stat_2012: "2012: Founded",
+        stat_2015: "2015: First shelter",
+        stat_2018: "2018: Education programs",
+        stat_2022: "2022: 10th anniversary",
+        team_title: "Our Team",
+        team_kicker: "Dedicated professionals and volunteers",
+        team_leadership_h: "Leadership",
+        team_leadership_p: "Our experienced leadership team brings decades of combined experience in social services, community development, and nonprofit management.",
+        team_staff_h: "Staff",
+        team_staff_p: "Our dedicated staff includes social workers, educators, case managers, and support specialists who work directly with our community members.",
+        team_volunteers_h: "Volunteers",
+        team_volunteers_p: "Over 200 volunteers contribute their time and skills each month, from serving meals to tutoring children to providing administrative support.",
+        impact_title: "Our Impact",
+        impact_kicker: "Real results. Real change.",
+        impact_numbers_h: "By the Numbers",
+        impact_families: "2,000+ families served",
+        impact_housing: "85% housing success rate",
+        impact_education: "500+ children in education programs",
+        impact_volunteers: "200+ active volunteers",
+        impact_stories_h: "Success Stories",
+        impact_story: "\"Community Hope didn't just give us a place to stay—they gave us the tools to build a new life.\"",
+        impact_story_attr: "— Maria and her family, now in stable housing",
         footer_h: "Contact Us",
         footer_addr: "123 Hope Street, Fairfax, VA",
+        footer_home: "Home",
         footer_quick: "Quick Links",
-        footer_about: "About",
         footer_programs: "Programs",
         footer_donate: "Donate",
         footer_social: "Follow",
@@ -302,48 +322,55 @@
         nav_programs: "ፕሮግራሞች",
         nav_donate: "ልገሳ",
         nav_contact: "አድራሻ",
-        hero_title: "ተስፋን እና ማህበረሰብን እናበረታታለን",
-        hero_sub: "በአንድነት ድጋፍ፣ መጠለያ እና ለወደፊት ዕድሎችን እናቀርባለን።",
-        cta_donate: "አሁን ልገሳ ያድርጉ",
+        about_hero_title: "ስለ የማህበረሰብ ተስፋ",
+        about_hero_sub: "ስለ ተልእኳችን፣ ታሪካችን እና የማህበረሰብ ተፅእኖ የሚያደርገውን ተሰጥኦ ቡድን ይወቁ።",
         cta_learn: "ተጨማሪ ይወቁ",
-        about_title: "እኛ ማነን?",
-        about_kicker: "በማህበረሰብ የሚመራ • የጥበቃ ድርጅት • የአካባቢ ተፅእኖ",
-        about_mission_h: "ተልእኳችን",
-        about_mission_p: "በደህንነት መጠለያ፣ ትምህርት እና የድጋፍ አገልግሎቶች በኩል ቤተሰቦችንና ግል ሰዎችን እናበረታታለን።",
-        about_story_h: "ታሪካችን",
-        about_story_p: "በሚነካ ጎረቤቶች የተጀመረ፣ ከ2012 ጀምሮ ከሺዎች በላይን በክብር እና በርካታ አገልግለናል።",
-        about_story_cta: "ታሪካችንን ያንብቡ",
-        programs_title: "ፕሮግራሞች እና አገልግሎቶች",
-        programs_viewall: "ሁሉንም ፕሮግራሞች ይመልከቱ →",
-        prog1_h: "መጠለያ እና ድጋፍ",
-        prog1_p: "አስቸኳይ መኝታ ቦታ፣ ኬስ ማኔጅማንት እና ወደ ቋሚ መኖሪያ መንገዶች።",
-        prog2_h: "የወጣቶች ትምህርት",
-        prog2_p: "የት/ቤት በኋላ እርዳታ፣ መካሪ መመሪያ እና የSTEM ክለቦች።",
-        prog3_h: "የማህበረሰብ አገልግሎቶች",
-        prog3_p: "የምግብ ባንክ፣ የህግ ክሊኒኮች እና የሥራ አዘጋጅ ዎርክሾፖች።",
-        stories_title: "ድምጾች ከማህበረሰባችን",
-        stories_kicker: "እውነተኛ ታሪኮች። እውነተኛ ተፅእኖ።",
-        t1_h: "የነዋሪ ታሪክ",
-        t1_p: "\u201Cበእርዳታችሁ ልጆቼ አስተማማኝ መኝታ ቦታ እና ለመማር እድል አግኝተዋል።\u201D",
-        t1_a: "\u2014 አሚና፣ የሁለት ልጆች እናት",
-        t2_h: "የበጎ ፈቃደኛ ልምድ",
-        t2_p: "\u201Cለመስጠት መጥቻለሁ ነገር ግን ቤተሰብ አግኝቻለሁ። እዚህ መስራቴ ሕይወቴን ለውጦታል።\u201D",
-        t2_a: "\u2014 ዳንኤል፣ መካሪ",
-        donate_title: "ድጋፍዎ ልዩ ልዩ ለውጥ ያመጣል",
-        donate_kicker: "አንድ ጊዜ ወይም ወርሃዊ — እያንዳንዱ ስጦታ ጠቃሚ ነው።",
-        donate_methods_h: "የልገሳ መንገዶች",
-        donate_bank: "የባንክ ማስተላለፍ",
-        donate_cash: "ጥሬ ገንዘብ",
-        donate_paypal: "PayPal",
-        donate_gfm: "GoFundMe",
-        donate_cta: "ዛሬ ይለግሱ",
-        vol_h: "በጎ ፈቃደኝነት",
-        vol_p: "ጎረቤቶች ለጎረቤቶች የሚረዱበትን ቡድን ይቀላቀሉ። አንድ ሰዓት ሕይወትን ሊቀይር ይችላል።",
-        vol_cta: "ለበጎ ፈቃደኝነት ይመዝገቡ",
+        cta_contact: "አድራሻ ያግኙ",
+        mission_title: "ተልእኳችን",
+        mission_kicker: "ቤተሰቦችን እናበረታታለን • ወደፊት እንገነባለን • ማህበረሰቦችን እናበረታታለን",
+        mission_h: "የምንሰራቸው ነገሮች",
+        mission_p: "በደህንነት መጠለያ፣ ትምህርት እና የድጋፍ አገልግሎቶች በኩል ቤተሰቦችንና ግል ሰዎችን እናበረታታለን። የእኛ ሁለገብ አቀራረብ የስደተኝነት እና ድሃነት ሥር ምክንያቶችን ያስተካክላል፣ ወቅታዊ እርዳታ ብቻ ሳይሆን ለተጠናካሪ ለውጥ የረጅም ጊዜ መፍትሄዎችን ያቀርባል።",
+        mission_p2: "በእኛ በር የሚገባ እያንዳንዱ ሰው የግል እንክብካቤ፣ ክብር እና ሕይወታቸውን እንደገና ለመገንባት የሚያስፈልጓቸውን መሳሪያዎች ያገኛል። እያንዳንዱ ሰው ክብር፣ ደህንነት እና ዕድገት እድል እንደሚገባው እናምናለን።",
+        mission_values_h: "የእኛ እሴቶች",
+        value_dignity: "ክብር",
+        value_compassion: "ርካሳ",
+        value_community: "ማህበረሰብ",
+        value_equity: "እኩልነት",
+        value_hope: "ተስፋ",
+        story_title: "ታሪካችን",
+        story_kicker: "ከጎረቤቶች እስከ የማህበረሰብ መሪዎች",
+        story_founded_h: "እንዴት እንደ ጀመረ",
+        story_founded_p: "በ2012 በጥያቄ ያለው ጎረቤቶች ቡድን የተጀመረ፣ የማህበረሰብ ተስፋ በማህበረሰባችን ውስጥ የሚጨምረውን የስደተኝነት ችግር ለመፍታት እንደ ትንሽ የግራስሮትስ ጥረት ጀመረ። በጥቂት በጎ ፈቃደኞች ምግብ ከመስጠት የጀመረው አሁን ወደ ሁለገብ ድጋፍ ስርዓት እያደገ ነው።",
+        story_quote: "\"በማህበረሰባችን ውስጥ ፍላጎት እንዳለ አየን እና የመፍትሄ አካል መሆን ወሰንን።\"",
+        story_quote_attr: "— ሳራ ጆንሰን፣ የተጋራ መስራች",
+        story_growth_h: "ዕድገታችን",
+        story_growth_p: "ባለፉት አስር ዓመታት ውስጥ፣ ከዓመት በዓመት 50 ቤተሰቦችን ከመስጠት ወደ በዓመት ከ2,000 በላይ ግል ሰዎችን መርዳት አድገናለን። ፕሮግራሞቻችን የማህበረሰባችንን እየተለወጡ ያሉ ፍላጎቶች ለመሟላት እያደጉ ናቸው፣ እያንዳንዱ ሰው የመሳካት እድል እንደሚገባው በመርህ የሚመራ።",
+        stat_2012: "2012: ተመሰረተ",
+        stat_2015: "2015: የመጀመሪያ መጠለያ",
+        stat_2018: "2018: የትምህርት ፕሮግራሞች",
+        stat_2022: "2022: 10ኛ ዓመት በዓል",
+        team_title: "ቡድናችን",
+        team_kicker: "ተሰጥኦ ባለው ሙያ ሰዎች እና በጎ ፈቃደኞች",
+        team_leadership_h: "መሪነት",
+        team_leadership_p: "የእኛ የስራ ልምድ ያለው የመሪነት ቡድን በማህበረሰብ አገልግሎቶች፣ የማህበረሰብ ማሳደጊያ እና የጥበቃ ድርጅት አስተዳደር ውስጥ የረጅም ጊዜ የተጣለ ልምድ ያመጣል።",
+        team_staff_h: "ሰራተኞች",
+        team_staff_p: "የእኛ ተሰጥኦ ያላቸው ሰራተኞች ከማህበረሰባችን አባላት ጋር በቀጥታ የሚሰሩ ማህበረሰብ ሰራተኞች፣ መምህራን፣ ኬስ ማኔጆሮች እና ድጋፍ ስፔሻሊስቶችን ያካትታሉ።",
+        team_volunteers_h: "በጎ ፈቃደኞች",
+        team_volunteers_p: "ከ200 በላይ በጎ ፈቃደኞች በወር እያንዳንዱ ጊዜያቸውን እና ክህሎታቸውን ያዋልዳሉ፣ ከምግብ ማገልገል እስከ ልጆችን መምህርነት እና የአስተዳደር ድጋፍ ድረስ።",
+        impact_title: "የእኛ ተፅእኖ",
+        impact_kicker: "እውነተኛ ውጤቶች። እውነተኛ ለውጥ።",
+        impact_numbers_h: "በቁጥር",
+        impact_families: "2,000+ ቤተሰቦች ተሰጥኦው አገኝቷል",
+        impact_housing: "85% የመኖሪያ ቤት የስኬት መጠን",
+        impact_education: "500+ ልጆች በትምህርት ፕሮግራሞች ውስጥ",
+        impact_volunteers: "200+ ንቁ በጎ ፈቃደኞች",
+        impact_stories_h: "የስኬት ታሪኮች",
+        impact_story: "\"የማህበረሰብ ተስፋ የመኖሪያ ቦታ ብቻ አልሰጠንም—የአዲስ ሕይወት ለመገንባት የሚያስፈልጓቸውን መሳሪያዎች ሰጥን።\"",
+        impact_story_attr: "— ማሪያ እና ቤተሰቧ፣ አሁን በቋሚ መኖሪያ ቤት ውስጥ",
         footer_h: "አድራሻ",
         footer_addr: "123 ተስፋ መንገድ፣ ፌርፋክስ፣ ቨርጂኒያ",
+        footer_home: "ቤት",
         footer_quick: "ፈጣን አገናኞች",
-        footer_about: "ስለእኛ",
         footer_programs: "ፕሮግራሞች",
         footer_donate: "ልገሳ",
         footer_social: "ተከታታይ",
