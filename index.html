@@ -7,14 +7,23 @@
   <link rel="stylesheet" href="style.css">
   <style>
     :root{
+      /* Enhanced Brand Colors (from logo) */
       --bg: #f8fafc;           /* light slate */
       --card: #ffffff;
       --ink: #0f172a;          /* slate-900 */
       --muted: #475569;        /* slate-600 */
-      --brand: #2563eb;        /* blue-600 */
-      --brand-2: #16a34a;      /* green-600 */
+      --brand: #2563eb;        /* primary blue */
+      --brand-2: #16a34a;      /* success green */
+      --brand-light: #dbeafe;  /* light blue */
+      --brand-dark: #1e40af;   /* dark blue */
       --warm: #ea580c;         /* orange-600 */
       --ring: #93c5fd;         /* blue-300 */
+      --success: #10b981;      /* emerald-500 */
+      --warning: #f59e0b;      /* amber-500 */
+      --error: #ef4444;        /* red-500 */
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-900: #111827;
     }
     *{box-sizing:border-box}
     html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, "Noto Sans", Arial, "Apple Color Emoji","Segoe UI Emoji";}
@@ -78,6 +87,48 @@
     /* View management */
     .view {display: none;}
     .view.active {display: block;}
+    
+    /* Media Gallery Styles */
+    .media-categories{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2rem;justify-content:center}
+    .media-filter{padding:.5rem 1rem;border:1px solid #e2e8f0;background:white;border-radius:8px;cursor:pointer;transition:all .2s}
+    .media-filter:hover{background:#f8fafc}
+    .media-filter.active{background:var(--brand);color:white;border-color:var(--brand)}
+    .media-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
+    .media-item{background:var(--card);border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s}
+    .media-item:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.1)}
+    .media-item video,.media-item img,.media-item audio{width:100%;display:block}
+    .media-info{padding:1rem}
+    .media-info h3{margin:0 0 .5rem 0;font-size:1.1rem}
+    .media-info p{margin:0 0 .5rem 0;color:var(--muted)}
+    .media-date{font-size:.85rem;color:var(--muted)}
+    
+    /* Payment Methods Styles */
+    .payment-methods{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-bottom:2rem}
+    .payment-logos{display:flex;gap:.5rem;margin:.5rem 0}
+    .payment-icon{font-size:1.5rem;padding:.5rem;background:#f8fafc;border-radius:8px;display:inline-flex;align-items:center;justify-content:center}
+    
+    /* Live Events Styles */
+    .live-events-grid{display:grid;grid-template-columns:2fr 1fr;gap:1.5rem}
+    .event-status{display:inline-block;padding:.25rem .75rem;border-radius:999px;font-size:.8rem;font-weight:700;margin-bottom:1rem}
+    .event-status.live{background:#ef4444;color:white;animation:pulse 2s infinite}
+    .event-stats{display:flex;gap:2rem;margin:1rem 0}
+    .stat{display:flex;flex-direction:column;align-items:center}
+    .stat-label{font-size:.85rem;color:var(--muted)}
+    .stat-value{font-size:1.2rem;font-weight:700;color:var(--brand)}
+    .progress-bar{width:100%;height:8px;background:#e2e8f0;border-radius:4px;overflow:hidden;margin:1rem 0}
+    .progress-fill{height:100%;background:linear-gradient(90deg,var(--brand),var(--brand-2));transition:width .3s}
+    .event-list{display:flex;flex-direction:column;gap:.75rem}
+    .event-item{display:flex;align-items:center;gap:1rem;padding:.5rem;border-radius:8px;background:#f8fafc}
+    .event-date{font-weight:700;color:var(--brand);min-width:3rem}
+    .event-name{flex:1}
+    
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
+    
+    @media(max-width:700px){
+      .live-events-grid{grid-template-columns:1fr}
+      .payment-methods{grid-template-columns:1fr}
+      .media-grid{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
@@ -98,6 +149,7 @@
       <a href="#about" class="nav-link" data-view="about" data-i18n="nav_about">About Us</a>
       <a href="#history" class="nav-link" data-view="about" data-i18n="nav_history">Our History</a>
       <a href="#programs" class="nav-link" data-view="home" data-i18n="nav_programs">Programs</a>
+      <a href="#media" class="nav-link" data-view="media" data-i18n="nav_media">Media</a>
       <a href="#donate" class="nav-link" data-view="home" data-i18n="nav_donate">Donate</a>
       <a href="#contact" class="nav-link" data-view="home" data-i18n="nav_contact">Contact</a>
     </nav>
@@ -113,7 +165,7 @@
     <!-- Hero -->
     <section id="home" class="hero">
       <div class="media">
-        <img alt="Community gathering" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=2070&auto=format&fit=crop"/>
+        <img alt="Community gathering" src="bg.jpg"/>
         <div class="shade"></div>
       </div>
       <div class="container content">
@@ -201,23 +253,110 @@
       <div class="container">
         <div class="section-title">
           <h2 data-i18n="donate_title">Your Support Makes a Difference</h2>
-          <span class="muted" data-i18n="donate_kicker">Give once or monthly — every gift matters.</span>
+          <span class="muted" data-i18n="donate_kicker">Multiple secure payment options available</span>
         </div>
-        <div class="cards">
+        
+        <div class="payment-methods">
           <article class="card span-6">
-            <h3 data-i18n="donate_methods_h">Ways to Donate</h3>
-            <div>
-              <span class="tag" data-i18n="donate_bank">Bank Transfer</span>
-              <span class="tag" data-i18n="donate_cash">Cash</span>
-              <span class="tag" data-i18n="donate_paypal">PayPal</span>
-              <span class="tag" data-i18n="donate_gfm">GoFundMe</span>
+            <h3 data-i18n="donate_cards_h">Credit/Debit Cards</h3>
+            <div class="payment-logos">
+              <span class="payment-icon">💳</span>
+              <span class="payment-icon">🏦</span>
             </div>
-            <a href="#" class="btn primary" style="margin-top:.9rem" data-i18n="donate_cta">Donate Today</a>
+            <p class="muted" data-i18n="donate_cards_desc">Visa, Mastercard, American Express</p>
+            <button class="btn primary" onclick="openPaymentModal('card')" data-i18n="donate_cards_btn">Donate with Card</button>
           </article>
+          
+          <article class="card span-6">
+            <h3 data-i18n="donate_digital_h">Digital Wallets</h3>
+            <div class="payment-logos">
+              <span class="payment-icon">📱</span>
+              <span class="payment-icon">💻</span>
+            </div>
+            <p class="muted" data-i18n="donate_digital_desc">PayPal, Apple Pay, Google Pay</p>
+            <button class="btn primary" onclick="openPaymentModal('wallet')" data-i18n="donate_digital_btn">Donate with Wallet</button>
+          </article>
+          
+          <article class="card span-6">
+            <h3 data-i18n="donate_bank_h">Bank Transfer</h3>
+            <div class="payment-logos">
+              <span class="payment-icon">🏛️</span>
+            </div>
+            <p class="muted" data-i18n="donate_bank_desc">Direct bank transfer for larger donations</p>
+            <button class="btn primary" onclick="showBankDetails()" data-i18n="donate_bank_btn">Get Bank Details</button>
+          </article>
+          
+          <article class="card span-6">
+            <h3 data-i18n="donate_crypto_h">Crypto Donations</h3>
+            <div class="payment-logos">
+              <span class="payment-icon">₿</span>
+              <span class="payment-icon">Ξ</span>
+            </div>
+            <p class="muted" data-i18n="donate_crypto_desc">Bitcoin, Ethereum, and other cryptocurrencies</p>
+            <button class="btn primary" onclick="showCryptoAddresses()" data-i18n="donate_crypto_btn">Crypto Donate</button>
+          </article>
+        </div>
+        
+        <div class="cards" style="margin-top: 2rem;">
           <article class="card span-6">
             <h3 data-i18n="vol_h">Volunteer</h3>
             <p class="muted" data-i18n="vol_p">Join our team of neighbors helping neighbors. One hour can change a life.</p>
             <a href="#contact" class="btn" data-i18n="vol_cta">Sign Up to Volunteer</a>
+          </article>
+          <article class="card span-6">
+            <h3 data-i18n="live_events_h">Live Events</h3>
+            <p class="muted" data-i18n="live_events_desc">Join our telethons and fundraising events</p>
+            <a href="#live-events" class="btn" data-i18n="live_events_btn">View Events</a>
+          </article>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Live Events & Telethons -->
+    <section id="live-events">
+      <div class="container">
+        <div class="section-title">
+          <h2 data-i18n="live_title">Live Events & Telethons</h2>
+          <span class="muted" data-i18n="live_kicker">Join our fundraising events</span>
+        </div>
+        
+        <div class="live-events-grid">
+          <article class="card span-8">
+            <div class="event-status live" data-i18n="event_live">LIVE NOW</div>
+            <h3 data-i18n="event_telethon_title">Annual Telethon 2024</h3>
+            <p class="muted" data-i18n="event_telethon_desc">Join us for our biggest fundraising event of the year</p>
+            <div class="event-stats">
+              <div class="stat">
+                <span class="stat-label" data-i18n="event_goal">Goal:</span>
+                <span class="stat-value">$50,000</span>
+              </div>
+              <div class="stat">
+                <span class="stat-label" data-i18n="event_raised">Raised:</span>
+                <span class="stat-value">$32,500</span>
+              </div>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="width: 65%"></div>
+            </div>
+            <button class="btn primary" data-i18n="event_join_btn">Join Live Stream</button>
+          </article>
+          
+          <article class="card span-4">
+            <h3 data-i18n="event_upcoming_title">Upcoming Events</h3>
+            <div class="event-list">
+              <div class="event-item">
+                <span class="event-date">Mar 25</span>
+                <span class="event-name" data-i18n="event_concert">Community Concert</span>
+              </div>
+              <div class="event-item">
+                <span class="event-date">Apr 10</span>
+                <span class="event-name" data-i18n="event_workshop">Volunteer Workshop</span>
+              </div>
+              <div class="event-item">
+                <span class="event-date">Apr 20</span>
+                <span class="event-name" data-i18n="event_gala">Annual Gala</span>
+              </div>
+            </div>
           </article>
         </div>
       </div>
@@ -229,7 +368,7 @@
     <!-- Hero -->
     <section class="hero">
       <div class="media">
-        <img alt="Community gathering" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=2070&auto=format&fit=crop"/>
+        <img alt="Community gathering" src="bg.jpg"/>
         <div class="shade"></div>
       </div>
       <div class="container content">
@@ -351,6 +490,69 @@
     </section>
   </div>
 
+  <!-- Media View -->
+  <div id="media-view" class="view">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="media">
+        <img alt="Media gallery" src="bg.jpg"/>
+        <div class="shade"></div>
+      </div>
+      <div class="container content">
+        <h1 data-i18n="media_title">Our Media Gallery</h1>
+        <p class="lead" data-i18n="media_sub">Videos, photos, and stories from our community</p>
+      </div>
+    </section>
+
+    <!-- Media Categories -->
+    <section>
+      <div class="container">
+        <div class="media-categories">
+          <button class="media-filter active" data-filter="all" data-i18n="media_all">All</button>
+          <button class="media-filter" data-filter="videos" data-i18n="media_videos">Videos</button>
+          <button class="media-filter" data-filter="photos" data-i18n="media_photos">Photos</button>
+          <button class="media-filter" data-filter="audio" data-i18n="media_audio">Audio</button>
+          <button class="media-filter" data-filter="documents" data-i18n="media_documents">Documents</button>
+        </div>
+        
+        <div class="media-grid">
+          <div class="media-item" data-type="video">
+            <video controls>
+              <source src="uploads/videos/sample.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <div class="media-info">
+              <h3 data-i18n="media_video1_title">Community Event 2024</h3>
+              <p data-i18n="media_video1_desc">Annual fundraising concert</p>
+              <span class="media-date">March 15, 2024</span>
+            </div>
+          </div>
+          
+          <div class="media-item" data-type="photo">
+            <img src="bg.jpg" alt="Community gathering">
+            <div class="media-info">
+              <h3 data-i18n="media_photo1_title">Volunteer Day</h3>
+              <p data-i18n="media_photo1_desc">Community volunteers in action</p>
+              <span class="media-date">February 20, 2024</span>
+            </div>
+          </div>
+          
+          <div class="media-item" data-type="audio">
+            <audio controls>
+              <source src="uploads/audio/sample.mp3" type="audio/mpeg">
+              Your browser does not support the audio element.
+            </audio>
+            <div class="media-info">
+              <h3 data-i18n="media_audio1_title">Success Story</h3>
+              <p data-i18n="media_audio1_desc">Interview with a family we helped</p>
+              <span class="media-date">January 10, 2024</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
   <!-- Contact / Footer -->
   <footer id="contact">
     <div class="container">
@@ -421,7 +623,9 @@
       const hash = window.location.hash.substring(1);
       if (hash === 'about' || hash === 'history' || hash === 'mission' || hash === 'team') {
         showView('about');
-      } else if (hash === 'home' || hash === 'programs' || hash === 'donate' || hash === 'contact') {
+      } else if (hash === 'media') {
+        showView('media');
+      } else if (hash === 'home' || hash === 'programs' || hash === 'donate' || hash === 'contact' || hash === 'live-events') {
         showView('home');
       }
     });
@@ -435,6 +639,7 @@
         nav_about: "About Us",
         nav_history: "Our History",
         nav_programs: "Programs",
+        nav_media: "Media",
         nav_donate: "Donate",
         nav_contact: "Contact",
         hero_title: "Building Hope. Strengthening Community.",
@@ -465,16 +670,50 @@
         t2_p: "\"I came to give back and found a family. Serving here changed my life.\"",
         t2_a: "— Daniel, mentor",
         donate_title: "Your Support Makes a Difference",
-        donate_kicker: "Give once or monthly — every gift matters.",
-        donate_methods_h: "Ways to Donate",
-        donate_bank: "Bank Transfer",
-        donate_cash: "Cash",
-        donate_paypal: "PayPal",
-        donate_gfm: "GoFundMe",
-        donate_cta: "Donate Today",
+        donate_kicker: "Multiple secure payment options available",
+        donate_cards_h: "Credit/Debit Cards",
+        donate_cards_desc: "Visa, Mastercard, American Express",
+        donate_cards_btn: "Donate with Card",
+        donate_digital_h: "Digital Wallets",
+        donate_digital_desc: "PayPal, Apple Pay, Google Pay",
+        donate_digital_btn: "Donate with Wallet",
+        donate_bank_h: "Bank Transfer",
+        donate_bank_desc: "Direct bank transfer for larger donations",
+        donate_bank_btn: "Get Bank Details",
+        donate_crypto_h: "Crypto Donations",
+        donate_crypto_desc: "Bitcoin, Ethereum, and other cryptocurrencies",
+        donate_crypto_btn: "Crypto Donate",
+        live_events_h: "Live Events",
+        live_events_desc: "Join our telethons and fundraising events",
+        live_events_btn: "View Events",
         vol_h: "Volunteer",
         vol_p: "Join our team of neighbors helping neighbors. One hour can change a life.",
         vol_cta: "Sign Up to Volunteer",
+        media_title: "Our Media Gallery",
+        media_sub: "Videos, photos, and stories from our community",
+        media_all: "All",
+        media_videos: "Videos",
+        media_photos: "Photos",
+        media_audio: "Audio",
+        media_documents: "Documents",
+        media_video1_title: "Community Event 2024",
+        media_video1_desc: "Annual fundraising concert",
+        media_photo1_title: "Volunteer Day",
+        media_photo1_desc: "Community volunteers in action",
+        media_audio1_title: "Success Story",
+        media_audio1_desc: "Interview with a family we helped",
+        live_title: "Live Events & Telethons",
+        live_kicker: "Join our fundraising events",
+        event_live: "LIVE NOW",
+        event_telethon_title: "Annual Telethon 2024",
+        event_telethon_desc: "Join us for our biggest fundraising event of the year",
+        event_goal: "Goal:",
+        event_raised: "Raised:",
+        event_join_btn: "Join Live Stream",
+        event_upcoming_title: "Upcoming Events",
+        event_concert: "Community Concert",
+        event_workshop: "Volunteer Workshop",
+        event_gala: "Annual Gala",
         about_hero_title: "About Community Hope",
         about_hero_sub: "Learn about our mission, our story, and the dedicated team behind our community impact.",
         cta_contact: "Get in Touch",
@@ -535,6 +774,7 @@
         nav_about: "ስለእኛ",
         nav_history: "ታሪካችን",
         nav_programs: "ፕሮግራሞች",
+        nav_media: "ሚዲያ",
         nav_donate: "ልገሳ",
         nav_contact: "አድራሻ",
         hero_title: "ተስፋን እና ማህበረሰብን እናበረታታለን",
@@ -565,16 +805,50 @@
         t2_p: "\"ለመመለስ መጣሁ እና ቤተሰብ አገኘሁ። እዚህ መስራት ሕይወቴን ቀይሯል።\"",
         t2_a: "— ዳንኤል፣ አማካሪ",
         donate_title: "ድጋፍዎ ልዩነት ያስገኛል",
-        donate_kicker: "አንድ ጊዜ ወይም ወርሃዊ ስጦታ — እያንዳንዱ ስጦታ አስፈላጊ ነው።",
-        donate_methods_h: "የመልገስ መንገዶች",
-        donate_bank: "የባንክ ማስተላለፍ",
-        donate_cash: "ጥሬ ገንዘብ",
-        donate_paypal: "PayPal",
-        donate_gfm: "GoFundMe",
-        donate_cta: "ዛሬ ልገሳ",
+        donate_kicker: "በርካታ ደህንነቱ የተጠበቀ የመክፈያ አማራጮች ይገኛሉ",
+        donate_cards_h: "ክሬዲት/ዴቢት ካርዶች",
+        donate_cards_desc: "ቪዛ፣ ማስተርካርድ፣ አሜሪካን ኤክስፕረስ",
+        donate_cards_btn: "በካርድ ልገሳ",
+        donate_digital_h: "ዲጂታል ዋሌቶች",
+        donate_digital_desc: "PayPal፣ Apple Pay፣ Google Pay",
+        donate_digital_btn: "በዋሌት ልገሳ",
+        donate_bank_h: "የባንክ ማስተላለፍ",
+        donate_bank_desc: "ለትላልቅ ልገሳዎች ቀጥተኛ የባንክ ማስተላለፍ",
+        donate_bank_btn: "የባንክ ዝርዝሮች ያግኙ",
+        donate_crypto_h: "ክሪፕቶ ልገሳዎች",
+        donate_crypto_desc: "ቢትኮይን፣ ኢቴሪየም እና ሌሎች ክሪፕቶ ካሬንሲዎች",
+        donate_crypto_btn: "ክሪፕቶ ልገሳ",
+        live_events_h: "ቀጥተኛ ዝግጅቶች",
+        live_events_desc: "በስልክ ዝግጅቶቻችን እና የገንዘብ ማሰባሰብ ዝግጅቶች ይቀላቀሉ",
+        live_events_btn: "ዝግጅቶችን ይመልከቱ",
         vol_h: "በጎ ፈቃደኛ",
         vol_p: "ጎረቤቶች ጎረቤቶችን በሚረዱ ቡድናችን ይቀላቀሉ። አንድ ሰዓት ሕይወት ሊቀይር ይችላል።",
         vol_cta: "በጎ ፈቃደኛ ለመሆን ይመዝገቡ",
+        media_title: "የሚዲያ ማውጫችን",
+        media_sub: "ከማህበረሰባችን ቪዲዮዎች፣ ፎቶዎች እና ታሪኮች",
+        media_all: "ሁሉም",
+        media_videos: "ቪዲዮዎች",
+        media_photos: "ፎቶዎች",
+        media_audio: "ኦዲዮ",
+        media_documents: "ሰነዶች",
+        media_video1_title: "የማህበረሰብ ዝግጅት 2024",
+        media_video1_desc: "ዓመታዊ የገንዘብ ማሰባሰብ ኮንሰርት",
+        media_photo1_title: "የበጎ ፈቃደኛ ቀን",
+        media_photo1_desc: "የማህበረሰብ በጎ ፈቃደኛዎች በተግባር",
+        media_audio1_title: "የስኬት ታሪክ",
+        media_audio1_desc: "ከረዳን ቤተሰብ ጋር ቃለ መጠይቅ",
+        live_title: "ቀጥተኛ ዝግጅቶች እና ቴሌቶኖች",
+        live_kicker: "በገንዘብ ማሰባሰብ ዝግጅቶቻችን ይቀላቀሉ",
+        event_live: "አሁን ቀጥተኛ",
+        event_telethon_title: "ዓመታዊ ቴሌቶን 2024",
+        event_telethon_desc: "ለዓመቱ ትልቁን የገንዘብ ማሰባሰብ ዝግጅት ይቀላቀሉን",
+        event_goal: "ዓላማ:",
+        event_raised: "ተሰብስቧል:",
+        event_join_btn: "ቀጥተኛ ስትሪም ይቀላቀሉ",
+        event_upcoming_title: "የሚመጡ ዝግጅቶች",
+        event_concert: "የማህበረሰብ ኮንሰርት",
+        event_workshop: "የበጎ ፈቃደኛ ስልጠና",
+        event_gala: "ዓመታዊ ጋላ",
         about_hero_title: "ስለ የማህበረሰብ ተስፋ",
         about_hero_sub: "ስለ ተልእኳችን፣ ታሪካችን እና ከማህበረሰባችን ተፅእኖ የሚመሩ ተሰናዳይ ቡድናችን ይወቁ።",
         cta_contact: "ተገናኝ",
@@ -653,6 +927,43 @@
     
     // Set current year
     document.getElementById('year').textContent = new Date().getFullYear();
+    
+    // Media gallery filtering
+    document.querySelectorAll('.media-filter').forEach(filter => {
+      filter.addEventListener('click', function() {
+        const filterType = this.getAttribute('data-filter');
+        
+        // Update active filter
+        document.querySelectorAll('.media-filter').forEach(f => f.classList.remove('active'));
+        this.classList.add('active');
+        
+        // Filter media items
+        document.querySelectorAll('.media-item').forEach(item => {
+          if (filterType === 'all' || item.getAttribute('data-type') === filterType) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+    
+    // Payment modal functions
+    function openPaymentModal(type) {
+      alert('Payment integration would open here for ' + type + ' payments');
+      // In a real implementation, this would open a payment modal
+      // or redirect to a payment processor like Stripe, PayPal, etc.
+    }
+    
+    function showBankDetails() {
+      alert('Bank transfer details would be displayed here');
+      // In a real implementation, this would show bank account details
+    }
+    
+    function showCryptoAddresses() {
+      alert('Cryptocurrency wallet addresses would be displayed here');
+      // In a real implementation, this would show crypto wallet addresses
+    }
   </script>
 </body>
 </html>
