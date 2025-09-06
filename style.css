@@ -106,3 +106,18 @@ footer {
   margin-top: 40px;
   font-size: 0.9rem;
 }
+.donate-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--brand-yellow);
+  color: var(--brand-black);
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.donate-btn:hover {
+  background: var(--brand-red);
+  color: var(--brand-white);
+}
