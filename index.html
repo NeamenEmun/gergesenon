@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Community Hope — Nonprofit Homepage</title>
+  <title>Community Hope — Support • Shelter • Opportunity</title>
   <style>
     :root{
       --bg: #f8fafc;           /* light slate */
@@ -370,6 +370,58 @@
   </footer>
 
   <script>
+    // View management
+    function showView(viewId) {
+      // Hide all views
+      document.querySelectorAll('.view').forEach(view => {
+        view.classList.remove('active');
+      });
+      
+      // Show the selected view
+      document.getElementById(viewId + '-view').classList.add('active');
+      
+      // Update navigation links
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('data-view') === viewId) {
+          link.classList.add('active');
+        }
+      });
+      
+      // Scroll to top
+      window.scrollTo(0, 0);
+    }
+    
+    // Set up navigation
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const view = this.getAttribute('data-view');
+        showView(view);
+        
+        // If it's an anchor link within the same view, scroll to it
+        const href = this.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          setTimeout(() => {
+            const target = document.querySelector(href);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth' });
+            }
+          }, 100);
+        }
+      });
+    });
+    
+    // Handle direct anchor links
+    window.addEventListener('hashchange', function() {
+      const hash = window.location.hash.substring(1);
+      if (hash === 'about' || hash === 'history' || hash === 'mission' || hash === 'team') {
+        showView('about');
+      } else if (hash === 'home' || hash === 'programs' || hash === 'donate' || hash === 'contact') {
+        showView('home');
+      }
+    });
+
     // Simple i18n toggle between English and Amharic
     const strings = {
       en: {
@@ -429,7 +481,7 @@
         mission_p2: "Every person who walks through our doors receives personalized care, respect, and the tools they need to rebuild their lives. We believe that everyone deserves dignity, safety, and the opportunity to thrive.",
         mission_values_h: "Our Values",
         value_dignity: "Dignity",
-        value_compassion: "Compansion",
+        value_compassion: "Compassion",
         value_community: "Community",
         value_equity: "Equity",
         value_hope: "Hope",
@@ -483,18 +535,11 @@
         nav_contact: "አድራሻ",
         hero_title: "ተስፋን እና ማህበረሰብን እናበረታታለን",
         hero_sub: "በአንድነት ድጋፍ፣ መጠለያ እና ለወደፊት ዕድሎችን እናቀርባለን።",
-        cta_donate: "አሁን ልገሳ ያድርጉ",
+        cta_donate: "አሁን �ልገሳ ያድርጉ",
         cta_learn: "ተጨማሪ ይወቁ",
         about_title: "እኛ ማነን?",
         about_kicker: "በማህበረሰብ የሚመራ • የጥበቃ ድርጅት • የአካባቢ ተፅእኖ",
         about_mission_h: "ተልእኳችን",
         about_mission_p: "በደህንነት መጠለያ፣ ትምህርት እና የድጋፍ አገልግሎቶች በኩል ቤተሰቦችንና ግል ሰዎችን እናበረታታለን።",
         about_story_h: "ታሪካችን",
-        about_story_p: "በሚነካ ጎረቤቶች የተጀመረ፣ ከ2012 ጀምሮ ከሺዎች በላይን በክብር እና በርካታ አገልግለናል።",
-        about_story_cta: "ታሪካችንን ያንብቡ",
-        programs_title: "ፕሮግራሞች እና አገልግሎቶች",
-        programs_viewall: "ሁሉንም ፕሮግራሞች ይመልከቱ →",
-        prog1_h: "መጠለያ እና ድጋፍ",
-        prog1_p: "አስቸኳይ መኝታ ቦታ፣ ኬስ ማኔጅማንት እና ወደ ቋሚ መኖሪያ መንገዶች።",
-        prog2_h: "የወጣቶች ትምህርት",
-        prog2_p: "የት/ቤት በኋላ እርዳታ፣ መካሪ መመሪያ እና የSTEM ክለቦች።",
+        about_story_p: "በሚነካ ጎረቤቶች የተጀመረ፣ ከ2012 ጀምሮ ከሺዎች በላይን በክብር እና በ
