@@ -1,5 +1,14 @@
 /* style.css */
 
+/* === Root Colors (from logo) === */
+:root {
+  --brand-blue: #4BB8E6;   /* Sky blue background */
+  --brand-yellow: #FFD93B; /* Sun yellow */
+  --brand-red: #E53935;    /* Brain red */
+  --brand-black: #000000;  /* Outline */
+  --brand-white: #FFFFFF;  /* White background */
+}
+
 /* General Reset */
 * {
   margin: 0;
@@ -13,9 +22,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #2c3e50;
+  background: var(--brand-blue);
   padding: 15px 30px;
-  color: #fff;
+  color: var(--brand-white);
 }
 
 header .logo {
@@ -24,37 +33,50 @@ header .logo {
 }
 
 nav a {
-  color: #fff;
+  color: var(--brand-white);
   margin: 0 12px;
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 nav a.active {
-  border-bottom: 2px solid #f39c12;
+  border-bottom: 2px solid var(--brand-yellow);
+}
+
+nav a:hover {
+  color: var(--brand-yellow);
 }
 
 .lang-toggle button {
   margin-left: 5px;
   padding: 5px 10px;
   border: none;
-  background: #f39c12;
-  color: white;
+  background: var(--brand-yellow);
+  color: var(--brand-black);
   cursor: pointer;
   border-radius: 4px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.lang-toggle button:hover {
+  background: var(--brand-red);
+  color: var(--brand-white);
 }
 
 /* Hero Sections */
 .hero {
   text-align: center;
   padding: 80px 20px;
-  background: url('shelter-bg.jpg') no-repeat center/cover;
-  color: white;
+  background: linear-gradient(135deg, var(--brand-blue), var(--brand-yellow));
+  color: var(--brand-white);
 }
 
 .small-hero {
   padding: 50px 20px;
-  background: url('about-bg.jpg') no-repeat center/cover;
+  background: linear-gradient(135deg, var(--brand-yellow), var(--brand-blue));
+  color: var(--brand-black);
 }
 
 /* Content Sections */
@@ -65,20 +87,22 @@ nav a.active {
 }
 
 .content h2 {
-  color: #2c3e50;
+  color: var(--brand-blue);
   margin-bottom: 10px;
 }
 
 .content p {
   margin-bottom: 25px;
   line-height: 1.6;
+  color: var(--brand-black);
 }
 
 /* Footer */
 footer {
   text-align: center;
-  background: #2c3e50;
-  color: white;
+  background: var(--brand-black);
+  color: var(--brand-white);
   padding: 20px;
   margin-top: 40px;
+  font-size: 0.9rem;
 }
