@@ -33,9 +33,10 @@ header .logo {
 }
 
 header .logo img {
-  height: 20px;
+  height: 24px;
   width: auto;
   display: block;
+  border: none;
 }
 
 
