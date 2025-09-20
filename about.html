@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About Us — Community Hope</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">
+          <img src="logo.jpg" alt="Community Hope Logo">
+        </div>
+        <div>
+          <div data-i18n="brand">Community Hope</div>
+          <div class="small muted" data-i18n="tagline">Support • Shelter • Opportunity</div>
+        </div>
+      </div>
+      <nav class="navlinks" aria-label="Primary">
+        <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a>
+        <a href="about.html" class="nav-link active" data-i18n="nav_about">About Us</a>
+        <a href="about.html#history" class="nav-link" data-i18n="nav_history">Our History</a>
+        <a href="index.html#programs" class="nav-link" data-i18n="nav_programs">Programs</a>
+        <a href="media.html" class="nav-link" data-i18n="nav_media">Media</a>
+        <a href="index.html#donate" class="nav-link" data-i18n="nav_donate">Donate</a>
+        <a href="index.html#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Language selector">
+        <button class="active" id="lang-en">EN</button>
+        <button id="lang-am">AM</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="media">
+      <img alt="Community gathering" src="bg.jpg"/>
+      <div class="shade"></div>
+    </div>
+    <div class="container content">
+      <h1 data-i18n="about_hero_title">About Community Hope</h1>
+      <p class="lead" data-i18n="about_hero_sub">Learn about our mission, our story, and the dedicated team behind our community impact.</p>
+      <div class="cta">
+        <a href="#mission" class="btn primary" data-i18n="cta_learn">Learn More</a>
+        <a href="index.html#contact" class="btn ghost" data-i18n="cta_contact">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission -->
+  <section id="mission">
+    <div class="container">
+      <div class="section-title">
+        <h2 data-i18n="mission_title">Our Mission</h2>
+        <span class="muted" data-i18n="mission_kicker">Empowering families • Building futures • Strengthening communities</span>
+      </div>
+      <div class="cards">
+        <article class="card span-8">
+          <h3 data-i18n="mission_h">What We Do</h3>
+          <p class="muted" data-i18n="mission_p">We empower families and individuals through safe shelter, education, and wraparound support services. Our comprehensive approach addresses the root causes of homelessness and poverty, providing not just immediate relief but long-term solutions for sustainable change.</p>
+          <p class="muted" data-i18n="mission_p2">Every person who walks through our doors receives personalized care, respect, and the tools they need to rebuild their lives. We believe that everyone deserves dignity, safety, and the opportunity to thrive.</p>
+        </article>
+        <article class="card span-4">
+          <h3 data-i18n="mission_values_h">Our Values</h3>
+          <div>
+            <span class="tag" data-i18n="value_dignity">Dignity</span>
+            <span class="tag" data-i18n="value_compassion">Compassion</span>
+            <span class="tag" data-i18n="value_community">Community</span>
+            <span class="tag" data-i18n="value_equity">Equity</span>
+            <span class="tag" data-i18n="value_hope">Hope</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section id="history">
+    <div class="container">
+      <div class="section-title">
+        <h2 data-i18n="story_title">Our Story</h2>
+        <span class="muted" data-i18n="story_kicker">From neighbors to community leaders</span>
+      </div>
+      <div class="cards">
+        <article class="card span-6">
+          <h3 data-i18n="story_founded_h">How It Started</h3>
+          <p class="muted" data-i18n="story_founded_p">Founded in 2012 by a group of concerned neighbors, Community Hope began as a small grassroots effort to address the growing homelessness crisis in our community. What started with a few volunteers providing meals has grown into a comprehensive support system.</p>
+          <p class="quote" data-i18n="story_quote">"We saw a need in our community and decided to be part of the solution."</p>
+          <div class="muted small" data-i18n="story_quote_attr">— Sarah Johnson, Co-founder</div>
+        </article>
+        <article class="card span-6">
+          <h3 data-i18n="story_growth_h">Our Growth</h3>
+          <p class="muted" data-i18n="story_growth_p">Over the past decade, we've expanded from serving 50 families annually to helping over 2,000 individuals each year. Our programs have evolved to meet the changing needs of our community, always guided by the principle that every person deserves a chance to succeed.</p>
+          <div>
+            <span class="tag" data-i18n="stat_2012">2012: Founded</span>
+            <span class="tag" data-i18n="stat_2015">2015: First shelter</span>
+            <span class="tag" data-i18n="stat_2018">2018: Education programs</span>
+            <span class="tag" data-i18n="stat_2022">2022: 10th anniversary</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section id="team">
+    <div class="container">
+      <div class="section-title">
+        <h2 data-i18n="team_title">Our Team</h2>
+        <span class="muted" data-i18n="team_kicker">Dedicated professionals and volunteers</span>
+      </div>
+      <div class="cards">
+        <article class="card span-4">
+          <div class="program-icon">L</div>
+          <h3 data-i18n="team_leadership_h">Leadership</h3>
+          <p class="muted" data-i18n="team_leadership_p">Our experienced leadership team brings decades of combined experience in social services, community development, and nonprofit management.</p>
+        </article>
+        <article class="card span-4">
+          <div class="program-icon">S</div>
+          <h3 data-i18n="team_staff_h">Staff</h3>
+          <p class="muted" data-i18n="team_staff_p">Our dedicated staff includes social workers, educators, case managers, and support specialists who work directly with our community members.</p>
+        </article>
+        <article class="card span-4">
+          <div class="program-icon">V</div>
+          <h3 data-i18n="team_volunteers_h">Volunteers</h3>
+          <p class="muted" data-i18n="team_volunteers_p">Over 200 volunteers contribute their time and skills each month, from serving meals to tutoring children to providing administrative support.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact -->
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2 data-i18n="impact_title">Our Impact</h2>
+        <span class="muted" data-i18n="impact_kicker">Real results. Real change.</span>
+      </div>
+      <div class="cards">
+        <article class="card span-6">
+          <h3 data-i18n="impact_numbers_h">By the Numbers</h3>
+          <div>
+            <span class="tag" data-i18n="impact_families">2,000+ families served</span>
+            <span class="tag" data-i18n="impact_housing">85% housing success rate</span>
+            <span class="tag" data-i18n="impact_education">500+ children in education programs</span>
+            <span class="tag" data-i18n="impact_volunteers">200+ active volunteers</span>
+          </div>
+        </article>
+        <article class="card span-6">
+          <h3 data-i18n="impact_stories_h">Success Stories</h3>
+          <p class="quote" data-i18n="impact_story">"Community Hope didn't just give us a place to stay—they gave us the tools to build a new life."</p>
+          <div class="muted small" data-i18n="impact_story_attr">— Maria and her family, now in stable housing</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footergrid">
+        <div class="footercol">
+          <div style="font-weight:800;font-size:1.1rem" data-i18n="footer_h">Contact Us</div>
+          <div class="small" data-i18n="footer_addr">123 Hope Street, Fairfax, VA</div>
+          <div class="small">info@communityhope.org • (555) 123‑4567</div>
+        </div>
+        <div class="footercol">
+          <div style="font-weight:800;font-size:1.1rem" data-i18n="footer_quick">Quick Links</div>
+          <div class="small"><a href="index.html" data-i18n="footer_home">Home</a> • <a href="index.html#programs" data-i18n="footer_programs">Programs</a> • <a href="index.html#donate" data-i18n="footer_donate">Donate</a></div>
+        </div>
+        <div class="footercol">
+          <div style="font-weight:800;font-size:1.1rem" data-i18n="footer_social">Follow</div>
+          <div class="small">Facebook • Instagram • X</div>
+        </div>
+      </div>
+      <div class="small" style="margin-top:1rem;color:#94a3b8">© <span id="year"></span> <span data-i18n="brand">Community Hope</span>. <span data-i18n="rights">All rights reserved.</span></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/i18n.js"></script>
+</body>
+</html>

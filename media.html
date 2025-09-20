@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Media Gallery — Community Hope</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">
+          <img src="logo.jpg" alt="Community Hope Logo">
+        </div>
+        <div>
+          <div data-i18n="brand">Community Hope</div>
+          <div class="small muted" data-i18n="tagline">Support • Shelter • Opportunity</div>
+        </div>
+      </div>
+      <nav class="navlinks" aria-label="Primary">
+        <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a>
+        <a href="about.html" class="nav-link" data-i18n="nav_about">About Us</a>
+        <a href="about.html#history" class="nav-link" data-i18n="nav_history">Our History</a>
+        <a href="index.html#programs" class="nav-link" data-i18n="nav_programs">Programs</a>
+        <a href="media.html" class="nav-link active" data-i18n="nav_media">Media</a>
+        <a href="index.html#donate" class="nav-link" data-i18n="nav_donate">Donate</a>
+        <a href="index.html#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Language selector">
+        <button class="active" id="lang-en">EN</button>
+        <button id="lang-am">AM</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="media">
+      <img alt="Media gallery" src="bg.jpg"/>
+      <div class="shade"></div>
+    </div>
+    <div class="container content">
+      <h1 data-i18n="media_title">Our Media Gallery</h1>
+      <p class="lead" data-i18n="media_sub">Videos, photos, and stories from our community</p>
+    </div>
+  </section>
+
+  <!-- Media Categories -->
+  <section>
+    <div class="container">
+      <div class="media-categories">
+        <button class="media-filter active" data-filter="all" data-i18n="media_all">All</button>
+        <button class="media-filter" data-filter="videos" data-i18n="media_videos">Videos</button>
+        <button class="media-filter" data-filter="photos" data-i18n="media_photos">Photos</button>
+        <button class="media-filter" data-filter="audio" data-i18n="media_audio">Audio</button>
+        <button class="media-filter" data-filter="documents" data-i18n="media_documents">Documents</button>
+      </div>
+      
+      <div class="media-grid">
+        <div class="media-item" data-type="video">
+          <video controls>
+            <source src="uploads/videos/sample.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="media-info">
+            <h3 data-i18n="media_video1_title">Community Event 2024</h3>
+            <p data-i18n="media_video1_desc">Annual fundraising concert</p>
+            <span class="media-date">March 15, 2024</span>
+          </div>
+        </div>
+        
+        <div class="media-item" data-type="photo">
+          <img src="bg.jpg" alt="Community gathering">
+          <div class="media-info">
+            <h3 data-i18n="media_photo1_title">Volunteer Day</h3>
+            <p data-i18n="media_photo1_desc">Community volunteers in action</p>
+            <span class="media-date">February 20, 2024</span>
+          </div>
+        </div>
+        
+        <div class="media-item" data-type="audio">
+          <audio controls>
+            <source src="uploads/audio/sample.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+          <div class="media-info">
+            <h3 data-i18n="media_audio1_title">Success Story</h3>
+            <p data-i18n="media_audio1_desc">Interview with a family we helped</p>
+            <span class="media-date">January 10, 2024</span>
+          </div>
+        </div>
+
+        <div class="media-item" data-type="photo">
+          <img src="bg.jpg" alt="Community event">
+          <div class="media-info">
+            <h3 data-i18n="media_photo2_title">Food Drive 2024</h3>
+            <p data-i18n="media_photo2_desc">Community members collecting donations</p>
+            <span class="media-date">January 25, 2024</span>
+          </div>
+        </div>
+
+        <div class="media-item" data-type="video">
+          <video controls>
+            <source src="uploads/videos/volunteer.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="media-info">
+            <h3 data-i18n="media_video2_title">Volunteer Spotlight</h3>
+            <p data-i18n="media_video2_desc">Meet our dedicated volunteers</p>
+            <span class="media-date">February 5, 2024</span>
+          </div>
+        </div>
+
+        <div class="media-item" data-type="audio">
+          <audio controls>
+            <source src="uploads/audio/testimonial.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+          <div class="media-info">
+            <h3 data-i18n="media_audio2_title">Client Testimonial</h3>
+            <p data-i18n="media_audio2_desc">Hear from someone we've helped</p>
+            <span class="media-date">March 1, 2024</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footergrid">
+        <div class="footercol">
+          <div style="font-weight:800;font-size:1.1rem" data-i18n="footer_h">Contact Us</div>
+          <div class="small" data-i18n="footer_addr">123 Hope Street, Fairfax, VA</div>
+          <div class="small">info@communityhope.org • (555) 123‑4567</div>
+        </div>
+        <div class="footercol">
+          <div style="font-weight:800;font-size:1.1rem" data-i18n="footer_quick">Quick Links</div>
+          <div class="small"><a href="index.html" data-i18n="footer_home">Home</a> • <a href="index.html#programs" data-i18n="footer_programs">Programs</a> • <a href="index.html#donate" data-i18n="footer_donate">Donate</a></div>
+        </div>
+        <div class="footercol">
+          <div style="font-weight:800;font-size:1.1rem" data-i18n="footer_social">Follow</div>
+          <div class="small">Facebook • Instagram • X</div>
+        </div>
+      </div>
+      <div class="small" style="margin-top:1rem;color:#94a3b8">© <span id="year"></span> <span data-i18n="brand">Community Hope</span>. <span data-i18n="rights">All rights reserved.</span></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/i18n.js"></script>
+</body>
+</html>

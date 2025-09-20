@@ -4,554 +4,237 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Community Hope — Support • Shelter • Opportunity</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    :root{
-      /* Enhanced Brand Colors (from logo) */
-      --bg: #f8fafc;           /* light slate */
-      --card: #ffffff;
-      --ink: #0f172a;          /* slate-900 */
-      --muted: #475569;        /* slate-600 */
-      --brand: #2563eb;        /* primary blue */
-      --brand-2: #16a34a;      /* success green */
-      --brand-light: #dbeafe;  /* light blue */
-      --brand-dark: #1e40af;   /* dark blue */
-      --warm: #ea580c;         /* orange-600 */
-      --ring: #93c5fd;         /* blue-300 */
-      --success: #10b981;      /* emerald-500 */
-      --warning: #f59e0b;      /* amber-500 */
-      --error: #ef4444;        /* red-500 */
-      --gray-50: #f9fafb;
-      --gray-100: #f3f4f6;
-      --gray-900: #111827;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, "Noto Sans", Arial, "Apple Color Emoji","Segoe UI Emoji";}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1100px;margin-inline:auto;padding:0 1rem}
-    header{
-      position:sticky;top:0;z-index:40;background:rgba(51,65,85,.8);backdrop-filter: blur(10px);border-bottom:1px solid #64748b
-    }
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:.75rem;padding:.75rem 0}
-    .brand{display:flex;align-items:center;gap:.6rem;font-weight:800;color:white}
-    .brand .logo{width:32px;height:32px;border-radius:9px;background:linear-gradient(135deg,var(--brand),var(--brand-2));display:grid;place-items:center;color:white;font-weight:900;overflow:hidden}
-    .brand .logo img{width:100%;height:100%;object-fit:cover;border:none}
-    .navlinks{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
-    .navlinks a{padding:.4rem .6rem;border-radius:9px;color:white;font-weight:500}
-    .navlinks a:hover{background:rgba(255,255,255,.1)}
-    .navlinks a.active{background:var(--brand);color:white}
-    .lang{display:flex;gap:.5rem;align-items:center}
-    .lang button{border:1px solid #cbd5e1;background:#fff;padding:.35rem .6rem;border-radius:9px;cursor:pointer}
-    .lang button.active{border-color:var(--brand);box-shadow:0 0 0 3px var(--ring)}
-
-    .hero{position:relative;isolation:isolate}
-    .hero .media{position:absolute;inset:0;z-index:-1;}
-    .hero .media img{width:100%;height:100%;object-fit:cover;filter:brightness(.6)}
-    .hero .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,23,42,.5),rgba(15,23,42,.2) 20%, rgba(248,250,252,0))}
-    .hero .content{padding:5rem 0 3rem;color:white;text-shadow:0 1px 2px rgba(0,0,0,.4)}
-    h1{font-size:clamp(2rem,5vw,3rem);line-height:1.1;margin:0 0 .6rem 0}
-    p.lead{font-size:clamp(1.05rem,2.4vw,1.25rem);max-width:60ch;margin:.4rem 0 1.2rem;color:#e2e8f0}
-    .cta{display:flex;gap:.8rem;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;gap:.5rem;padding:.7rem 1rem;border-radius:12px;font-weight:700;border:1px solid transparent}
-    .btn.primary{background:var(--brand);color:white}
-    .btn.primary:hover{filter:brightness(.95)}
-    .btn.ghost{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3);color:white}
-
-    section{padding:3rem 0}
-    .cards{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
-    .card{grid-column:span 12;background:var(--card);border:1px solid #e2e8f0;border-radius:16px;padding:1.25rem}
-    .card h3{margin:.2rem 0 .4rem 0}
-    @media(min-width:700px){
-      .card.span-4{grid-column:span 4}
-      .card.span-6{grid-column:span 6}
-      .card.span-8{grid-column:span 8}
-    }
-
-    .section-title{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1rem}
-    .section-title h2{margin:0;font-size:1.6rem}
-    .muted{color:var(--muted)}
-
-    .program-icon{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;font-weight:900;color:white;background:linear-gradient(135deg,var(--brand),var(--brand-2));}
-
-    .quote{font-size:1.05rem;border-left:4px solid var(--brand);padding-left:1rem;margin:.6rem 0}
-
-    footer{background:#0b1220;color:#cbd5e1;padding:2rem 0;margin-top:2rem}
-    footer a{color:#e5e7eb}
-    .footergrid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
-    .footercol{grid-column:span 12}
-    @media(min-width:700px){.footercol{grid-column:span 4}}
-
-    .tag{display:inline-block;background:#f1f5f9;border:1px solid #e2e8f0;border-radius:999px;padding:.3rem .6rem;margin:.15rem .25rem 0 0;font-size:.85rem}
-    .small{font-size:.92rem}
-    
-    /* View management */
-    .view {display: none;}
-    .view.active {display: block;}
-    
-    /* Media Gallery Styles */
-    .media-categories{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2rem;justify-content:center}
-    .media-filter{padding:.5rem 1rem;border:1px solid #e2e8f0;background:white;border-radius:8px;cursor:pointer;transition:all .2s}
-    .media-filter:hover{background:#f8fafc}
-    .media-filter.active{background:var(--brand);color:white;border-color:var(--brand)}
-    .media-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
-    .media-item{background:var(--card);border:1px solid #e2e8f0;border-radius:12px;overflow:hidden;transition:transform .2s}
-    .media-item:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(0,0,0,.1)}
-    .media-item video,.media-item img,.media-item audio{width:100%;display:block}
-    .media-info{padding:1rem}
-    .media-info h3{margin:0 0 .5rem 0;font-size:1.1rem}
-    .media-info p{margin:0 0 .5rem 0;color:var(--muted)}
-    .media-date{font-size:.85rem;color:var(--muted)}
-    
-    /* Payment Methods Styles */
-    .payment-methods{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-bottom:2rem}
-    .payment-logos{display:flex;gap:.5rem;margin:.5rem 0}
-    .payment-icon{font-size:1.5rem;padding:.5rem;background:#f8fafc;border-radius:8px;display:inline-flex;align-items:center;justify-content:center}
-    
-    /* Live Events Styles */
-    .live-events-grid{display:grid;grid-template-columns:2fr 1fr;gap:1.5rem}
-    .event-status{display:inline-block;padding:.25rem .75rem;border-radius:999px;font-size:.8rem;font-weight:700;margin-bottom:1rem}
-    .event-status.live{background:#ef4444;color:white;animation:pulse 2s infinite}
-    .event-stats{display:flex;gap:2rem;margin:1rem 0}
-    .stat{display:flex;flex-direction:column;align-items:center}
-    .stat-label{font-size:.85rem;color:var(--muted)}
-    .stat-value{font-size:1.2rem;font-weight:700;color:var(--brand)}
-    .progress-bar{width:100%;height:8px;background:#e2e8f0;border-radius:4px;overflow:hidden;margin:1rem 0}
-    .progress-fill{height:100%;background:linear-gradient(90deg,var(--brand),var(--brand-2));transition:width .3s}
-    .event-list{display:flex;flex-direction:column;gap:.75rem}
-    .event-item{display:flex;align-items:center;gap:1rem;padding:.5rem;border-radius:8px;background:#f8fafc}
-    .event-date{font-weight:700;color:var(--brand);min-width:3rem}
-    .event-name{flex:1}
-    
-    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
-    
-    @media(max-width:700px){
-      .live-events-grid{grid-template-columns:1fr}
-      .payment-methods{grid-template-columns:1fr}
-      .media-grid{grid-template-columns:1fr}
-    }
-  </style>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/components.css">
 </head>
 <body>
   <!-- Header / Nav -->
- <header>
-  <div class="container nav">
-    <div class="brand">
-      <div class="logo">
-        <img src="logo.jpg" alt="Community Hope Logo">
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">
+          <img src="logo.jpg" alt="Community Hope Logo">
+        </div>
+        <div>
+          <div data-i18n="brand">Community Hope</div>
+          <div class="small muted" data-i18n="tagline">Support • Shelter • Opportunity</div>
+        </div>
       </div>
-      <div>
-        <div data-i18n="brand">Community Hope</div>
-        <div class="small muted" data-i18n="tagline">Support • Shelter • Opportunity</div>
+      <nav class="navlinks" aria-label="Primary">
+        <a href="index.html" class="nav-link active" data-i18n="nav_home">Home</a>
+        <a href="about.html" class="nav-link" data-i18n="nav_about">About Us</a>
+        <a href="about.html#history" class="nav-link" data-i18n="nav_history">Our History</a>
+        <a href="index.html#programs" class="nav-link" data-i18n="nav_programs">Programs</a>
+        <a href="media.html" class="nav-link" data-i18n="nav_media">Media</a>
+        <a href="index.html#donate" class="nav-link" data-i18n="nav_donate">Donate</a>
+        <a href="index.html#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Language selector">
+        <button class="active" id="lang-en">EN</button>
+        <button id="lang-am">AM</button>
       </div>
     </div>
-    <nav class="navlinks" aria-label="Primary">
-      <a href="#home" class="active nav-link" data-view="home" data-i18n="nav_home">Home</a>
-      <a href="#about" class="nav-link" data-view="about" data-i18n="nav_about">About Us</a>
-      <a href="#history" class="nav-link" data-view="about" data-i18n="nav_history">Our History</a>
-      <a href="#programs" class="nav-link" data-view="home" data-i18n="nav_programs">Programs</a>
-      <a href="#media" class="nav-link" data-view="media" data-i18n="nav_media">Media</a>
-      <a href="#donate" class="nav-link" data-view="home" data-i18n="nav_donate">Donate</a>
-      <a href="#contact" class="nav-link" data-view="home" data-i18n="nav_contact">Contact</a>
-    </nav>
-    <div class="lang" role="group" aria-label="Language selector">
-      <button class="active" id="lang-en">EN</button>
-      <button id="lang-am">AM</button>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="media">
+      <img alt="Community gathering" src="bg.jpg"/>
+      <div class="shade"></div>
     </div>
-  </div>
-</header>
-
-  <!-- Home View -->
-  <div id="home-view" class="view active">
-    <!-- Hero -->
-    <section id="home" class="hero">
-      <div class="media">
-        <img alt="Community gathering" src="bg.jpg"/>
-        <div class="shade"></div>
+    <div class="container content">
+      <h1 data-i18n="hero_title">Building Hope. Strengthening Community.</h1>
+      <p class="lead" data-i18n="hero_sub">Together, we provide support, shelter, and opportunities for a better future.</p>
+      <div class="cta">
+        <a href="#donate" class="btn primary" data-i18n="cta_donate">Donate Now</a>
+        <a href="about.html" class="btn ghost" data-i18n="cta_learn">Learn More</a>
       </div>
-      <div class="container content">
-        <h1 data-i18n="hero_title">Building Hope. Strengthening Community.</h1>
-        <p class="lead" data-i18n="hero_sub">Together, we provide support, shelter, and opportunities for a better future.</p>
-        <div class="cta">
-          <a href="#donate" class="btn primary" data-i18n="cta_donate">Donate Now</a>
-          <a href="#about" class="btn ghost nav-link" data-view="about" data-i18n="cta_learn">Learn More</a>
-        </div>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- About Preview -->
-    <section id="about">
-      <div class="container">
-        <div class="section-title">
-          <h2 data-i18n="about_title">Who We Are</h2>
-          <span class="muted" data-i18n="about_kicker">Community‑driven • Nonprofit • Local impact</span>
-        </div>
-        <div class="cards">
-          <article class="card span-6">
-            <h3 data-i18n="about_mission_h">Our Mission</h3>
-            <p class="muted" data-i18n="about_mission_p">We empower families and individuals through safe shelter, education, and wraparound support services.</p>
-          </article>
-          <article class="card span-6">
-            <h3 data-i18n="about_story_h">Our Story</h3>
-            <p class="muted" data-i18n="about_story_p">Founded by neighbors who care, we've served thousands with dignity and compassion since 2012.</p>
-            <a href="#history" class="btn nav-link" data-view="about" style="margin-top:.5rem" data-i18n="about_story_cta">Read Our History</a>
-          </article>
-        </div>
+  <!-- About Preview -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2 data-i18n="about_title">Who We Are</h2>
+        <span class="muted" data-i18n="about_kicker">Community‑driven • Nonprofit • Local impact</span>
       </div>
-    </section>
-
-    <!-- Programs -->
-    <section id="programs">
-      <div class="container">
-        <div class="section-title">
-          <h2 data-i18n="programs_title">Programs & Services</h2>
-          <a href="#programs" class="small" data-i18n="programs_viewall">View all programs →</a>
-        </div>
-        <div class="cards">
-          <article class="card span-4">
-            <div class="program-icon">S</div>
-            <h3 data-i18n="prog1_h">Shelter & Support</h3>
-            <p class="muted" data-i18n="prog1_p">Emergency beds, case management, and pathways to stable housing.</p>
-          </article>
-          <article class="card span-4">
-            <div class="program-icon">Y</div>
-            <h3 data-i18n="prog2_h">Youth Education</h3>
-            <p class="muted" data-i18n="prog2_p">After‑school tutoring, mentorship, and STEM clubs for teens.</p>
-          </article>
-          <article class="card span-4">
-            <div class="program-icon">C</div>
-            <h3 data-i18n="prog3_h">Community Services</h3>
-            <p class="muted" data-i18n="prog3_p">Food pantry, legal clinics, and job readiness workshops.</p>
-          </article>
-        </div>
+      <div class="cards">
+        <article class="card span-6">
+          <h3 data-i18n="about_mission_h">Our Mission</h3>
+          <p class="muted" data-i18n="about_mission_p">We empower families and individuals through safe shelter, education, and wraparound support services.</p>
+        </article>
+        <article class="card span-6">
+          <h3 data-i18n="about_story_h">Our Story</h3>
+          <p class="muted" data-i18n="about_story_p">Founded by neighbors who care, we've served thousands with dignity and compassion since 2012.</p>
+          <a href="about.html#history" class="btn" style="margin-top:.5rem" data-i18n="about_story_cta">Read Our History</a>
+        </article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Stories / Testimonials -->
-    <section>
-      <div class="container">
-        <div class="section-title">
-          <h2 data-i18n="stories_title">Voices from Our Community</h2>
-          <span class="muted" data-i18n="stories_kicker">Real stories. Real impact.</span>
-        </div>
-        <div class="cards">
-          <article class="card span-6">
-            <h3 data-i18n="t1_h">Resident Story</h3>
-            <p class="quote" data-i18n="t1_p">"With your help, my children have a safe place to sleep and a chance to learn."</p>
-            <div class="muted small" data-i18n="t1_a">— Amina, mother of two</div>
-          </article>
-          <article class="card span-6">
-            <h3 data-i18n="t2_h">Volunteer Reflection</h3>
-            <p class="quote" data-i18n="t2_p">"I came to give back and found a family. Serving here changed my life."</p>
-            <div class="muted small" data-i18n="t2_a">— Daniel, mentor</div>
-          </article>
-        </div>
+  <!-- Programs -->
+  <section id="programs">
+    <div class="container">
+      <div class="section-title">
+        <h2 data-i18n="programs_title">Programs & Services</h2>
+        <a href="#programs" class="small" data-i18n="programs_viewall">View all programs →</a>
       </div>
-    </section>
+      <div class="cards">
+        <article class="card span-4">
+          <div class="program-icon">S</div>
+          <h3 data-i18n="prog1_h">Shelter & Support</h3>
+          <p class="muted" data-i18n="prog1_p">Emergency beds, case management, and pathways to stable housing.</p>
+        </article>
+        <article class="card span-4">
+          <div class="program-icon">Y</div>
+          <h3 data-i18n="prog2_h">Youth Education</h3>
+          <p class="muted" data-i18n="prog2_p">After‑school tutoring, mentorship, and STEM clubs for teens.</p>
+        </article>
+        <article class="card span-4">
+          <div class="program-icon">C</div>
+          <h3 data-i18n="prog3_h">Community Services</h3>
+          <p class="muted" data-i18n="prog3_p">Food pantry, legal clinics, and job readiness workshops.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-    <!-- Donate / Get Involved -->
-    <section id="donate">
-      <div class="container">
-        <div class="section-title">
-          <h2 data-i18n="donate_title">Your Support Makes a Difference</h2>
-          <span class="muted" data-i18n="donate_kicker">Multiple secure payment options available</span>
-        </div>
+  <!-- Stories / Testimonials -->
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2 data-i18n="stories_title">Voices from Our Community</h2>
+        <span class="muted" data-i18n="stories_kicker">Real stories. Real impact.</span>
+      </div>
+      <div class="cards">
+        <article class="card span-6">
+          <h3 data-i18n="t1_h">Resident Story</h3>
+          <p class="quote" data-i18n="t1_p">"With your help, my children have a safe place to sleep and a chance to learn."</p>
+          <div class="muted small" data-i18n="t1_a">— Amina, mother of two</div>
+        </article>
+        <article class="card span-6">
+          <h3 data-i18n="t2_h">Volunteer Reflection</h3>
+          <p class="quote" data-i18n="t2_p">"I came to give back and found a family. Serving here changed my life."</p>
+          <div class="muted small" data-i18n="t2_a">— Daniel, mentor</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Donate / Get Involved -->
+  <section id="donate">
+    <div class="container">
+      <div class="section-title">
+        <h2 data-i18n="donate_title">Your Support Makes a Difference</h2>
+        <span class="muted" data-i18n="donate_kicker">Multiple secure payment options available</span>
+      </div>
+      
+      <div class="payment-methods">
+        <article class="card span-6">
+          <h3 data-i18n="donate_cards_h">Credit/Debit Cards</h3>
+          <div class="payment-logos">
+            <span class="payment-icon">💳</span>
+            <span class="payment-icon">🏦</span>
+          </div>
+          <p class="muted" data-i18n="donate_cards_desc">Visa, Mastercard, American Express</p>
+          <button class="btn primary" onclick="openPaymentModal('card')" data-i18n="donate_cards_btn">Donate with Card</button>
+        </article>
         
-        <div class="payment-methods">
-          <article class="card span-6">
-            <h3 data-i18n="donate_cards_h">Credit/Debit Cards</h3>
-            <div class="payment-logos">
-              <span class="payment-icon">💳</span>
-              <span class="payment-icon">🏦</span>
-            </div>
-            <p class="muted" data-i18n="donate_cards_desc">Visa, Mastercard, American Express</p>
-            <button class="btn primary" onclick="openPaymentModal('card')" data-i18n="donate_cards_btn">Donate with Card</button>
-          </article>
-          
-          <article class="card span-6">
-            <h3 data-i18n="donate_digital_h">Digital Wallets</h3>
-            <div class="payment-logos">
-              <span class="payment-icon">📱</span>
-              <span class="payment-icon">💻</span>
-            </div>
-            <p class="muted" data-i18n="donate_digital_desc">PayPal, Apple Pay, Google Pay</p>
-            <button class="btn primary" onclick="openPaymentModal('wallet')" data-i18n="donate_digital_btn">Donate with Wallet</button>
-          </article>
-          
-          <article class="card span-6">
-            <h3 data-i18n="donate_bank_h">Bank Transfer</h3>
-            <div class="payment-logos">
-              <span class="payment-icon">🏛️</span>
-            </div>
-            <p class="muted" data-i18n="donate_bank_desc">Direct bank transfer for larger donations</p>
-            <button class="btn primary" onclick="showBankDetails()" data-i18n="donate_bank_btn">Get Bank Details</button>
-          </article>
-          
-          <article class="card span-6">
-            <h3 data-i18n="donate_crypto_h">Crypto Donations</h3>
-            <div class="payment-logos">
-              <span class="payment-icon">₿</span>
-              <span class="payment-icon">Ξ</span>
-            </div>
-            <p class="muted" data-i18n="donate_crypto_desc">Bitcoin, Ethereum, and other cryptocurrencies</p>
-            <button class="btn primary" onclick="showCryptoAddresses()" data-i18n="donate_crypto_btn">Crypto Donate</button>
-          </article>
-        </div>
+        <article class="card span-6">
+          <h3 data-i18n="donate_digital_h">Digital Wallets</h3>
+          <div class="payment-logos">
+            <span class="payment-icon">📱</span>
+            <span class="payment-icon">💻</span>
+          </div>
+          <p class="muted" data-i18n="donate_digital_desc">PayPal, Apple Pay, Google Pay</p>
+          <button class="btn primary" onclick="openPaymentModal('wallet')" data-i18n="donate_digital_btn">Donate with Wallet</button>
+        </article>
         
-        <div class="cards" style="margin-top: 2rem;">
-          <article class="card span-6">
-            <h3 data-i18n="vol_h">Volunteer</h3>
-            <p class="muted" data-i18n="vol_p">Join our team of neighbors helping neighbors. One hour can change a life.</p>
-            <a href="#contact" class="btn" data-i18n="vol_cta">Sign Up to Volunteer</a>
-          </article>
-          <article class="card span-6">
-            <h3 data-i18n="live_events_h">Live Events</h3>
-            <p class="muted" data-i18n="live_events_desc">Join our telethons and fundraising events</p>
-            <a href="#live-events" class="btn" data-i18n="live_events_btn">View Events</a>
-          </article>
-        </div>
-      </div>
-    </section>
-    
-    <!-- Live Events & Telethons -->
-    <section id="live-events">
-      <div class="container">
-        <div class="section-title">
-          <h2 data-i18n="live_title">Live Events & Telethons</h2>
-          <span class="muted" data-i18n="live_kicker">Join our fundraising events</span>
-        </div>
+        <article class="card span-6">
+          <h3 data-i18n="donate_bank_h">Bank Transfer</h3>
+          <div class="payment-logos">
+            <span class="payment-icon">🏛️</span>
+          </div>
+          <p class="muted" data-i18n="donate_bank_desc">Direct bank transfer for larger donations</p>
+          <button class="btn primary" onclick="showBankDetails()" data-i18n="donate_bank_btn">Get Bank Details</button>
+        </article>
         
-        <div class="live-events-grid">
-          <article class="card span-8">
-            <div class="event-status live" data-i18n="event_live">LIVE NOW</div>
-            <h3 data-i18n="event_telethon_title">Annual Telethon 2024</h3>
-            <p class="muted" data-i18n="event_telethon_desc">Join us for our biggest fundraising event of the year</p>
-            <div class="event-stats">
-              <div class="stat">
-                <span class="stat-label" data-i18n="event_goal">Goal:</span>
-                <span class="stat-value">$50,000</span>
-              </div>
-              <div class="stat">
-                <span class="stat-label" data-i18n="event_raised">Raised:</span>
-                <span class="stat-value">$32,500</span>
-              </div>
+        <article class="card span-6">
+          <h3 data-i18n="donate_crypto_h">Crypto Donations</h3>
+          <div class="payment-logos">
+            <span class="payment-icon">₿</span>
+            <span class="payment-icon">Ξ</span>
+          </div>
+          <p class="muted" data-i18n="donate_crypto_desc">Bitcoin, Ethereum, and other cryptocurrencies</p>
+          <button class="btn primary" onclick="showCryptoAddresses()" data-i18n="donate_crypto_btn">Crypto Donate</button>
+        </article>
+      </div>
+      
+      <div class="cards" style="margin-top: 2rem;">
+        <article class="card span-6">
+          <h3 data-i18n="vol_h">Volunteer</h3>
+          <p class="muted" data-i18n="vol_p">Join our team of neighbors helping neighbors. One hour can change a life.</p>
+          <a href="#contact" class="btn" data-i18n="vol_cta">Sign Up to Volunteer</a>
+        </article>
+        <article class="card span-6">
+          <h3 data-i18n="live_events_h">Live Events</h3>
+          <p class="muted" data-i18n="live_events_desc">Join our telethons and fundraising events</p>
+          <a href="#live-events" class="btn" data-i18n="live_events_btn">View Events</a>
+        </article>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Live Events & Telethons -->
+  <section id="live-events">
+    <div class="container">
+      <div class="section-title">
+        <h2 data-i18n="live_title">Live Events & Telethons</h2>
+        <span class="muted" data-i18n="live_kicker">Join our fundraising events</span>
+      </div>
+      
+      <div class="live-events-grid">
+        <article class="card span-8">
+          <div class="event-status live" data-i18n="event_live">LIVE NOW</div>
+          <h3 data-i18n="event_telethon_title">Annual Telethon 2024</h3>
+          <p class="muted" data-i18n="event_telethon_desc">Join us for our biggest fundraising event of the year</p>
+          <div class="event-stats">
+            <div class="stat">
+              <span class="stat-label" data-i18n="event_goal">Goal:</span>
+              <span class="stat-value">$50,000</span>
             </div>
-            <div class="progress-bar">
-              <div class="progress-fill" style="width: 65%"></div>
-            </div>
-            <button class="btn primary" data-i18n="event_join_btn">Join Live Stream</button>
-          </article>
-          
-          <article class="card span-4">
-            <h3 data-i18n="event_upcoming_title">Upcoming Events</h3>
-            <div class="event-list">
-              <div class="event-item">
-                <span class="event-date">Mar 25</span>
-                <span class="event-name" data-i18n="event_concert">Community Concert</span>
-              </div>
-              <div class="event-item">
-                <span class="event-date">Apr 10</span>
-                <span class="event-name" data-i18n="event_workshop">Volunteer Workshop</span>
-              </div>
-              <div class="event-item">
-                <span class="event-date">Apr 20</span>
-                <span class="event-name" data-i18n="event_gala">Annual Gala</span>
-              </div>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- About View -->
-  <div id="about-view" class="view">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="media">
-        <img alt="Community gathering" src="bg.jpg"/>
-        <div class="shade"></div>
-      </div>
-      <div class="container content">
-        <h1 data-i18n="about_hero_title">About Community Hope</h1>
-        <p class="lead" data-i18n="about_hero_sub">Learn about our mission, our story, and the dedicated team behind our community impact.</p>
-        <div class="cta">
-          <a href="#mission" class="btn primary" data-i18n="cta_learn">Learn More</a>
-          <a href="#contact" class="btn ghost" data-i18n="cta_contact">Get in Touch</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Mission -->
-    <section id="mission">
-      <div class="container">
-        <div class="section-title">
-          <h2 data-i18n="mission_title">Our Mission</h2>
-          <span class="muted" data-i18n="mission_kicker">Empowering families • Building futures • Strengthening communities</span>
-        </div>
-        <div class="cards">
-          <article class="card span-8">
-            <h3 data-i18n="mission_h">What We Do</h3>
-            <p class="muted" data-i18n="mission_p">We empower families and individuals through safe shelter, education, and wraparound support services. Our comprehensive approach addresses the root causes of homelessness and poverty, providing not just immediate relief but long-term solutions for sustainable change.</p>
-            <p class="muted" data-i18n="mission_p2">Every person who walks through our doors receives personalized care, respect, and the tools they need to rebuild their lives. We believe that everyone deserves dignity, safety, and the opportunity to thrive.</p>
-          </article>
-          <article class="card span-4">
-            <h3 data-i18n="mission_values_h">Our Values</h3>
-            <div>
-              <span class="tag" data-i18n="value_dignity">Dignity</span>
-              <span class="tag" data-i18n="value_compassion">Compassion</span>
-              <span class="tag" data-i18n="value_community">Community</span>
-              <span class="tag" data-i18n="value_equity">Equity</span>
-              <span class="tag" data-i18n="value_hope">Hope</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Our Story -->
-    <section id="history">
-      <div class="container">
-        <div class="section-title">
-          <h2 data-i18n="story_title">Our Story</h2>
-          <span class="muted" data-i18n="story_kicker">From neighbors to community leaders</span>
-        </div>
-        <div class="cards">
-          <article class="card span-6">
-            <h3 data-i18n="story_founded_h">How It Started</h3>
-            <p class="muted" data-i18n="story_founded_p">Founded in 2012 by a group of concerned neighbors, Community Hope began as a small grassroots effort to address the growing homelessness crisis in our community. What started with a few volunteers providing meals has grown into a comprehensive support system.</p>
-            <p class="quote" data-i18n="story_quote">"We saw a need in our community and decided to be part of the solution."</p>
-            <div class="muted small" data-i18n="story_quote_attr">— Sarah Johnson, Co-founder</div>
-          </article>
-          <article class="card span-6">
-            <h3 data-i18n="story_growth_h">Our Growth</h3>
-            <p class="muted" data-i18n="story_growth_p">Over the past decade, we've expanded from serving 50 families annually to helping over 2,000 individuals each year. Our programs have evolved to meet the changing needs of our community, always guided by the principle that every person deserves a chance to succeed.</p>
-            <div>
-              <span class="tag" data-i18n="stat_2012">2012: Founded</span>
-              <span class="tag" data-i18n="stat_2015">2015: First shelter</span>
-              <span class="tag" data-i18n="stat_2018">2018: Education programs</span>
-              <span class="tag" data-i18n="stat_2022">2022: 10th anniversary</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Team -->
-    <section id="team">
-      <div class="container">
-        <div class="section-title">
-          <h2 data-i18n="team_title">Our Team</h2>
-          <span class="muted" data-i18n="team_kicker">Dedicated professionals and volunteers</span>
-        </div>
-        <div class="cards">
-          <article class="card span-4">
-            <div class="program-icon">S</div>
-            <h3 data-i18n="team_leadership_h">Leadership</h3>
-            <p class="muted" data-i18n="team_leadership_p">Our experienced leadership team brings decades of combined experience in social services, community development, and nonprofit management.</p>
-          </article>
-          <article class="card span-4">
-            <div class="program-icon">S</div>
-            <h3 data-i18n="team_staff_h">Staff</h3>
-            <p class="muted" data-i18n="team_staff_p">Our dedicated staff includes social workers, educators, case managers, and support specialists who work directly with our community members.</p>
-          </article>
-          <article class="card span-4">
-            <div class="program-icon">V</div>
-            <h3 data-i18n="team_volunteers_h">Volunteers</h3>
-            <p class="muted" data-i18n="team_volunteers_p">Over 200 volunteers contribute their time and skills each month, from serving meals to tutoring children to providing administrative support.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Impact -->
-    <section>
-      <div class="container">
-        <div class="section-title">
-          <h2 data-i18n="impact_title">Our Impact</h2>
-          <span class="muted" data-i18n="impact_kicker">Real results. Real change.</span>
-        </div>
-        <div class="cards">
-          <article class="card span-6">
-            <h3 data-i18n="impact_numbers_h">By the Numbers</h3>
-            <div>
-              <span class="tag" data-i18n="impact_families">2,000+ families served</span>
-              <span class="tag" data-i18n="impact_housing">85% housing success rate</span>
-              <span class="tag" data-i18n="impact_education">500+ children in education programs</span>
-              <span class="tag" data-i18n="impact_volunteers">200+ active volunteers</span>
-            </div>
-          </article>
-          <article class="card span-6">
-            <h3 data-i18n="impact_stories_h">Success Stories</h3>
-            <p class="quote" data-i18n="impact_story">"Community Hope didn't just give us a place to stay—they gave us the tools to build a new life."</p>
-            <div class="muted small" data-i18n="impact_story_attr">— Maria and her family, now in stable housing</div>
-          </article>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- Media View -->
-  <div id="media-view" class="view">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="media">
-        <img alt="Media gallery" src="bg.jpg"/>
-        <div class="shade"></div>
-      </div>
-      <div class="container content">
-        <h1 data-i18n="media_title">Our Media Gallery</h1>
-        <p class="lead" data-i18n="media_sub">Videos, photos, and stories from our community</p>
-      </div>
-    </section>
-
-    <!-- Media Categories -->
-    <section>
-      <div class="container">
-        <div class="media-categories">
-          <button class="media-filter active" data-filter="all" data-i18n="media_all">All</button>
-          <button class="media-filter" data-filter="videos" data-i18n="media_videos">Videos</button>
-          <button class="media-filter" data-filter="photos" data-i18n="media_photos">Photos</button>
-          <button class="media-filter" data-filter="audio" data-i18n="media_audio">Audio</button>
-          <button class="media-filter" data-filter="documents" data-i18n="media_documents">Documents</button>
-        </div>
-        
-        <div class="media-grid">
-          <div class="media-item" data-type="video">
-            <video controls>
-              <source src="uploads/videos/sample.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <div class="media-info">
-              <h3 data-i18n="media_video1_title">Community Event 2024</h3>
-              <p data-i18n="media_video1_desc">Annual fundraising concert</p>
-              <span class="media-date">March 15, 2024</span>
+            <div class="stat">
+              <span class="stat-label" data-i18n="event_raised">Raised:</span>
+              <span class="stat-value">$32,500</span>
             </div>
           </div>
-          
-          <div class="media-item" data-type="photo">
-            <img src="bg.jpg" alt="Community gathering">
-            <div class="media-info">
-              <h3 data-i18n="media_photo1_title">Volunteer Day</h3>
-              <p data-i18n="media_photo1_desc">Community volunteers in action</p>
-              <span class="media-date">February 20, 2024</span>
+          <div class="progress-bar">
+            <div class="progress-fill" style="width: 65%"></div>
+          </div>
+          <button class="btn primary" data-i18n="event_join_btn">Join Live Stream</button>
+        </article>
+        
+        <article class="card span-4">
+          <h3 data-i18n="event_upcoming_title">Upcoming Events</h3>
+          <div class="event-list">
+            <div class="event-item">
+              <span class="event-date">Mar 25</span>
+              <span class="event-name" data-i18n="event_concert">Community Concert</span>
+            </div>
+            <div class="event-item">
+              <span class="event-date">Apr 10</span>
+              <span class="event-name" data-i18n="event_workshop">Volunteer Workshop</span>
+            </div>
+            <div class="event-item">
+              <span class="event-date">Apr 20</span>
+              <span class="event-name" data-i18n="event_gala">Annual Gala</span>
             </div>
           </div>
-          
-          <div class="media-item" data-type="audio">
-            <audio controls>
-              <source src="uploads/audio/sample.mp3" type="audio/mpeg">
-              Your browser does not support the audio element.
-            </audio>
-            <div class="media-info">
-              <h3 data-i18n="media_audio1_title">Success Story</h3>
-              <p data-i18n="media_audio1_desc">Interview with a family we helped</p>
-              <span class="media-date">January 10, 2024</span>
-            </div>
-          </div>
-        </div>
+        </article>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 
   <!-- Contact / Footer -->
   <footer id="contact">
@@ -564,7 +247,7 @@
         </div>
         <div class="footercol">
           <div style="font-weight:800;font-size:1.1rem" data-i18n="footer_quick">Quick Links</div>
-          <div class="small"><a href="#home" class="nav-link" data-view="home" data-i18n="footer_home">Home</a> • <a href="#programs" class="nav-link" data-view="home" data-i18n="footer_programs">Programs</a> • <a href="#donate" class="nav-link" data-view="home" data-i18n="footer_donate">Donate</a></div>
+          <div class="small"><a href="index.html" data-i18n="footer_home">Home</a> • <a href="index.html#programs" data-i18n="footer_programs">Programs</a> • <a href="index.html#donate" data-i18n="footer_donate">Donate</a></div>
         </div>
         <div class="footercol">
           <div style="font-weight:800;font-size:1.1rem" data-i18n="footer_social">Follow</div>
@@ -575,395 +258,7 @@
     </div>
   </footer>
 
-  <script>
-    // View management
-    function showView(viewId) {
-      // Hide all views
-      document.querySelectorAll('.view').forEach(view => {
-        view.classList.remove('active');
-      });
-      
-      // Show the selected view
-      document.getElementById(viewId + '-view').classList.add('active');
-      
-      // Update navigation links
-      document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('data-view') === viewId) {
-          link.classList.add('active');
-        }
-      });
-      
-      // Scroll to top
-      window.scrollTo(0, 0);
-    }
-    
-    // Set up navigation
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', function(e) {
-        e.preventDefault();
-        const view = this.getAttribute('data-view');
-        showView(view);
-        
-        // If it's an anchor link within the same view, scroll to it
-        const href = this.getAttribute('href');
-        if (href && href.startsWith('#')) {
-          setTimeout(() => {
-            const target = document.querySelector(href);
-            if (target) {
-              target.scrollIntoView({ behavior: 'smooth' });
-            }
-          }, 100);
-        }
-      });
-    });
-    
-    // Handle direct anchor links
-    window.addEventListener('hashchange', function() {
-      const hash = window.location.hash.substring(1);
-      if (hash === 'about' || hash === 'history' || hash === 'mission' || hash === 'team') {
-        showView('about');
-      } else if (hash === 'media') {
-        showView('media');
-      } else if (hash === 'home' || hash === 'programs' || hash === 'donate' || hash === 'contact' || hash === 'live-events') {
-        showView('home');
-      }
-    });
-
-    // Simple i18n toggle between English and Amharic
-    const strings = {
-      en: {
-        brand: "Community Hope",
-        tagline: "Support • Shelter • Opportunity",
-        nav_home: "Home",
-        nav_about: "About Us",
-        nav_history: "Our History",
-        nav_programs: "Programs",
-        nav_media: "Media",
-        nav_donate: "Donate",
-        nav_contact: "Contact",
-        hero_title: "Building Hope. Strengthening Community.",
-        hero_sub: "Together, we provide support, shelter, and opportunities for a better future.",
-        cta_donate: "Donate Now",
-        cta_learn: "Learn More",
-        about_title: "Who We Are",
-        about_kicker: "Community‑driven • Nonprofit • Local impact",
-        about_mission_h: "Our Mission",
-        about_mission_p: "We empower families and individuals through safe shelter, education, and wraparound support services.",
-        about_story_h: "Our Story",
-        about_story_p: "Founded by neighbors who care, we've served thousands with dignity and compassion since 2012.",
-        about_story_cta: "Read Our History",
-        programs_title: "Programs & Services",
-        programs_viewall: "View all programs →",
-        prog1_h: "Shelter & Support",
-        prog1_p: "Emergency beds, case management, and pathways to stable housing.",
-        prog2_h: "Youth Education",
-        prog2_p: "After‑school tutoring, mentorship, and STEM clubs for teens.",
-        prog3_h: "Community Services",
-        prog3_p: "Food pantry, legal clinics, and job readiness workshops.",
-        stories_title: "Voices from Our Community",
-        stories_kicker: "Real stories. Real impact.",
-        t1_h: "Resident Story",
-        t1_p: "\"With your help, my children have a safe place to sleep and a chance to learn.\"",
-        t1_a: "— Amina, mother of two",
-        t2_h: "Volunteer Reflection",
-        t2_p: "\"I came to give back and found a family. Serving here changed my life.\"",
-        t2_a: "— Daniel, mentor",
-        donate_title: "Your Support Makes a Difference",
-        donate_kicker: "Multiple secure payment options available",
-        donate_cards_h: "Credit/Debit Cards",
-        donate_cards_desc: "Visa, Mastercard, American Express",
-        donate_cards_btn: "Donate with Card",
-        donate_digital_h: "Digital Wallets",
-        donate_digital_desc: "PayPal, Apple Pay, Google Pay",
-        donate_digital_btn: "Donate with Wallet",
-        donate_bank_h: "Bank Transfer",
-        donate_bank_desc: "Direct bank transfer for larger donations",
-        donate_bank_btn: "Get Bank Details",
-        donate_crypto_h: "Crypto Donations",
-        donate_crypto_desc: "Bitcoin, Ethereum, and other cryptocurrencies",
-        donate_crypto_btn: "Crypto Donate",
-        live_events_h: "Live Events",
-        live_events_desc: "Join our telethons and fundraising events",
-        live_events_btn: "View Events",
-        vol_h: "Volunteer",
-        vol_p: "Join our team of neighbors helping neighbors. One hour can change a life.",
-        vol_cta: "Sign Up to Volunteer",
-        media_title: "Our Media Gallery",
-        media_sub: "Videos, photos, and stories from our community",
-        media_all: "All",
-        media_videos: "Videos",
-        media_photos: "Photos",
-        media_audio: "Audio",
-        media_documents: "Documents",
-        media_video1_title: "Community Event 2024",
-        media_video1_desc: "Annual fundraising concert",
-        media_photo1_title: "Volunteer Day",
-        media_photo1_desc: "Community volunteers in action",
-        media_audio1_title: "Success Story",
-        media_audio1_desc: "Interview with a family we helped",
-        live_title: "Live Events & Telethons",
-        live_kicker: "Join our fundraising events",
-        event_live: "LIVE NOW",
-        event_telethon_title: "Annual Telethon 2024",
-        event_telethon_desc: "Join us for our biggest fundraising event of the year",
-        event_goal: "Goal:",
-        event_raised: "Raised:",
-        event_join_btn: "Join Live Stream",
-        event_upcoming_title: "Upcoming Events",
-        event_concert: "Community Concert",
-        event_workshop: "Volunteer Workshop",
-        event_gala: "Annual Gala",
-        about_hero_title: "About Community Hope",
-        about_hero_sub: "Learn about our mission, our story, and the dedicated team behind our community impact.",
-        cta_contact: "Get in Touch",
-        mission_title: "Our Mission",
-        mission_kicker: "Empowering families • Building futures • Strengthening communities",
-        mission_h: "What We Do",
-        mission_p: "We empower families and individuals through safe shelter, education, and wraparound support services. Our comprehensive approach addresses the root causes of homelessness and poverty, providing not just immediate relief but long-term solutions for sustainable change.",
-        mission_p2: "Every person who walks through our doors receives personalized care, respect, and the tools they need to rebuild their lives. We believe that everyone deserves dignity, safety, and the opportunity to thrive.",
-        mission_values_h: "Our Values",
-        value_dignity: "Dignity",
-        value_compassion: "Compassion",
-        value_community: "Community",
-        value_equity: "Equity",
-        value_hope: "Hope",
-        story_title: "Our Story",
-        story_kicker: "From neighbors to community leaders",
-        story_founded_h: "How It Started",
-        story_founded_p: "Founded in 2012 by a group of concerned neighbors, Community Hope began as a small grassroots effort to address the growing homelessness crisis in our community. What started with a few volunteers providing meals has grown into a comprehensive support system.",
-        story_quote: "\"We saw a need in our community and decided to be part of the solution.\"",
-        story_quote_attr: "— Sarah Johnson, Co-founder",
-        story_growth_h: "Our Growth",
-        story_growth_p: "Over the past decade, we've expanded from serving 50 families annually to helping over 2,000 individuals each year. Our programs have evolved to meet the changing needs of our community, always guided by the principle that every person deserves a chance to succeed.",
-        stat_2012: "2012: Founded",
-        stat_2015: "2015: First shelter",
-        stat_2018: "2018: Education programs",
-        stat_2022: "2022: 10th anniversary",
-        team_title: "Our Team",
-        team_kicker: "Dedicated professionals and volunteers",
-        team_leadership_h: "Leadership",
-        team_leadership_p: "Our experienced leadership team brings decades of combined experience in social services, community development, and nonprofit management.",
-        team_staff_h: "Staff",
-        team_staff_p: "Our dedicated staff includes social workers, educators, case managers, and support specialists who work directly with our community members.",
-        team_volunteers_h: "Volunteers",
-        team_volunteers_p: "Over 200 volunteers contribute their time and skills each month, from serving meals to tutoring children to providing administrative support.",
-        impact_title: "Our Impact",
-        impact_kicker: "Real results. Real change.",
-        impact_numbers_h: "By the Numbers",
-        impact_families: "2,000+ families served",
-        impact_housing: "85% housing success rate",
-        impact_education: "500+ children in education programs",
-        impact_volunteers: "200+ active volunteers",
-        impact_stories_h: "Success Stories",
-        impact_story: "\"Community Hope didn't just give us a place to stay—they gave us the tools to build a new life.\"",
-        impact_story_attr: "— Maria and her family, now in stable housing",
-        footer_h: "Contact Us",
-        footer_addr: "123 Hope Street, Fairfax, VA",
-        footer_home: "Home",
-        footer_quick: "Quick Links",
-        footer_programs: "Programs",
-        footer_donate: "Donate",
-        footer_social: "Follow",
-        rights: "All rights reserved."
-      },
-      am: {
-        brand: "የማህበረሰብ ተስፋ",
-        tagline: "ድጋፍ • መጠለያ • ዕድል",
-        nav_home: "ቤት",
-        nav_about: "ስለእኛ",
-        nav_history: "ታሪካችን",
-        nav_programs: "ፕሮግራሞች",
-        nav_media: "ሚዲያ",
-        nav_donate: "ልገሳ",
-        nav_contact: "አድራሻ",
-        hero_title: "ተስፋን እና ማህበረሰብን እናበረታታለን",
-        hero_sub: "በአንድነት ድጋፍ፣ መጠለያ እና ለወደፊት ዕድሎችን እናቀርባለን።",
-        cta_donate: "አሁን �ልገሳ ያድርጉ",
-        cta_learn: "ተጨማሪ ይወቁ",
-        about_title: "እኛ ማነን?",
-        about_kicker: "በማህበረሰብ የሚመራ • የጥበቃ ድርጅት • የአካባቢ ተፅእኖ",
-        about_mission_h: "ተልእኳችን",
-        about_mission_p: "በደህንነት መጠለያ፣ ትምህርት እና የድጋፍ አገልግሎቶች በኩል ቤተሰቦችንና ግል ሰዎችን እናበረታታለን።",
-        about_story_h: "ታሪካችን",
-        about_story_p: "በሚነካ ጎረቤቶች የተጀመረ፣ ከ2012 ጀምሮ ከሺዎች በላይን በክብር እና በርኅራኄ አገልግለናል።",
-        about_story_cta: "ታሪካችንን ያንብቡ",
-        programs_title: "ፕሮግራሞች እና አገልግሎቶች",
-        programs_viewall: "ሁሉንም ፕሮግራሞች ይመልከቱ →",
-        prog1_h: "መጠለያ እና ድጋፍ",
-        prog1_p: "የአደጋ አልጋዎች፣ የጉዳይ አያያዝ እና ወደ ዘላቂ መኖሪያ መንገዶች።",
-        prog2_h: "የወጣቶች ትምህርት",
-        prog2_p: "የትምህርት ቤት በኋላ የትምህርት እርዳታ፣ የመምሪያ እና የSTEM ክለቦች ለወጣቶች።",
-        prog3_h: "የማህበረሰብ አገልግሎቶች",
-        prog3_p: "የምግብ ቤት፣ የሕግ ክሊኒኮች እና የስራ ዝግጅት ስልጠናዎች።",
-        stories_title: "ከማህበረሰባችን ድምፆች",
-        stories_kicker: "እውነተኛ ታሪኮች። እውነተኛ ተፅእኖ።",
-        t1_h: "የነዋሪ ታሪክ",
-        t1_p: "\"በእርስዎ እርዳታ ልጆቼ ደህንነቱ የተጠበቀ ቦታ እና የመማር እድል አላቸው።\"",
-        t1_a: "— አሚና፣ የሁለት ልጆች እናት",
-        t2_h: "የበጎ ፈቃደኛ አስተያየት",
-        t2_p: "\"ለመመለስ መጣሁ እና ቤተሰብ አገኘሁ። እዚህ መስራት ሕይወቴን ቀይሯል።\"",
-        t2_a: "— ዳንኤል፣ አማካሪ",
-        donate_title: "ድጋፍዎ ልዩነት ያስገኛል",
-        donate_kicker: "በርካታ ደህንነቱ የተጠበቀ የመክፈያ አማራጮች ይገኛሉ",
-        donate_cards_h: "ክሬዲት/ዴቢት ካርዶች",
-        donate_cards_desc: "ቪዛ፣ ማስተርካርድ፣ አሜሪካን ኤክስፕረስ",
-        donate_cards_btn: "በካርድ ልገሳ",
-        donate_digital_h: "ዲጂታል ዋሌቶች",
-        donate_digital_desc: "PayPal፣ Apple Pay፣ Google Pay",
-        donate_digital_btn: "በዋሌት ልገሳ",
-        donate_bank_h: "የባንክ ማስተላለፍ",
-        donate_bank_desc: "ለትላልቅ ልገሳዎች ቀጥተኛ የባንክ ማስተላለፍ",
-        donate_bank_btn: "የባንክ ዝርዝሮች ያግኙ",
-        donate_crypto_h: "ክሪፕቶ ልገሳዎች",
-        donate_crypto_desc: "ቢትኮይን፣ ኢቴሪየም እና ሌሎች ክሪፕቶ ካሬንሲዎች",
-        donate_crypto_btn: "ክሪፕቶ ልገሳ",
-        live_events_h: "ቀጥተኛ ዝግጅቶች",
-        live_events_desc: "በስልክ ዝግጅቶቻችን እና የገንዘብ ማሰባሰብ ዝግጅቶች ይቀላቀሉ",
-        live_events_btn: "ዝግጅቶችን ይመልከቱ",
-        vol_h: "በጎ ፈቃደኛ",
-        vol_p: "ጎረቤቶች ጎረቤቶችን በሚረዱ ቡድናችን ይቀላቀሉ። አንድ ሰዓት ሕይወት ሊቀይር ይችላል።",
-        vol_cta: "በጎ ፈቃደኛ ለመሆን ይመዝገቡ",
-        media_title: "የሚዲያ ማውጫችን",
-        media_sub: "ከማህበረሰባችን ቪዲዮዎች፣ ፎቶዎች እና ታሪኮች",
-        media_all: "ሁሉም",
-        media_videos: "ቪዲዮዎች",
-        media_photos: "ፎቶዎች",
-        media_audio: "ኦዲዮ",
-        media_documents: "ሰነዶች",
-        media_video1_title: "የማህበረሰብ ዝግጅት 2024",
-        media_video1_desc: "ዓመታዊ የገንዘብ ማሰባሰብ ኮንሰርት",
-        media_photo1_title: "የበጎ ፈቃደኛ ቀን",
-        media_photo1_desc: "የማህበረሰብ በጎ ፈቃደኛዎች በተግባር",
-        media_audio1_title: "የስኬት ታሪክ",
-        media_audio1_desc: "ከረዳን ቤተሰብ ጋር ቃለ መጠይቅ",
-        live_title: "ቀጥተኛ ዝግጅቶች እና ቴሌቶኖች",
-        live_kicker: "በገንዘብ ማሰባሰብ ዝግጅቶቻችን ይቀላቀሉ",
-        event_live: "አሁን ቀጥተኛ",
-        event_telethon_title: "ዓመታዊ ቴሌቶን 2024",
-        event_telethon_desc: "ለዓመቱ ትልቁን የገንዘብ ማሰባሰብ ዝግጅት ይቀላቀሉን",
-        event_goal: "ዓላማ:",
-        event_raised: "ተሰብስቧል:",
-        event_join_btn: "ቀጥተኛ ስትሪም ይቀላቀሉ",
-        event_upcoming_title: "የሚመጡ ዝግጅቶች",
-        event_concert: "የማህበረሰብ ኮንሰርት",
-        event_workshop: "የበጎ ፈቃደኛ ስልጠና",
-        event_gala: "ዓመታዊ ጋላ",
-        about_hero_title: "ስለ የማህበረሰብ ተስፋ",
-        about_hero_sub: "ስለ ተልእኳችን፣ ታሪካችን እና ከማህበረሰባችን ተፅእኖ የሚመሩ ተሰናዳይ ቡድናችን ይወቁ።",
-        cta_contact: "ተገናኝ",
-        mission_title: "ተልእኳችን",
-        mission_kicker: "ቤተሰቦችን እናበረታታለን • ወደፊት እንገነባለን • ማህበረሰቦችን እናበረታታለን",
-        mission_h: "ምን እናደርጋለን",
-        mission_p: "በደህንነት መጠለያ፣ ትምህርት እና የድጋፍ አገልግሎቶች በኩል ቤተሰቦችንና ግል ሰዎችን እናበረታታለን። የእኛ የተሟላ አቀራረብ የማይኖር እና ድህነት ዋና ምክንያቶችን ያስተናግዳል፣ ወዲያውኑ ምቾት ብቻ ሳይሆን ዘላቂ ለውጥ ለረጅም ጊዜ መፍትሄዎች ይሰጣል።",
-        mission_p2: "በበሮቻችን የሚገባ እያንዳንዱ ሰው የተለየ እንክብካቤ፣ ክብር እና ሕይወታቸውን እንደገና ለመገንባት የሚያስፈልጋቸው መሳሪያዎችን ይቀበላል። እያንዳንዱ ሰው ክብር፣ ደህንነት እና የመታደግ እድል ይገባዋል ብለን እናምናለን።",
-        mission_values_h: "እሴቶቻችን",
-        value_dignity: "ክብር",
-        value_compassion: "ርኅራኄ",
-        value_community: "ማህበረሰብ",
-        value_equity: "እኩልነት",
-        value_hope: "ተስፋ",
-        story_title: "ታሪካችን",
-        story_kicker: "ከጎረቤቶች እስከ የማህበረሰብ መሪዎች",
-        story_founded_h: "እንዴት ጀመረ",
-        story_founded_p: "በ2012 በጉዳይ የሚነኩ ጎረቤቶች ቡድን የተጀመረ፣ የማህበረሰብ ተስፋ በማህበረሰባችን ውስጥ የማይኖር ችግር እየጨመረ በሄደ ጊዜ ትንሽ የግራስሮትስ ጥረት ተጀመረ። በጥቂት በጎ ፈቃደኛዎች ምግብ በማቅረብ የተጀመረው ነገር ወደ የተሟላ የድጋፍ ስርዓት አድጓል።",
-        story_quote: "\"በማህበረሰባችን ውስጥ አስፈላጊነት አየን እና ከመፍትሔው አካል መሆን ወሰንን።\"",
-        story_quote_attr: "— ሳራ ጆንሰን፣ ተመስሪያ አባል",
-        story_growth_h: "ዕድገታችን",
-        story_growth_p: "ባለፉት አስር ዓመታት ውስጥ፣ በዓመት 50 ቤተሰቦችን ከማገልገል ወደ በዓመት ከ2,000 በላይ ግለሰቦችን እንረዳ አድገናል። ፕሮግራሞቻችን የማህበረሰባችን የሚለወጡ ፍላጎቶችን ለመሟላት እየተሻሻሉ ነው፣ ሁልጊዜ እያንዳንዱ ሰው የመሳካት እድል ይገባዋል በሚለው መርህ የሚመራ።",
-        stat_2012: "2012: ተጀመረ",
-        stat_2015: "2015: የመጀመሪያ መጠለያ",
-        stat_2018: "2018: የትምህርት ፕሮግራሞች",
-        stat_2022: "2022: 10ኛ ዓመት በዓል",
-        team_title: "ቡድናችን",
-        team_kicker: "ተሰናዳይ ባለሙያዎች እና በጎ ፈቃደኛዎች",
-        team_leadership_h: "መሪነት",
-        team_leadership_p: "የልምድ ያለው የመሪነት ቡድናችን በማህበራዊ አገልግሎቶች፣ የማህበረሰብ ልማት እና የጥበቃ ድርጅት አያያዝ ውስጥ የአስርት ዓመታት የተጣለ ልምድ ያመጣል።",
-        team_staff_h: "ሰራተኞች",
-        team_staff_p: "ተሰናዳይ ሰራተኞቻችን ከማህበረሰባችን አባላት ጋር በቀጥታ የሚሰሩ ማህበራዊ ሰራተኞች፣ አስተማሪዎች፣ የጉዳይ አያያዞች እና የድጋፍ ባለሙያዎችን ያካተቱ ናቸው።",
-        team_volunteers_h: "በጎ ፈቃደኛዎች",
-        team_volunteers_p: "ከ200 በላይ በጎ ፈቃደኛዎች በወር ጊዜያቸውን እና ክህሎቶቻቸውን ያስተዋውቃሉ፣ ከምግብ ማቅረብ እስከ ልጆችን ማስተማር እና የአስተዳደር ድጋፍ ማቅረብ ድረስ።",
-        impact_title: "ተፅእኖያችን",
-        impact_kicker: "እውነተኛ ውጤቶች። እውነተኛ ለውጥ።",
-        impact_numbers_h: "በቁጥር",
-        impact_families: "2,000+ ቤተሰቦች ተገልገዋል",
-        impact_housing: "85% የመኖሪያ የስኬት መጠን",
-        impact_education: "500+ ልጆች በትምህርት ፕሮግራሞች ውስጥ",
-        impact_volunteers: "200+ ንቁ በጎ ፈቃደኛዎች",
-        impact_stories_h: "የስኬት ታሪኮች",
-        impact_story: "\"የማህበረሰብ ተስፋ የሚተኛበት ቦታ ብቻ አልሰጠንም—አዲስ ሕይወት ለመገንባት የሚያስፈልጋቸውን መሳሪያዎች ሰጡን።\"",
-        impact_story_attr: "— ማሪያ እና ቤተሰቧ፣ አሁን በዘላቂ መኖሪያ ውስጥ",
-        footer_h: "አግኙን",
-        footer_addr: "123 ተስፋ ጎዳና፣ ፌርፋክስ፣ VA",
-        footer_home: "ቤት",
-        footer_quick: "ፈጣን አገናኞች",
-        footer_programs: "ፕሮግራሞች",
-        footer_donate: "ልገሳ",
-        footer_social: "ተከተል",
-        rights: "ሁሉም መብቶች የተጠበቁ ናቸው።"
-      }
-    };
-    
-    // Language switching functionality
-    function switchLanguage(lang) {
-      // Update active language button
-      document.querySelectorAll('.lang button').forEach(btn => {
-        btn.classList.remove('active');
-      });
-      document.getElementById('lang-' + lang).classList.add('active');
-      
-      // Update all text elements
-      document.querySelectorAll('[data-i18n]').forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        if (strings[lang] && strings[lang][key]) {
-          element.textContent = strings[lang][key];
-        }
-      });
-    }
-    
-    // Set up language buttons
-    document.getElementById('lang-en').addEventListener('click', () => switchLanguage('en'));
-    document.getElementById('lang-am').addEventListener('click', () => switchLanguage('am'));
-    
-    // Set current year
-    document.getElementById('year').textContent = new Date().getFullYear();
-    
-    // Media gallery filtering
-    document.querySelectorAll('.media-filter').forEach(filter => {
-      filter.addEventListener('click', function() {
-        const filterType = this.getAttribute('data-filter');
-        
-        // Update active filter
-        document.querySelectorAll('.media-filter').forEach(f => f.classList.remove('active'));
-        this.classList.add('active');
-        
-        // Filter media items
-        document.querySelectorAll('.media-item').forEach(item => {
-          if (filterType === 'all' || item.getAttribute('data-type') === filterType) {
-            item.style.display = 'block';
-          } else {
-            item.style.display = 'none';
-          }
-        });
-      });
-    });
-    
-    // Payment modal functions
-    function openPaymentModal(type) {
-      alert('Payment integration would open here for ' + type + ' payments');
-      // In a real implementation, this would open a payment modal
-      // or redirect to a payment processor like Stripe, PayPal, etc.
-    }
-    
-    function showBankDetails() {
-      alert('Bank transfer details would be displayed here');
-      // In a real implementation, this would show bank account details
-    }
-    
-    function showCryptoAddresses() {
-      alert('Cryptocurrency wallet addresses would be displayed here');
-      // In a real implementation, this would show crypto wallet addresses
-    }
-  </script>
+  <script src="js/main.js"></script>
+  <script src="js/i18n.js"></script>
 </body>
 </html>
