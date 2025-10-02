@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Donate — Gergesenon Mental Institute</title>
+  <link rel="stylesheet" href="./styles/main.css">
+  <link rel="stylesheet" href="./styles/components.css">
+  <style>
+    /* Donation-specific styles */
+    .donation-form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.75rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.2s ease;
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--brand);
+      box-shadow: 0 0 0 3px var(--ring);
+    }
+    
+    .amount-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    .amount-btn {
+      padding: 0.75rem;
+      border: 2px solid #e2e8f0;
+      background: white;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: center;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    
+    .amount-btn:hover {
+      border-color: var(--brand);
+      background: var(--brand-light);
+    }
+    
+    .amount-btn.selected {
+      border-color: var(--brand);
+      background: var(--brand);
+      color: white;
+    }
+    
+    .payment-method {
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .payment-method:hover {
+      border-color: var(--brand);
+    }
+    
+    .payment-method.selected {
+      border-color: var(--brand);
+      background: var(--brand-light);
+    }
+    
+    .payment-method input[type="radio"] {
+      margin-right: 0.5rem;
+    }
+    
+    .payment-details {
+      display: none;
+      margin-top: 1rem;
+      padding: 1rem;
+      background: #f8fafc;
+      border-radius: 8px;
+    }
+    
+    .payment-details.active {
+      display: block;
+    }
+    
+    .crypto-address {
+      background: #1a1a1a;
+      color: #00ff00;
+      padding: 1rem;
+      border-radius: 8px;
+      font-family: monospace;
+      word-break: break-all;
+      margin: 0.5rem 0;
+    }
+    
+    .bank-details {
+      background: #f8fafc;
+      padding: 1rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--brand);
+    }
+    
+    .processing {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid var(--brand);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 1rem;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .success-message {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+      background: #d1fae5;
+      border: 1px solid #10b981;
+      border-radius: 8px;
+      color: #065f46;
+    }
+    
+    .error-message {
+      display: none;
+      padding: 1rem;
+      background: #fee2e2;
+      border: 1px solid #ef4444;
+      border-radius: 8px;
+      color: #991b1b;
+      margin-bottom: 1rem;
+    }
+    
+    /* PayPal specific styles */
+    #paypal-form {
+      margin: 1rem 0;
+    }
+    
+    #paypal-form table {
+      border-collapse: collapse;
+      margin: 0 auto;
+    }
+    
+    #paypal-form td {
+      padding: 0.25rem 0;
+    }
+    
+    #paypal-form input[type="text"] {
+      width: 250px;
+      padding: 0.75rem;
+      border: 2px solid #e2e8f0;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.2s ease;
+    }
+    
+    #paypal-form input[type="text"]:focus {
+      outline: none;
+      border-color: var(--brand);
+      box-shadow: 0 0 0 3px var(--ring);
+    }
+    
+    #paypal-form input[type="image"] {
+      border-radius: 8px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    #paypal-form input[type="image"]:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header / Nav -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo">
+          <img src="logo.jpg" alt="Gergesenon Mental Institute Logo">
+        </div>
+        <div>
+          <div data-i18n="brand">Gergesenon Mental Institute</div>
+          <div class="small muted" data-i18n="tagline">Center for Support and Rehabilitation</div>
+        </div>
+      </div>
+      <nav class="navlinks" aria-label="Primary">
+        <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a>
+        <a href="about.html" class="nav-link" data-i18n="nav_about">About Us</a>
+        <a href="media.html" class="nav-link" data-i18n="nav_media">Media</a>
+        <a href="donate.html" class="nav-link active" data-i18n="nav_donate">Donate</a>
+        <a href="index.html#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Language selector">
+        <button class="active" id="lang-en">EN</button>
+        <button id="lang-am">AM</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="media">
+      <img alt="Mental health support" src="bg.jpg"/>
+      <div class="shade"></div>
+    </div>
+    <div class="container content">
+      <h1 data-i18n="donate_hero_title">Support Mental Health Recovery</h1>
+      <p class="lead" data-i18n="donate_hero_sub">Your donation helps us provide essential mental health services, rehabilitation programs, and support for individuals and families in need.</p>
+    </div>
+  </section>
+
+  <!-- Donation (PayPal only) -->
+  <section style="padding: 4rem 0; background: #f8fafc;">
+    <div class="container" style="display:flex;align-items:center;justify-content:center;min-height:200px;">
+      <div style="background:white;padding:2rem;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.1);max-width:560px;width:100%;text-align:center;">
+        <h2 style="margin-bottom: 1.5rem;" data-i18n="donate_digital_h">Digital Wallets</h2>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="paypal-form">
+          <input type="hidden" name="cmd" value="_s-xclick" />
+          <input type="hidden" name="hosted_button_id" value="BWYQEHKNF22B8" />
+          <input type="hidden" name="currency_code" value="USD" />
+          <input type="image" src="https://yt3.googleusercontent.com/8Dh5wf7aCFK9S2TA_G_ncKnNZZjBmRIE0P3_Ezxw8sjgbigx5l8gW8iIbYvGnnRplgNn-zfN=s160-c-k-c0x00ffffff-no-rj" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Buy Now" style="cursor:pointer;border-radius:8px;" />
+        </form>
+
+        <div style="margin: 2rem 0; height:1px; background:#e2e8f0;"></div>
+
+        <h3 style="margin-bottom: 0.75rem;" data-i18n="donate_bank_h">Bank Transfer</h3>
+        <div style="text-align:left;">
+          <label for="ethiopia-bank" style="display:block; font-weight:600; margin-bottom:0.5rem;" data-i18n="donate_ethiopia_bank">Select Bank *</label>
+          <select id="ethiopia-bank" style="width:100%; padding:0.75rem; border:2px solid #e2e8f0; border-radius:8px;">
+            <option value="" data-i18n="choose_bank">Choose your bank</option>
+                      <option value="cbe">Commercial Bank of Ethiopia (CBE)</option>
+                      <option value="awash">Awash Bank</option>
+                      <option value="abyssinia">Abyssinia Bank</option>
+                      <option value="dashen">Dashen Bank</option>
+                      <option value="wegagen">Wegagen Bank</option>
+                      <option value="cooperative">Cooperative Bank of Oromia</option>
+                      <option value="bank-of-abyssinia">Bank of Abyssinia</option>
+                      <option value="lion">Lion Bank</option>
+                      <option value="zemen">Zemen Bank</option>
+                      <option value="oromia">Oromia International Bank</option>
+                    </select>
+          <div id="bank-details" style="margin-top:1rem; background:#f8fafc; border-left:4px solid var(--brand); padding:1rem; border-radius:8px; display:none;"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footergrid">
+        <div class="footercol">
+          <div style="font-weight:800;font-size:1.1rem" data-i18n="footer_h">Contact Us</div>
+          <div class="small" data-i18n="footer_addr">123 Hope Street, Fairfax, VA</div>
+          <div class="small">info@gergesenon.org • (555) 123‑4567</div>
+        </div>
+        <div class="footercol">
+          <div style="font-weight:800;font-size:1.1rem" data-i18n="footer_quick">Quick Links</div>
+          <div class="small"><a href="index.html" data-i18n="footer_home">Home</a> • <a href="index.html#programs" data-i18n="footer_programs">Programs</a> • <a href="donate.html" data-i18n="footer_donate">Donate</a></div>
+        </div>
+        <div class="footercol">
+          <div style="font-weight:800;font-size:1.1rem" data-i18n="footer_social">Follow</div>
+          <div class="small">Facebook • Instagram • X</div>
+        </div>
+      </div>
+      <div class="small" style="margin-top:1rem;color:#94a3b8">© <span id="year"></span> <span data-i18n="brand">Gergesenon Mental Institute</span>. <span data-i18n="rights">All rights reserved.</span></div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/i18n.js"></script>
+  <script>
+    (function(){
+      const bankAccounts = {
+        cbe: { name: 'Commercial Bank of Ethiopia (CBE)', accountName: 'Gergesenon Ethiopia', accountNumber: '1000003785495', branchCode: '6860' },
+        awash: { name: 'Awash Bank', accountName: 'Gergesenon Ethiopia', accountNumber: '0168008227356200' },
+        abyssinia: { name: 'Abyssinia Bank', accountName: 'Gergesenon Ethiopia', accountNumber: '16187453048' },
+        dashen: { name: 'Dashen Bank', accountName: 'Gergesenon Ethiopia', accountNumber: '100333819' },
+        wegagen: { name: 'Wegagen Bank', accountName: 'Gergesenon Ethiopia', accountNumber: '1000164944012' },
+        cooperative: { name: 'Cooperative Bank of Oromia', accountName: 'Gergesenon Ethiopia', accountNumber: '486111362395017' },
+        'bank-of-abyssinia': { name: 'Bank of Abyssinia', accountName: 'Gergesenon Ethiopia', accountNumber: '1000032075881' },
+        lion: { name: 'Lion Bank', accountName: 'Gergesenon Ethiopia', accountNumber: '1000009397772' },
+        zemen: { name: 'Zemen Bank', accountName: 'Gergesenon Ethiopia', accountNumber: '0001610000977' },
+        oromia: { name: 'Oromia International Bank', accountName: 'Gergesenon Ethiopia', accountNumber: '1000044940183' }
+      };
+
+      const bankSelect = document.getElementById('ethiopia-bank');
+      const details = document.getElementById('bank-details');
+
+      if (!bankSelect || !details) return;
+
+      function copy(text){
+        navigator.clipboard.writeText(text).then(()=>{
+          const note = document.createElement('div');
+          note.textContent = 'Copied to clipboard';
+          note.style.cssText = 'margin-top:8px;color:#10b981;font-weight:600';
+          details.appendChild(note);
+          setTimeout(()=> note.remove(), 1500);
+        }).catch(()=>{});
+      }
+
+      bankSelect.addEventListener('change', function(){
+        const key = this.value;
+        const bank = bankAccounts[key];
+        if (!bank) { details.style.display = 'none'; details.innerHTML = ''; return; }
+        details.style.display = 'block';
+        details.innerHTML = `
+          <div style="font-weight:700;margin-bottom:0.5rem;">${bank.name}</div>
+          <div style="margin:4px 0;"><strong>Account Name:</strong> ${bank.accountName}</div>
+          <div style="margin:4px 0;display:flex;align-items:center;gap:8px;">
+            <span><strong>Account Number:</strong> ${bank.accountNumber}</span>
+            <button type="button" id="copy-account" style="padding:0.25rem 0.5rem;border:1px solid #e2e8f0;border-radius:6px;cursor:pointer;background:#fff;">Copy</button>
+          </div>
+          ${bank.branchCode ? `<div style="margin:4px 0;"><strong>Branch Code:</strong> ${bank.branchCode}</div>` : ''}
+          <div class="small muted" style="margin-top:0.5rem;">Please include "Donation to Gergesenon" in the transfer note.</div>
+        `;
+        const copyBtn = document.getElementById('copy-account');
+        if (copyBtn) copyBtn.addEventListener('click', function(){ copy(bank.accountNumber); });
+      });
+    })();
+  </script>
+</body>
+</html>

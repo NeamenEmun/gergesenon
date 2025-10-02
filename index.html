@@ -3,9 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Community Hope — Support • Shelter • Opportunity</title>
-  <link rel="stylesheet" href="styles/main.css">
-  <link rel="stylesheet" href="styles/components.css">
+  <title>Gergesenon Mental Instituite— Center for Support and Rehabilitation of People with Mental Disorder</title>
+  <link rel="stylesheet" href="./styles/main.css">
+  <link rel="stylesheet" href="./styles/components.css">
+  <style>
+    /* Basic fallback styles */
+    body { 
+      font-family: system-ui, -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 800;
+      color: white;
+    }
+    .navlinks {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .navlinks a {
+      padding: 0.4rem 0.6rem;
+      border-radius: 9px;
+      color: white;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .navlinks a.active {
+      background: #2563eb;
+      color: white;
+    }
+    header {
+      background: rgba(19, 0, 0, 0.8);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #64748b;
+    }
+  </style>
 </head>
 <body>
   <!-- Header / Nav -->
@@ -13,20 +64,18 @@
     <div class="container nav">
       <div class="brand">
         <div class="logo">
-          <img src="logo.jpg" alt="Community Hope Logo">
+          <img src="logo.jpg" alt="Gergesenon Mental Institute Logo">
         </div>
         <div>
-          <div data-i18n="brand">Community Hope</div>
-          <div class="small muted" data-i18n="tagline">Support • Shelter • Opportunity</div>
+          <div data-i18n="brand">Gergesenon Mental Institute</div>
+          <div class="small muted" data-i18n="tagline">Center for Support and Rehabilitation</div>
         </div>
       </div>
       <nav class="navlinks" aria-label="Primary">
         <a href="index.html" class="nav-link active" data-i18n="nav_home">Home</a>
         <a href="about.html" class="nav-link" data-i18n="nav_about">About Us</a>
-        <a href="about.html#history" class="nav-link" data-i18n="nav_history">Our History</a>
-        <a href="index.html#programs" class="nav-link" data-i18n="nav_programs">Programs</a>
         <a href="media.html" class="nav-link" data-i18n="nav_media">Media</a>
-        <a href="index.html#donate" class="nav-link" data-i18n="nav_donate">Donate</a>
+        <a href="donate.html" class="nav-link" data-i18n="nav_donate">Donate</a>
         <a href="index.html#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
       </nav>
       <div class="lang" role="group" aria-label="Language selector">
@@ -39,202 +88,67 @@
   <!-- Hero -->
   <section id="home" class="hero">
     <div class="media">
-      <img alt="Community gathering" src="bg.jpg"/>
+      <img alt="Mental health support and community care" src="bg.jpg"/>
       <div class="shade"></div>
     </div>
     <div class="container content">
-      <h1 data-i18n="hero_title">Building Hope. Strengthening Community.</h1>
-      <p class="lead" data-i18n="hero_sub">Together, we provide support, shelter, and opportunities for a better future.</p>
+      <div class="hero-badge">
+        <span data-i18n="hero_badge">Supporting Mental Health Recovery</span>
+      </div>
+      <h1 data-i18n="hero_title">Restore Hope. Transform Lives.</h1>
+      <p class="lead" data-i18n="hero_sub">We provide comprehensive mental health services, rehabilitation programs, and community support to help individuals and families thrive.</p>
       <div class="cta">
-        <a href="#donate" class="btn primary" data-i18n="cta_donate">Donate Now</a>
+        <a href="donate.html" class="btn primary" data-i18n="cta_donate">Support Our Mission</a>
         <a href="about.html" class="btn ghost" data-i18n="cta_learn">Learn More</a>
       </div>
-    </div>
-  </section>
-
-  <!-- About Preview -->
-  <section id="about">
-    <div class="container">
-      <div class="section-title">
-        <h2 data-i18n="about_title">Who We Are</h2>
-        <span class="muted" data-i18n="about_kicker">Community‑driven • Nonprofit • Local impact</span>
-      </div>
-      <div class="cards">
-        <article class="card span-6">
-          <h3 data-i18n="about_mission_h">Our Mission</h3>
-          <p class="muted" data-i18n="about_mission_p">We empower families and individuals through safe shelter, education, and wraparound support services.</p>
-        </article>
-        <article class="card span-6">
-          <h3 data-i18n="about_story_h">Our Story</h3>
-          <p class="muted" data-i18n="about_story_p">Founded by neighbors who care, we've served thousands with dignity and compassion since 2012.</p>
-          <a href="about.html#history" class="btn" style="margin-top:.5rem" data-i18n="about_story_cta">Read Our History</a>
-        </article>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">500+</span>
+          <span class="stat-label" data-i18n="stat_people_helped">People Helped</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">15+</span>
+          <span class="stat-label" data-i18n="stat_years_service">Years of Service</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">95%</span>
+          <span class="stat-label" data-i18n="stat_success_rate">Success Rate</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Programs -->
-  <section id="programs">
+  <!-- The Problem -->
+  <section id="problem" class="problem-section">
     <div class="container">
-      <div class="section-title">
-        <h2 data-i18n="programs_title">Programs & Services</h2>
-        <a href="#programs" class="small" data-i18n="programs_viewall">View all programs →</a>
-      </div>
-      <div class="cards">
-        <article class="card span-4">
-          <div class="program-icon">S</div>
-          <h3 data-i18n="prog1_h">Shelter & Support</h3>
-          <p class="muted" data-i18n="prog1_p">Emergency beds, case management, and pathways to stable housing.</p>
-        </article>
-        <article class="card span-4">
-          <div class="program-icon">Y</div>
-          <h3 data-i18n="prog2_h">Youth Education</h3>
-          <p class="muted" data-i18n="prog2_p">After‑school tutoring, mentorship, and STEM clubs for teens.</p>
-        </article>
-        <article class="card span-4">
-          <div class="program-icon">C</div>
-          <h3 data-i18n="prog3_h">Community Services</h3>
-          <p class="muted" data-i18n="prog3_p">Food pantry, legal clinics, and job readiness workshops.</p>
-        </article>
+      <div class="problem-content">
+        <div class="problem-text">
+          <h2 data-i18n="problem_title">The Challenge</h2>
+          <p class="problem-lead" data-i18n="problem_lead">Mental health challenges affect millions, yet access to quality care remains limited.</p>
+          <div class="problem-stats">
+            <div class="problem-stat">
+              <span class="stat-number">1 in 4</span>
+              <span class="stat-label" data-i18n="problem_stat1">People experience mental health issues</span>
+            </div>
+            <div class="problem-stat">
+              <span class="stat-number">60%</span>
+              <span class="stat-label" data-i18n="problem_stat2">Don't receive proper treatment</span>
+            </div>
+            <div class="problem-stat">
+              <span class="stat-number">$200B</span>
+              <span class="stat-label" data-i18n="problem_stat3">Annual economic impact</span>
+            </div>
+          </div>
+        </div>
+        <div class="problem-image">
+          <div class="image-placeholder">
+            <span data-i18n="problem_image_alt">Mental health support needed</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Stories / Testimonials -->
-  <section>
-    <div class="container">
-      <div class="section-title">
-        <h2 data-i18n="stories_title">Voices from Our Community</h2>
-        <span class="muted" data-i18n="stories_kicker">Real stories. Real impact.</span>
-      </div>
-      <div class="cards">
-        <article class="card span-6">
-          <h3 data-i18n="t1_h">Resident Story</h3>
-          <p class="quote" data-i18n="t1_p">"With your help, my children have a safe place to sleep and a chance to learn."</p>
-          <div class="muted small" data-i18n="t1_a">— Amina, mother of two</div>
-        </article>
-        <article class="card span-6">
-          <h3 data-i18n="t2_h">Volunteer Reflection</h3>
-          <p class="quote" data-i18n="t2_p">"I came to give back and found a family. Serving here changed my life."</p>
-          <div class="muted small" data-i18n="t2_a">— Daniel, mentor</div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Donate / Get Involved -->
-  <section id="donate">
-    <div class="container">
-      <div class="section-title">
-        <h2 data-i18n="donate_title">Your Support Makes a Difference</h2>
-        <span class="muted" data-i18n="donate_kicker">Multiple secure payment options available</span>
-      </div>
-      
-      <div class="payment-methods">
-        <article class="card span-6">
-          <h3 data-i18n="donate_cards_h">Credit/Debit Cards</h3>
-          <div class="payment-logos">
-            <span class="payment-icon">💳</span>
-            <span class="payment-icon">🏦</span>
-          </div>
-          <p class="muted" data-i18n="donate_cards_desc">Visa, Mastercard, American Express</p>
-          <button class="btn primary" onclick="openPaymentModal('card')" data-i18n="donate_cards_btn">Donate with Card</button>
-        </article>
-        
-        <article class="card span-6">
-          <h3 data-i18n="donate_digital_h">Digital Wallets</h3>
-          <div class="payment-logos">
-            <span class="payment-icon">📱</span>
-            <span class="payment-icon">💻</span>
-          </div>
-          <p class="muted" data-i18n="donate_digital_desc">PayPal, Apple Pay, Google Pay</p>
-          <button class="btn primary" onclick="openPaymentModal('wallet')" data-i18n="donate_digital_btn">Donate with Wallet</button>
-        </article>
-        
-        <article class="card span-6">
-          <h3 data-i18n="donate_bank_h">Bank Transfer</h3>
-          <div class="payment-logos">
-            <span class="payment-icon">🏛️</span>
-          </div>
-          <p class="muted" data-i18n="donate_bank_desc">Direct bank transfer for larger donations</p>
-          <button class="btn primary" onclick="showBankDetails()" data-i18n="donate_bank_btn">Get Bank Details</button>
-        </article>
-        
-        <article class="card span-6">
-          <h3 data-i18n="donate_crypto_h">Crypto Donations</h3>
-          <div class="payment-logos">
-            <span class="payment-icon">₿</span>
-            <span class="payment-icon">Ξ</span>
-          </div>
-          <p class="muted" data-i18n="donate_crypto_desc">Bitcoin, Ethereum, and other cryptocurrencies</p>
-          <button class="btn primary" onclick="showCryptoAddresses()" data-i18n="donate_crypto_btn">Crypto Donate</button>
-        </article>
-      </div>
-      
-      <div class="cards" style="margin-top: 2rem;">
-        <article class="card span-6">
-          <h3 data-i18n="vol_h">Volunteer</h3>
-          <p class="muted" data-i18n="vol_p">Join our team of neighbors helping neighbors. One hour can change a life.</p>
-          <a href="#contact" class="btn" data-i18n="vol_cta">Sign Up to Volunteer</a>
-        </article>
-        <article class="card span-6">
-          <h3 data-i18n="live_events_h">Live Events</h3>
-          <p class="muted" data-i18n="live_events_desc">Join our telethons and fundraising events</p>
-          <a href="#live-events" class="btn" data-i18n="live_events_btn">View Events</a>
-        </article>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Live Events & Telethons -->
-  <section id="live-events">
-    <div class="container">
-      <div class="section-title">
-        <h2 data-i18n="live_title">Live Events & Telethons</h2>
-        <span class="muted" data-i18n="live_kicker">Join our fundraising events</span>
-      </div>
-      
-      <div class="live-events-grid">
-        <article class="card span-8">
-          <div class="event-status live" data-i18n="event_live">LIVE NOW</div>
-          <h3 data-i18n="event_telethon_title">Annual Telethon 2024</h3>
-          <p class="muted" data-i18n="event_telethon_desc">Join us for our biggest fundraising event of the year</p>
-          <div class="event-stats">
-            <div class="stat">
-              <span class="stat-label" data-i18n="event_goal">Goal:</span>
-              <span class="stat-value">$50,000</span>
-            </div>
-            <div class="stat">
-              <span class="stat-label" data-i18n="event_raised">Raised:</span>
-              <span class="stat-value">$32,500</span>
-            </div>
-          </div>
-          <div class="progress-bar">
-            <div class="progress-fill" style="width: 65%"></div>
-          </div>
-          <button class="btn primary" data-i18n="event_join_btn">Join Live Stream</button>
-        </article>
-        
-        <article class="card span-4">
-          <h3 data-i18n="event_upcoming_title">Upcoming Events</h3>
-          <div class="event-list">
-            <div class="event-item">
-              <span class="event-date">Mar 25</span>
-              <span class="event-name" data-i18n="event_concert">Community Concert</span>
-            </div>
-            <div class="event-item">
-              <span class="event-date">Apr 10</span>
-              <span class="event-name" data-i18n="event_workshop">Volunteer Workshop</span>
-            </div>
-            <div class="event-item">
-              <span class="event-date">Apr 20</span>
-              <span class="event-name" data-i18n="event_gala">Annual Gala</span>
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
 
   <!-- Contact / Footer -->
   <footer id="contact">
@@ -247,14 +161,14 @@
         </div>
         <div class="footercol">
           <div style="font-weight:800;font-size:1.1rem" data-i18n="footer_quick">Quick Links</div>
-          <div class="small"><a href="index.html" data-i18n="footer_home">Home</a> • <a href="index.html#programs" data-i18n="footer_programs">Programs</a> • <a href="index.html#donate" data-i18n="footer_donate">Donate</a></div>
+          <div class="small"><a href="index.html" data-i18n="footer_home">Home</a> • <a href="index.html#programs" data-i18n="footer_programs">Programs</a> • <a href="donate.html" data-i18n="footer_donate">Donate</a></div>
         </div>
         <div class="footercol">
           <div style="font-weight:800;font-size:1.1rem" data-i18n="footer_social">Follow</div>
           <div class="small">Facebook • Instagram • X</div>
         </div>
       </div>
-      <div class="small" style="margin-top:1rem;color:#94a3b8">© <span id="year"></span> <span data-i18n="brand">Community Hope</span>. <span data-i18n="rights">All rights reserved.</span></div>
+      <div class="small" style="margin-top:1rem;color:#94a3b8">© <span id="year"></span> <span data-i18n="brand">Gergesenon Mental Institute</span>. <span data-i18n="rights">All rights reserved.</span></div>
     </div>
   </footer>
 
