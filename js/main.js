@@ -55,7 +55,8 @@ function updateActiveNavLink() {
     if (href === currentPage || 
         (currentPage === 'index.html' && (href === 'index.html' || href === '#')) ||
         (currentPage === 'about.html' && href === 'about.html') ||
-        (currentPage === 'media.html' && href === 'media.html')) {
+        (currentPage === 'media.html' && href === 'media.html') ||
+        (currentPage === 'donate.html' && href === 'donate.html')) {
       link.classList.add('active');
     }
   });

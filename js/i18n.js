@@ -1,6 +1,7 @@
 // === Internationalization (i18n) ===
 
 // Translation strings
+window.currentLang = window.currentLang || 'en';
 const strings = {
   en: {
     brand: "Community Hope",
@@ -12,8 +13,26 @@ const strings = {
     nav_media: "Media",
     nav_donate: "Donate",
     nav_contact: "Contact",
-    hero_title: "Building Hope. Strengthening Community.",
-    hero_sub: "Together, we provide support, shelter, and opportunities for a better future.",
+    hero_badge: "Supporting Mental Health Recovery",
+    hero_title: "Restore Hope. Transform Lives.",
+    hero_sub: "We provide comprehensive mental health services, rehabilitation programs, and community support to help individuals and families thrive.",
+    stat_people_helped: "People Helped",
+    stat_years_service: "Years of Service", 
+    stat_success_rate: "Success Rate",
+    problem_title: "The Challenge",
+    problem_lead: "Mental health challenges affect millions, yet access to quality care remains limited.",
+    problem_stat1: "People experience mental health issues",
+    problem_stat2: "Don't receive proper treatment",
+    problem_stat3: "Annual economic impact",
+    problem_image_alt: "Mental health support needed",
+    solution_title: "Our Solution",
+    solution_kicker: "Comprehensive • Accessible • Effective",
+    solution_treatment: "Professional Treatment",
+    solution_treatment_desc: "Licensed therapists and psychiatrists provide evidence-based care in a supportive environment.",
+    solution_support: "Community Support",
+    solution_support_desc: "Peer support groups and family counseling help build strong support networks.",
+    solution_recovery: "Recovery Programs",
+    solution_recovery_desc: "Structured rehabilitation programs help individuals rebuild their lives and independence.",
     cta_donate: "Donate Now",
     cta_learn: "Learn More",
     about_title: "Who We Are",
@@ -78,7 +97,55 @@ const strings = {
     footer_programs: "Programs",
     footer_donate: "Donate",
     footer_social: "Follow",
-    rights: "All rights reserved."
+    rights: "All rights reserved.",
+    // Donation page translations
+    donate_hero_title: "Support Mental Health Recovery",
+    donate_hero_sub: "Your donation helps us provide essential mental health services, rehabilitation programs, and support for individuals and families in need.",
+    donate_form_title: "Make a Donation",
+    donate_amount_label: "Donation Amount",
+    donate_name_label: "Full Name",
+    donate_email_label: "Email Address",
+    donate_phone_label: "Phone Number",
+    donate_payment_label: "Payment Method",
+    donate_card_desc: "Visa, Mastercard, American Express",
+    donate_card_number: "Card Number",
+    donate_expiry: "Expiry Date",
+    donate_cvv: "CVV",
+    donate_billing: "Billing Address",
+    donate_bank_desc: "Direct bank transfer for larger donations",
+    donate_bank_info_title: "Bank Transfer Details",
+    donate_bank_name: "Bank Name:",
+    donate_account_name: "Account Name:",
+    donate_account_number: "Account Number:",
+    donate_routing: "Routing Number:",
+    donate_swift: "SWIFT Code:",
+    donate_purpose: "Purpose:",
+    donate_crypto_desc: "Bitcoin, Ethereum, and other cryptocurrencies",
+    donate_crypto_select: "Select Cryptocurrency",
+    donate_send_to: "Send to:",
+    donate_crypto_note: "Please include your email address in the transaction memo for confirmation.",
+    donate_purpose_label: "Donation Purpose (Optional)",
+    donate_purpose_general: "General Support",
+    donate_purpose_treatment: "Treatment Programs",
+    donate_purpose_rehab: "Rehabilitation Services",
+    donate_purpose_family: "Family Support",
+    donate_purpose_education: "Mental Health Education",
+    donate_purpose_research: "Research & Development",
+    donate_message_label: "Message (Optional)",
+    donate_anonymous: "Make this donation anonymous",
+    donate_recurring: "Make this a monthly recurring donation",
+    donate_submit: "Process Donation",
+    donate_processing: "Processing your donation...",
+    donate_processing_note: "Please do not close this window or refresh the page.",
+    donate_success_title: "Thank You for Your Donation!",
+    donate_success_message: "Your contribution will help us provide essential mental health services to those in need.",
+    donate_receipt: "Receipt will be sent to your email address.",
+    donate_return_home: "Return to Home",
+    // New keys for simplified donate page
+    choose_bank: "Choose your bank",
+    copy: "Copy",
+    copied: "Copied to clipboard",
+    transfer_note: "Please include \"Donation to Gergesenon\" in the transfer note."
   },
   am: {
     brand: "የማህበረሰብ ተስፋ",
@@ -90,8 +157,26 @@ const strings = {
     nav_media: "ሚዲያ",
     nav_donate: "ልገሳ",
     nav_contact: "አድራሻ",
-    hero_title: "ተስፋን እና ማህበረሰብን እናበረታታለን",
-    hero_sub: "በአንድነት ድጋፍ፣ መጠለያ እና ለወደፊት ዕድሎችን እናቀርባለን።",
+    hero_badge: "የአእምሮ ጤና ማገገምን በመደገፍ",
+    hero_title: "ተስፋን አስመለስ። ሕይወቶችን ቀይር።",
+    hero_sub: "ለግለሰቦች እና ቤተሰቦች እንዲያድጉ አስፈላጊ የአእምሮ ጤና አገልግሎቶች፣ የማገገም ፕሮግራሞች እና የማህበረሰብ ድጋፍ እናቀርባለን።",
+    stat_people_helped: "የተረዱ ሰዎች",
+    stat_years_service: "የአገልግሎት ዓመታት",
+    stat_success_rate: "የስኬት መጠን",
+    problem_title: "ፈተናው",
+    problem_lead: "የአእምሮ ጤና ችግሮች ሚሊዮኖችን ይጎዳሉ፣ ነገር ግን ለተሻለ እንክብካቤ መዳረሻ የተገደበ ነው።",
+    problem_stat1: "ሰዎች የአእምሮ ጤና ችግሮች ይገኛሉ",
+    problem_stat2: "ተሻለ ሕክምና አይቀበሉም",
+    problem_stat3: "ዓመታዊ ኢኮኖሚያዊ ተፅእኖ",
+    problem_image_alt: "የአእምሮ ጤና ድጋፍ ያስፈልጋል",
+    solution_title: "መፍትሄያችን",
+    solution_kicker: "ሰፊ • ተደራሽ • ውጤታማ",
+    solution_treatment: "የሙያ ሕክምና",
+    solution_treatment_desc: "ተፈታኝ ሐኪሞች እና የአእምሮ ጤና ሐኪሞች በድጋፍ አካባቢ ውስጥ በማስረጃ የተመሰረተ እንክብካቤ ይሰጣሉ።",
+    solution_support: "የማህበረሰብ ድጋፍ",
+    solution_support_desc: "የጓደኛ ድጋፍ ቡድኖች እና የቤተሰብ ምክክር ጠንካራ የድጋፍ ኔትዎርኮች እንዲገነቡ ይረዳሉ።",
+    solution_recovery: "የማገገም ፕሮግራሞች",
+    solution_recovery_desc: "የተዋቀሩ የማገገም ፕሮግራሞች ሰዎች ሕይወታቸውን እና ነፃነታቸውን እንዲያስተካክሉ ይረዳሉ።",
     cta_donate: "አሁን ልገሳ ያድርጉ",
     cta_learn: "ተጨማሪ ይወቁ",
     about_title: "እኛ ማነን?",
@@ -156,12 +241,64 @@ const strings = {
     footer_programs: "ፕሮግራሞች",
     footer_donate: "ልገሳ",
     footer_social: "ተከተል",
-    rights: "ሁሉም መብቶች የተጠበቁ ናቸው።"
+    rights: "ሁሉም መብቶች የተጠበቁ ናቸው።",
+    // Donation page translations
+    donate_hero_title: "የአእምሮ ጤና ማገገምን ይደግፉ",
+    donate_hero_sub: "ልገሳዎ አስፈላጊ የአእምሮ ጤና አገልግሎቶች፣ የማገገም ፕሮግራሞች እና ለሚያስፈልጉ ግለሰቦች እና ቤተሰቦች ድጋፍ እንዲሰጥ ይረዳል።",
+    donate_form_title: "ልገሳ ያድርጉ",
+    donate_amount_label: "የልገሳ መጠን",
+    donate_name_label: "ሙሉ ስም",
+    donate_email_label: "የኢሜይል አድራሻ",
+    donate_phone_label: "የስልክ ቁጥር",
+    donate_payment_label: "የመክፈያ ዘዴ",
+    donate_card_desc: "ቪዛ፣ ማስተርካርድ፣ አሜሪካን ኤክስፕረስ",
+    donate_card_number: "የካርድ ቁጥር",
+    donate_expiry: "የማለቂያ ቀን",
+    donate_cvv: "CVV",
+    donate_billing: "የመክፈያ አድራሻ",
+    donate_bank_desc: "ለትላልቅ ልገሳዎች ቀጥተኛ የባንክ ማስተላለፍ",
+    donate_bank_info_title: "የባንክ ማስተላለፍ ዝርዝሮች",
+    donate_bank_name: "የባንክ ስም:",
+    donate_account_name: "የመለያ ስም:",
+    donate_account_number: "የመለያ ቁጥር:",
+    donate_routing: "የማስተላለፍ ቁጥር:",
+    donate_swift: "SWIFT ኮድ:",
+    donate_purpose: "ዓላማ:",
+    donate_crypto_desc: "ቢትኮይን፣ ኢቴሪየም እና ሌሎች ክሪፕቶ ካሬንሲዎች",
+    donate_crypto_select: "ክሪፕቶ ካሬንሲ ይምረጡ",
+    donate_send_to: "ወደ ይላኩ:",
+    donate_crypto_note: "ለማረጋገጥ በገንዘብ ማስተላለፍ ማስታወሻ ውስጥ የኢሜይል አድራሻዎን ያካተቱ።",
+    donate_purpose_label: "የልገሳ ዓላማ (አማራጭ)",
+    donate_purpose_general: "አጠቃላይ ድጋፍ",
+    donate_purpose_treatment: "የሕክምና ፕሮግራሞች",
+    donate_purpose_rehab: "የማገገም አገልግሎቶች",
+    donate_purpose_family: "የቤተሰብ ድጋፍ",
+    donate_purpose_education: "የአእምሮ ጤና ትምህርት",
+    donate_purpose_research: "ምርምር እና ልማት",
+    donate_message_label: "መልዕክት (አማራጭ)",
+    donate_anonymous: "ይህን ልገሳ ስም ሳይጠቀስ ያድርጉ",
+    donate_recurring: "ይህን ወራዊ የሚደገም ልገሳ ያድርጉ",
+    donate_submit: "ልገሳ ያስኬዱ",
+    donate_processing: "ልገሳዎ እየተስኬደ ነው...",
+    donate_processing_note: "እባክዎ ይህን መስኮት አይዝጉ ወይም ገጹን አይያዩ።",
+    donate_success_title: "ልገሳዎ ስለሰጡ እናመሰግናለን!",
+    donate_success_message: "የእርስዎ አስተዋፅኦ አስፈላጊ የአእምሮ ጤና አገልግሎቶችን ለሚያስፈልጉ ሰዎች እንዲሰጥ ይረዳል።",
+    donate_receipt: "ሪሲፕት ወደ የኢሜይል አድራሻዎ ይላካል።",
+    donate_return_home: "ወደ ቤት ተመለስ",
+    // New keys for simplified donate page
+    choose_bank: "ባንክዎን ይምረጡ",
+    copy: "ኮፒ",
+    copied: "ወደ ቅንጥብ ሰሌዳ ተቀምጧል",
+    transfer_note: "እባክዎ \"ለገርጌሰኖን ልገሳ\" በማስታወሻ ይጨምሩ።"
   }
 };
 
+// Expose translations globally for simple inline usage
+window.strings = strings;
+
 // Language switching functionality
 function switchLanguage(lang) {
+  window.currentLang = lang;
   // Update active language button
   document.querySelectorAll('.lang button').forEach(btn => {
     btn.classList.remove('active');
@@ -179,6 +316,15 @@ function switchLanguage(lang) {
 
 // Initialize language switching
 document.addEventListener('DOMContentLoaded', function() {
+  // Initialize currentLang based on active button if present
+  try {
+    const activeBtn = document.querySelector('.lang button.active');
+    if (activeBtn && activeBtn.id === 'lang-am') {
+      window.currentLang = 'am';
+    } else {
+      window.currentLang = 'en';
+    }
+  } catch (_) {}
   // Set up language buttons
   const enButton = document.getElementById('lang-en');
   const amButton = document.getElementById('lang-am');
