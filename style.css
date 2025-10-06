@@ -1,12 +1,12 @@
 /* style.css */
 
-/* === Root Colors (from logo) === */
+/* === Root Colors (grayscale theme) === */
 :root {
-  --brand-blue: #4BB8E6;   /* Sky blue background */
-  --brand-yellow: #FFD93B; /* Sun yellow */
-  --brand-red: #E53935;    /* Brain red */
-  --brand-black: #000000;  /* Outline */
-  --brand-white: #FFFFFF;  /* White background */
+  --brand-primary: #374151;   /* Dark gray */
+  --brand-secondary: #6B7280; /* Medium gray */
+  --brand-highlight: #F3F4F6; /* Light gray */
+  --brand-black: #111827;     /* Near black */
+  --brand-white: #FFFFFF;     /* Pure white */
 }
 
 /* General Reset */
@@ -22,7 +22,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--brand-blue);
+  background: var(--brand-primary);
   padding: 15px 30px;
   color: var(--brand-white);
 }
@@ -49,27 +49,27 @@ nav a {
 }
 
 nav a.active {
-  border-bottom: 2px solid var(--brand-yellow);
+  border-bottom: 2px solid var(--brand-highlight);
 }
 
 nav a:hover {
-  color: var(--brand-yellow);
+  color: var(--brand-highlight);
 }
 
 .lang-toggle button {
   margin-left: 5px;
   padding: 5px 10px;
   border: none;
-  background: var(--brand-yellow);
+  background: var(--brand-highlight);
   color: var(--brand-black);
   cursor: pointer;
   border-radius: 4px;
   font-weight: bold;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .lang-toggle button:hover {
-  background: var(--brand-red);
+  background: var(--brand-secondary);
   color: var(--brand-white);
 }
 
@@ -77,13 +77,13 @@ nav a:hover {
 .hero {
   text-align: center;
   padding: 80px 20px;
-  background: linear-gradient(135deg, var(--brand-blue), var(--brand-yellow));
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-secondary));
   color: var(--brand-white);
 }
 
 .small-hero {
   padding: 50px 20px;
-  background: linear-gradient(135deg, var(--brand-yellow), var(--brand-blue));
+  background: linear-gradient(135deg, var(--brand-highlight), var(--brand-secondary));
   color: var(--brand-black);
 }
 
@@ -95,7 +95,7 @@ nav a:hover {
 }
 
 .content h2 {
-  color: var(--brand-blue);
+  color: var(--brand-primary);
   margin-bottom: 10px;
 }
 
@@ -117,15 +117,16 @@ footer {
 .donate-btn {
   display: inline-block;
   padding: 10px 20px;
-  background: var(--brand-yellow);
-  color: var(--brand-black);
+  background: var(--brand-primary);
+  color: var(--brand-white);
   font-weight: bold;
   text-decoration: none;
   border-radius: 6px;
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .donate-btn:hover {
-  background: var(--brand-red);
-  color: var(--brand-white);
+  background: var(--brand-secondary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
