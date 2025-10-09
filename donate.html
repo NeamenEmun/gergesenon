@@ -206,6 +206,187 @@
       transform: translateY(-1px);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
+    
+    /* Modern Payment Button Styles */
+    .payment-button-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    
+    .pay-now-button {
+      background: linear-gradient(135deg, #ff6b35, #f7931e);
+      border: none;
+      border-radius: 12px;
+      padding: 1rem 3rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #1e3a8a;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .pay-now-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+      transition: left 0.5s;
+    }
+    
+    .pay-now-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+    }
+    
+    .pay-now-button:hover::before {
+      left: 100%;
+    }
+    
+    .pay-now-button:active {
+      transform: translateY(0);
+    }
+    
+    /* Credit Card Logos */
+    .credit-card-logos {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    .card-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem;
+      border-radius: 6px;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      transition: all 0.2s ease;
+    }
+    
+    .card-logo:hover {
+      background: #e2e8f0;
+      transform: translateY(-1px);
+    }
+    
+    /* MasterCard */
+    .mastercard-circles {
+      position: relative;
+      width: 24px;
+      height: 16px;
+    }
+    
+    .mastercard-circles .circle {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+    }
+    
+    .mastercard-circles .circle.red {
+      background: #eb001b;
+      left: 0;
+    }
+    
+    .mastercard-circles .circle.orange {
+      background: #f79e1b;
+      right: 0;
+    }
+    
+    .card-text {
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #374151;
+    }
+    
+    /* Visa */
+    .visa-logo {
+      position: relative;
+      width: 32px;
+      height: 20px;
+      background: #1a1f71;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .visa-text {
+      color: white;
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    
+    .visa-stripe {
+      position: absolute;
+      bottom: 2px;
+      left: 2px;
+      right: 2px;
+      height: 2px;
+      background: #f7b500;
+    }
+    
+    /* American Express */
+    .amex-logo {
+      width: 32px;
+      height: 20px;
+      background: #006fcf;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .amex-text {
+      color: white;
+      font-size: 0.5rem;
+      font-weight: 700;
+      line-height: 1;
+      text-align: center;
+    }
+    
+    /* Discover */
+    .discover-logo {
+      width: 32px;
+      height: 20px;
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 3px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .discover-text {
+      color: #000;
+      font-size: 0.5rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    
+    .discover-network {
+      color: #000;
+      font-size: 0.4rem;
+      font-weight: 600;
+      line-height: 1;
+    }
+    
+    .discover-text::after {
+      content: 'O';
+      color: #ff6600;
+      font-weight: 900;
+    }
   </style>
 </head>
 <body>
@@ -251,13 +432,45 @@
   <section style="padding: 4rem 0; background: #f8fafc;">
     <div class="container" style="display:flex;align-items:center;justify-content:center;min-height:200px;">
       <div style="background:white;padding:2rem;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.1);max-width:560px;width:100%;text-align:center;">
-        <h2 style="margin-bottom: 1.5rem;" data-i18n="donate_digital_h">PayPal</h2>
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="paypal-form">
-          <input type="hidden" name="cmd" value="_s-xclick" />
-          <input type="hidden" name="hosted_button_id" value="BWYQEHKNF22B8" />
-          <input type="hidden" name="currency_code" value="USD" />
-          <input type="image" src="https://yt3.googleusercontent.com/8Dh5wf7aCFK9S2TA_G_ncKnNZZjBmRIE0P3_Ezxw8sjgbigx5l8gW8iIbYvGnnRplgNn-zfN=s160-c-k-c0x00ffffff-no-rj" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Buy Now" style="cursor:pointer;border-radius:8px;" />
-        </form>
+        <h2 style="margin-bottom: 1.5rem;" data-i18n="donate_digital_h">Secure Online Donation</h2>
+        
+        <!-- Modern Payment Button -->
+        <div class="payment-button-container">
+          <button class="pay-now-button" onclick="openPaymentModal('online')">
+            <span class="button-text">Pay Now</span>
+          </button>
+          
+          <!-- Credit Card Logos -->
+          <div class="credit-card-logos">
+            <div class="card-logo mastercard">
+              <div class="mastercard-circles">
+                <div class="circle red"></div>
+                <div class="circle orange"></div>
+              </div>
+              <span class="card-text">MasterCard</span>
+            </div>
+            
+            <div class="card-logo visa">
+              <div class="visa-logo">
+                <span class="visa-text">VISA</span>
+                <div class="visa-stripe"></div>
+              </div>
+            </div>
+            
+            <div class="card-logo amex">
+              <div class="amex-logo">
+                <span class="amex-text">AMERICAN<br>EXPRESS</span>
+              </div>
+            </div>
+            
+            <div class="card-logo discover">
+              <div class="discover-logo">
+                <span class="discover-text">DISCOVER</span>
+                <span class="discover-network">NETWORK</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div style="margin: 2rem 0; height:1px; background:#e2e8f0;"></div>
 
