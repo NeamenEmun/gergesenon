@@ -86,6 +86,42 @@ nav a:hover {
   background: linear-gradient(135deg, var(--brand-highlight), var(--brand-secondary));
   color: var(--brand-black);
 }
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  text-align: center;
+  min-width: 160px;
+  transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.stat-value {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
 
 /* Content Sections */
 .content {
