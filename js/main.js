@@ -78,6 +78,42 @@ function initializeSmoothScrolling() {
   });
 }
 
+// Mobile menu toggle functionality
+function initializeMobileMenu() {
+  const mobileToggle = document.querySelector('.mobile-menu-toggle');
+  const navLinks = document.querySelector('.navlinks');
+  
+  if (mobileToggle && navLinks) {
+    mobileToggle.addEventListener('click', function() {
+      navLinks.classList.toggle('active');
+      
+      // Update button text
+      if (navLinks.classList.contains('active')) {
+        this.textContent = '✕';
+      } else {
+        this.textContent = '☰';
+      }
+    });
+    
+    // Close menu when clicking on a link
+    const navLinkElements = document.querySelectorAll('.nav-link');
+    navLinkElements.forEach(link => {
+      link.addEventListener('click', function() {
+        navLinks.classList.remove('active');
+        mobileToggle.textContent = '☰';
+      });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!mobileToggle.contains(event.target) && !navLinks.contains(event.target)) {
+        navLinks.classList.remove('active');
+        mobileToggle.textContent = '☰';
+      }
+    });
+  }
+}
+
 // Initialize everything when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
   // Set current year
@@ -94,4 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Initialize media filters if they exist
   initializeMediaFilters();
+  
+  // Initialize mobile menu
+  initializeMobileMenu();
 });
