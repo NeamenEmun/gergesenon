@@ -1,0 +1,21 @@
+{
+    "name": "Gergesenon Mental Institute",
+    "short_name": "Gergesenon",
+    "description": "Center for Support and Rehabilitation of People with Mental Disorder",
+    "icons": [
+        {
+            "src": "/logo.jpg",
+            "sizes": "192x192",
+            "type": "image/jpeg"
+        },
+        {
+            "src": "/logo.jpg",
+            "sizes": "512x512",
+            "type": "image/jpeg"
+        }
+    ],
+    "theme_color": "#000000",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "start_url": "/"
+}
