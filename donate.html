@@ -225,8 +225,8 @@
       background: linear-gradient(135deg, #ff6b35, #f7931e);
       border: none;
       border-radius: 12px;
-      padding: 1rem 3rem;
-      font-size: 1.2rem;
+      padding: 1.5rem 4rem;
+      font-size: 1.4rem;
       font-weight: 700;
       color: #1e3a8a;
       cursor: pointer;
@@ -234,6 +234,7 @@
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
+      min-width: 200px;
     }
     
     .pay-now-button::before {
@@ -439,13 +440,18 @@
   <section style="padding: 4rem 0; background: #f8fafc;">
     <div class="container" style="display:flex;align-items:center;justify-content:center;min-height:200px;">
       <div style="background:white;padding:2rem;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.1);max-width:560px;width:100%;text-align:center;">
-        <h2 style="margin-bottom: 1.5rem;" data-i18n="donate_digital_h">Secure Online Donation</h2>
+        <h2 style="margin-bottom: 1.5rem;" data-i18n="donate_digital_h">Online Donation</h2>
         
-        <!-- Modern Payment Button -->
+        <!-- PayPal Donation Form -->
         <div class="payment-button-container">
-          <button class="pay-now-button" onclick="openPaymentModal('online')">
-            <span class="button-text">Pay Now</span>
-          </button>
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" id="paypal-form">
+            <input type="hidden" name="cmd" value="_s-xclick" />
+            <input type="hidden" name="hosted_button_id" value="9AD6S6QUALXYU" />
+            <input type="hidden" name="currency_code" value="USD" />
+            <button type="submit" class="pay-now-button">
+              <span class="button-text">Donate</span>
+            </button>
+          </form>
           
           <!-- Credit Card Logos -->
           <div class="credit-card-logos">
@@ -528,6 +534,10 @@
   <script src="js/main.js"></script>
   <script src="js/i18n.js"></script>
   <script>
+    function openPaymentModal(type) {
+      // This function can be used for future payment modal implementation
+      console.log('Payment modal for:', type);
+    }
     (function(){
       const bankAccounts = {
         cbe: { name: 'Commercial Bank of Ethiopia (CBE)', accountName: 'Gergesenon Ethiopia', accountNumber: '1000003785495', branchCode: '6860' },
