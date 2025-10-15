@@ -12,8 +12,302 @@
   <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="./styles/main.css?v=2">
   <link rel="stylesheet" href="./styles/components.css">
+  <style>
+    /* Cool UI Enhancements for Index Page */
+    
+    /* Fix whitespace issues */
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+    
+    /* Animated Background Particles - Optimized */
+    .particles-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+    
+    .particle {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 50%;
+      animation: float 8s ease-in-out infinite;
+      will-change: transform, opacity;
+    }
+    
+    .particle:nth-child(1) { width: 4px; height: 4px; left: 10%; animation-delay: 0s; }
+    .particle:nth-child(2) { width: 6px; height: 6px; left: 20%; animation-delay: 1s; }
+    .particle:nth-child(3) { width: 3px; height: 3px; left: 30%; animation-delay: 2s; }
+    .particle:nth-child(4) { width: 5px; height: 5px; left: 40%; animation-delay: 3s; }
+    .particle:nth-child(5) { width: 4px; height: 4px; left: 50%; animation-delay: 4s; }
+    .particle:nth-child(6) { width: 6px; height: 6px; left: 60%; animation-delay: 5s; }
+    .particle:nth-child(7) { width: 3px; height: 3px; left: 70%; animation-delay: 0.5s; }
+    .particle:nth-child(8) { width: 5px; height: 5px; left: 80%; animation-delay: 1.5s; }
+    .particle:nth-child(9) { width: 4px; height: 4px; left: 90%; animation-delay: 2.5s; }
+    .particle:nth-child(10) { width: 6px; height: 6px; left: 95%; animation-delay: 3.5s; }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      50% { transform: translateY(-10vh) rotate(180deg); }
+    }
+    
+    /* Enhanced Hero Section */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 50%, rgba(0,0,0,0.4) 100%);
+      z-index: 1;
+    }
+    
+    .hero .content {
+      position: relative;
+      z-index: 10;
+      padding-top: 8rem;
+      padding-bottom: 4rem;
+    }
+    
+    /* Fix hero media image gaps */
+    .hero .media {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .hero .media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Animated Hero Badge */
+    .hero-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 0.75rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      animation: slideInDown 1s ease-out;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+    }
+    
+    @keyframes slideInDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    
+    /* Enhanced Stat Cards */
+    .stat-card {
+      animation: fadeInUp 0.8s ease-out;
+      animation-fill-mode: both;
+    }
+    
+    .stat-card:nth-child(1) { animation-delay: 0.2s; }
+    .stat-card:nth-child(2) { animation-delay: 0.4s; }
+    .stat-card:nth-child(3) { animation-delay: 0.6s; }
+    
+    @keyframes fadeInUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    
+    /* Glassmorphism Effect for Problem Section */
+    .problem-section {
+      position: relative;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      padding-top: 6rem;
+      padding-bottom: 4rem;
+    }
+    
+    .problem-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23000" opacity="0.02"/><circle cx="75" cy="75" r="1" fill="%23000" opacity="0.02"/><circle cx="50" cy="10" r="0.5" fill="%23000" opacity="0.03"/><circle cx="10" cy="60" r="0.5" fill="%23000" opacity="0.03"/><circle cx="90" cy="40" r="0.5" fill="%23000" opacity="0.03"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      opacity: 0.3;
+      z-index: 1;
+    }
+    
+    .problem-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    /* Smooth Scroll Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease-out;
+    }
+    
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    /* Enhanced Problem Stats */
+    .problem-stat {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    
+    .problem-stat:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+    
+    /* Floating Action Button */
+    .floating-cta {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: #21BAE4;
+      color: white;
+      border: none;
+      border-radius: 50px;
+      padding: 1rem 2rem;
+      font-weight: 600;
+      box-shadow: 0 8px 25px rgba(33, 186, 228, 0.3);
+      cursor: pointer;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      animation: pulse 2s infinite;
+      text-decoration: none;
+      display: inline-block;
+    }
+    
+    .floating-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(33, 186, 228, 0.4);
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    /* Performance optimizations */
+    .particle {
+      will-change: transform, opacity;
+    }
+    
+    .stat-card {
+      will-change: transform, opacity;
+    }
+    
+    .floating-cta {
+      will-change: transform;
+    }
+    
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+      .particle,
+      .stat-card,
+      .floating-cta,
+      .hero-badge {
+        animation: none !important;
+        transition: none !important;
+      }
+      
+      .fade-in {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+    
+    /* Mobile performance optimizations */
+    @media (max-width: 768px) {
+      .floating-cta {
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+      }
+      
+      .particle {
+        display: none; /* Hide particles on mobile for better performance */
+      }
+      
+      .hero::before {
+        background: rgba(0,0,0,0.4); /* Simpler overlay on mobile */
+      }
+      
+      .problem-section::before {
+        display: none; /* Hide texture pattern on mobile */
+      }
+    }
+    
+    /* Fix potential z-index issues */
+    .hero .content {
+      position: relative;
+      z-index: 10;
+    }
+    
+    .problem-content {
+      position: relative;
+      z-index: 10;
+    }
+  </style>
 </head>
 <body>
+  <!-- Animated Background Particles - Reduced for Performance -->
+  <div class="particles-container">
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+    <div class="particle"></div>
+  </div>
+
   <!-- Header / Nav -->
   <header>
     <div class="container nav">
@@ -78,7 +372,7 @@
   <!-- The Problem -->
   <section id="problem" class="problem-section">
     <div class="container">
-      <div class="problem-content">
+      <div class="problem-content fade-in">
         <div class="problem-text">
           <h2 data-i18n="problem_title">The Challenge</h2>
           <p class="problem-lead" data-i18n="problem_lead">Mental health disorders affect countless individuals and families across Ethiopia, yet access to specialized treatment and rehabilitation services remains severely limited, particularly in rural and underserved communities.</p>
@@ -109,6 +403,10 @@
     </div>
   </section>
 
+  <!-- Floating CTA Button -->
+  <button class="floating-cta" onclick="window.location.href='donate.html'">
+    💝 Donate Now
+  </button>
 
   <!-- Contact / Footer -->
   <footer id="contact">
@@ -134,5 +432,125 @@
 
   <script src="js/main.js"></script>
   <script src="js/i18n.js"></script>
+  <script>
+    // Cool UI JavaScript for Index Page
+    document.addEventListener('DOMContentLoaded', function() {
+      // Check if we're on mobile or low-end device to reduce animations
+      const isMobile = window.innerWidth <= 768;
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const isLowEndDevice = navigator.hardwareConcurrency && navigator.hardwareConcurrency < 4;
+      
+      // Skip heavy animations on mobile, low-end devices, or if user prefers reduced motion
+      if (isMobile || isLowEndDevice || prefersReducedMotion) {
+        // Add visible class to all fade-in elements immediately
+        document.querySelectorAll('.fade-in').forEach(el => {
+          el.classList.add('visible');
+        });
+        // Hide particles for better performance
+        const particlesContainer = document.querySelector('.particles-container');
+        if (particlesContainer) {
+          particlesContainer.style.display = 'none';
+        }
+        return;
+      }
+
+      // Scroll animations with error handling
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      // Observe all fade-in elements
+      document.querySelectorAll('.fade-in').forEach(el => {
+        observer.observe(el);
+      });
+
+      // Enhanced stat card animations
+      const statCards = document.querySelectorAll('.stat-card');
+      statCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.2}s`;
+      });
+
+      // Floating CTA button scroll behavior with throttling
+      const floatingCta = document.querySelector('.floating-cta');
+      if (floatingCta) {
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+
+        function updateFloatingCta() {
+          const currentScrollY = window.scrollY;
+          
+          if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            // Scrolling down
+            floatingCta.style.transform = 'translateY(100px)';
+          } else {
+            // Scrolling up
+            floatingCta.style.transform = 'translateY(0)';
+          }
+          
+          lastScrollY = currentScrollY;
+          ticking = false;
+        }
+
+        function requestTick() {
+          if (!ticking) {
+            requestAnimationFrame(updateFloatingCta);
+            ticking = true;
+          }
+        }
+
+        window.addEventListener('scroll', requestTick, { passive: true });
+      }
+
+      // Parallax effect for hero section with throttling
+      const hero = document.querySelector('.hero');
+      if (hero) {
+        let ticking = false;
+
+        function updateParallax() {
+          const scrolled = window.pageYOffset;
+          // Reduced parallax intensity for better performance
+          hero.style.transform = `translateY(${scrolled * 0.1}px)`;
+          ticking = false;
+        }
+
+        function requestParallaxTick() {
+          if (!ticking) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
+          }
+        }
+
+        window.addEventListener('scroll', requestParallaxTick, { passive: true });
+      }
+
+      // Add hover effects to problem stats with error handling
+      const problemStats = document.querySelectorAll('.problem-stat');
+      problemStats.forEach(stat => {
+        stat.addEventListener('mouseenter', function() {
+          this.style.transform = 'translateY(-10px) scale(1.02)';
+        });
+        
+        stat.addEventListener('mouseleave', function() {
+          this.style.transform = 'translateY(0) scale(1)';
+        });
+      });
+
+      // Clean up observers on page unload
+      window.addEventListener('beforeunload', function() {
+        if (observer) {
+          observer.disconnect();
+        }
+      });
+    });
+  </script>
 </body>
 </html>
