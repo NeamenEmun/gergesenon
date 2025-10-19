@@ -150,6 +150,19 @@ header {
   overflow: hidden;
 }
 
+/* Section spacing: give each top-level section vertical breathing room
+   and keep the hero section's spacing handled separately */
+section {
+  padding-top: var(--spacing-xl);
+  padding-bottom: var(--spacing-2xl);
+}
+
+section.hero {
+  /* hero has its own min-height and visual layout, keep padding minimal */
+  padding-top: 0;
+  padding-bottom: var(--spacing-2xl);
+}
+
 /* Responsive hero heights */
 @media (max-width: 768px) {
   .hero {

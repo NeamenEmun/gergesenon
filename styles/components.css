@@ -214,3 +214,63 @@ label {
   .payment-methods { grid-template-columns: 1fr; }
   .media-grid { grid-template-columns: 1fr; }
 }
+
+/* Founder card */
+.founder {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.founder-wrap { display:flex; align-items:center; gap:1rem; }
+.founder-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--muted);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  flex-shrink: 0;
+}
+.founder-info h3 { margin: 0 0 0.25rem 0; font-size: 1.05rem; }
+.founder-info p { margin:0; color: var(--muted); font-size: 0.95rem; }
+@media (max-width:700px) {
+  .founder { flex-direction: column; text-align:center; }
+  .founder-photo { width:100px; height:100px; }
+}
+
+/* Polished About page visuals */
+.section-title { margin-bottom: 1.25rem; }
+.section-title h2 { font-size: 1.8rem; margin-bottom: 0.35rem; }
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; align-items: start; }
+.tag { display:inline-block; background: var(--brand-light); color: var(--brand-2); padding: 0.35rem 0.6rem; border-radius: 999px; font-weight:600; margin: 0.25rem 0.25rem 0 0; }
+.quote { font-style: italic; background: linear-gradient(90deg, rgba(0,0,0,0.03), rgba(0,0,0,0.01)); padding: 1rem; border-left: 4px solid var(--brand); border-radius: 8px; }
+.card.founder { align-items: center; }
+.founder-wrap { align-items: center; }
+
+/* Slightly larger container padding on wider screens */
+@media (min-width: 1000px) {
+  .container { padding-left: 2.5rem; padding-right: 2.5rem; }
+}
+
+/* Center the impact section title and align cards */
+#impact .section-title { text-align: center; }
+#impact .cards { justify-items: center; }
+@media (max-width: 900px) {
+  #impact .cards { grid-template-columns: 1fr; }
+}
+
+/* Center the mission section title and align content to center on medium screens */
+#mission .section-title { text-align: center; }
+#mission .cards { justify-items: center; }
+@media (max-width: 900px) {
+  #mission .cards { grid-template-columns: 1fr; }
+}
+
+/* Center the founder section and card */
+#founder .section-title { text-align: center; }
+#founder .cards { justify-items: center; }
+#founder .card.founder { max-width: 720px; width: 100%; }
+@media (max-width: 900px) {
+  #founder .cards { grid-template-columns: 1fr; }
+  #founder .card.founder { max-width: none; }
+}
