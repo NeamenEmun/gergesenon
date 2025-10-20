@@ -3,15 +3,121 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About Us — Gergesenon Mental Institute</title>
+  <title>About Gergesenon Mental Rehabilitation Center - Our Mission, Impact & Founder</title>
+  <meta name="description" content="Learn about Gergesenon Mental Rehabilitation Center's mission to provide mental health support and rehabilitation in Ethiopia. Meet our founder Meles Gergesenon and discover our impact.">
+  <meta name="keywords" content="about Gergesenon Mental Rehabilitation Center, mental health Ethiopia, founder Meles Gergesenon, mental health mission, rehabilitation center Ethiopia">
+  <meta name="author" content="Gergesenon Mental Rehabilitation Center">
+  <meta property="og:title" content="About Gergesenon Mental Rehabilitation Center - Mental Health Support in Ethiopia">
+  <meta property="og:description" content="Discover our mission to provide comprehensive mental health services and rehabilitation programs in Ethiopia. Meet our founder and learn about our impact.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gergesenon.org/about">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About Gergesenon Mental Rehabilitation Center">
+  <meta name="twitter:description" content="Mental health support and rehabilitation in Ethiopia">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/logo.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/logo.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/logo.png">
-  <link rel="manifest" href="/site.webmanifest">
   <link rel="stylesheet" href="styles/main.css">
   <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* General Body */
+    body { font-family: var(--font-sans); color: var(--text); line-height: 1.6; margin: 0; padding: 0; background: var(--bg); }
+    a { text-decoration: none; color: inherit; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+    .text-center { text-align: center; }
+    h2, h3, h4 { margin: 0 0 0.5rem 0; }
+    p { margin: 0 0 1rem 0; }
+
+    /* Hero Section */
+    .hero { position: relative; display: flex; align-items: center; justify-content: center; min-height: 60vh; color: var(--bg); }
+    .hero img { width: 100%; height: 100%; object-fit: cover; position: absolute; top: 0; left: 0; z-index: -2; }
+    .hero .shade { position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.4); z-index: -1; }
+    .hero .content { text-align: center; padding: 3rem 1rem; max-width: 800px; }
+    .hero h1 { font-size: 2.8rem; margin-bottom: 1rem; }
+    .hero p.lead { font-size: 1.2rem; margin-bottom: 2rem; color: var(--gray-100); }
+    /* Button Styles (from main.css) */
+    .btn { 
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      transition: all 0.2s ease;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      margin: 0 0.5rem;
+    }
+    .btn.primary {
+      background: var(--brand);
+      color: var(--bg);
+    }
+    .btn.primary:hover {
+      background: var(--brand-2);
+      transform: translateY(-1px);
+    }
+    .btn.ghost {
+      background: transparent;
+      border: 2px solid var(--bg);
+      color: var(--bg);
+    }
+    .btn.ghost:hover {
+      background: rgba(255,255,255,0.1);
+      transform: translateY(-1px);
+    }
+
+    /* Impact Section */
+    .impact-section { padding: 6rem 0; }
+    .section-header { max-width: 700px; margin: 0 auto 3rem; }
+    .section-title { font-size: 2.5rem; font-weight: 700; color: var(--brand); margin-bottom: 0.5rem; }
+    .section-subtitle { color: var(--muted); font-size: 1.125rem; }
+    .impact-summary { max-width: 800px; margin: 0 auto 3rem; color: var(--text); font-size: 1rem; }
+    .impact-summary strong { color: var(--brand); }
+
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 2rem; margin-bottom: 4rem; text-align: center; }
+    .stat-item { background: var(--card); padding: 2rem 1.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .stat-item:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .stat-number { font-size: 2rem; font-weight: 700; color: var(--brand); margin-bottom: 0.4rem; }
+    .stat-label { font-size: 0.95rem; text-transform: uppercase; color: var(--muted); letter-spacing: 0.8px; }
+
+    .values-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 2rem; }
+    .value-card { background: var(--card); border-radius: var(--radius-lg); padding: 2rem 1.5rem; text-align: center; box-shadow: var(--shadow-sm); transition: transform 0.3s ease; }
+    .value-card:hover { transform: translateY(-4px); }
+    .value-icon { font-size: 2rem; margin-bottom: 1rem; color: var(--brand); }
+    .value-title { font-weight: 600; font-size: 1.15rem; margin-bottom: 0.75rem; color: var(--brand); }
+    .value-text { color: var(--text); font-size: 0.95rem; line-height: 1.6; }
+
+    /* Timeline */
+    .timeline { position: relative; max-width: 800px; margin: 4rem auto; }
+        .timeline::before { content:''; position:absolute; left:30px; top:0; bottom:0; width:2px; background:var(--brand-light); }
+    .timeline-item { position:relative; padding-left:90px; margin-bottom:3rem; }
+    .timeline-year { position:absolute; left:0; top:0; width:60px; height:60px; background:var(--brand); color:var(--bg); border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.9rem; }
+    .timeline-content { background:var(--card); padding:1rem 1.5rem; border-radius:var(--radius-lg); border:1px solid var(--brand-light); }
+    .timeline-content h4 { color:var(--brand); margin-bottom:0.5rem; }
+    .timeline-content p { color:var(--text); }
+
+    /* Founder Section */
+    .founder-section { background: linear-gradient(135deg, var(--brand-light) 0%, var(--bg) 100%); padding: 6rem 0; }
+    .founder-card { max-width: 900px; margin: 0 auto; background:var(--card); border-radius:var(--radius-lg); box-shadow:var(--shadow-md); overflow:hidden; border:1px solid var(--brand-light); }
+    .founder-content { padding: 3rem 2rem; }
+    .founder-header { display:flex; align-items:center; gap:2rem; margin-bottom:2rem; }
+    .founder-photo { width:180px; height:180px; border-radius:50%; object-fit:cover; border:4px solid #e0f2fe; }
+    .founder-info h2 { font-size:1.8rem; margin-bottom:0.5rem; }
+    .founder-title { font-size:1.1rem; font-weight:600; color:#2563eb; margin-bottom:1rem; }
+    .founder-bio p { margin-bottom:1rem; color:var(--text); line-height:1.7; }
+    .founder-highlights { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem; margin-top:2rem; }
+    .founder-highlight { background:var(--brand-light); padding:1rem 1.5rem; border-left:4px solid var(--brand); border-radius:var(--radius-md); }
+    .founder-highlight h4 { color:var(--brand); font-size:1rem; margin-bottom:0.5rem; }
+    .founder-highlight p { color:var(--text); font-size:0.95rem; }
+
+    /* Footer */
+    footer { background:#f1f5f9; padding:3rem 1.5rem; color:#475569; }
+    .footergrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2rem; margin-bottom:1rem; }
+    .footercol div { margin-bottom:0.5rem; }
+    .footercol a { color:#2563eb; }
+    .footercol a:hover { text-decoration:underline; }
+    @media (max-width:768px) { .hero h1 { font-size:2rem; } .stats-grid { grid-template-columns: repeat(2,1fr); } .values-grid { grid-template-columns:1fr; } }
+    @media (max-width:480px) { .stats-grid { grid-template-columns:1fr; } }
+  </style>
 </head>
 <body>
   <!-- Header / Nav -->
@@ -19,10 +125,10 @@
     <div class="container nav">
       <div class="brand">
         <div class="logo">
-          <img src="logo.png" alt="Gergesenon Mental Institute Logo">
+          <img src="logo.png" alt="Gergesenon Mental Rehabilitation Center Logo - Mental Health Support and Rehabilitation Center in Ethiopia" width="50" height="50">
         </div>
         <div>
-          <div data-i18n="brand">Gergesenon Mental Institute</div>
+          <div data-i18n="brand">Gergesenon Mental Rehabilitation Center</div>
           <div class="small muted" data-i18n="tagline">Center for Support and Rehabilitation</div>
         </div>
       </div>
@@ -31,7 +137,7 @@
         <a href="index.html" class="nav-link" data-i18n="nav_home">Home</a>
         <a href="about.html" class="nav-link active" data-i18n="nav_about">About Us</a>
         <a href="media.html" class="nav-link" data-i18n="nav_media">Media</a>
-  <a href="donate.html" class="nav-link" data-i18n="nav_donate">Donate</a>
+        <a href="donate.html" class="nav-link" data-i18n="nav_donate">Donate</a>
         <a href="index.html#contact" class="nav-link" data-i18n="nav_contact">Contact</a>
       </nav>
       <div class="lang" role="group" aria-label="Language selector">
@@ -39,100 +145,103 @@
         <button id="lang-am">AM</button>
       </div>
     </div>
-  </header>
-
-  <!-- Hero -->
+  </header>  <!-- Hero -->
   <section class="hero">
-    <div class="media">
-      <img alt="Community gathering" src="bg.jpg"/>
-      <div class="shade"></div>
-    </div>
+    <img src="bg.jpg" alt="Community gathering" />
+    <div class="shade"></div>
     <div class="container content">
-      <h1 data-i18n="about_hero_title">About Gergesenon Mental Institute</h1>
-      <p class="lead" data-i18n="about_hero_sub">Learn about our mission, our story, and the dedicated team behind our community impact.</p>
+      <h1 data-i18n="about_hero_title">About Gergesenon Mental Rehabilitation Center</h1>
+      <p class="lead" data-i18n="about_hero_sub">For decades, we have provided compassionate mental health care and rehabilitation across Ethiopia. Discover our mission, meet our founder, and see the lives we've transformed.</p>
       <div class="cta">
-        <a href="#mission" class="btn primary" data-i18n="cta_learn">Learn More</a>
-        <a href="index.html#contact" class="btn ghost" data-i18n="cta_contact">Get in Touch</a>
+        <a href="#mission" class="btn primary" data-i18n="cta_mission">Our Mission</a>
+        <a href="#founder" class="btn ghost" data-i18n="cta_founder">Meet Our Founder</a>
       </div>
     </div>
   </section>
 
-  <!-- Mission -->
-  <section id="mission">
+  <!-- Impact Section -->
+  <section id="mission" class="impact-section">
     <div class="container">
-      <div class="section-title">
-        <h2 data-i18n="mission_title">Our Mission</h2>
-        <span class="muted" data-i18n="mission_kicker">Empowering families • Building futures • Strengthening communities</span>
+      <div class="text-center section-header">
+        <h2 class="section-title">Our Impact</h2>
+        <p class="section-subtitle">Transforming lives through compassionate mental health care and community rehabilitation.</p>
       </div>
-      <div class="cards">
-        <article class="card span-8">
-          <h3 data-i18n="mission_h">What We Do</h3>
-          <p class="muted" data-i18n="mission_p">We empower families and individuals through safe shelter, education, and wraparound support services. Our comprehensive approach addresses the root causes of homelessness and poverty, providing not just immediate relief but long-term solutions for sustainable change.</p>
-          <p class="muted" data-i18n="mission_p2">Every person who walks through our doors receives personalized care, respect, and the tools they need to rebuild their lives. We believe that everyone deserves dignity, safety, and the opportunity to thrive.</p>
-        </article>
-        <article class="card span-4">
-          <h3 data-i18n="mission_values_h">Our Values</h3>
-          <div>
-            <span class="tag" data-i18n="value_dignity">Dignity</span>
-            <span class="tag" data-i18n="value_compassion">Compassion</span>
-            <span class="tag" data-i18n="value_community">Community</span>
-            <span class="tag" data-i18n="value_equity">Equity</span>
-            <span class="tag" data-i18n="value_hope">Hope</span>
-          </div>
-        </article>
+
+      <div class="impact-summary">
+        <p><strong>Gergesenon Mental Rehabilitation Center</strong> provides shelter, treatment, and long-term rehabilitation for individuals with severe mental health challenges in Addis Ababa. Over the past decade, we have supported <strong>262</strong> people, with <strong>85</strong> successfully recovering and reintegrating into their communities.</p>
+        <p>Recognized for community-driven approaches, our programs combine professional expertise with culturally-sensitive care, offering hope and dignity to those in need.</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-item"><h3 class="stat-number">262</h3><p class="stat-label">Individuals Assisted</p></div>
+        <div class="stat-item"><h3 class="stat-number">85</h3><p class="stat-label">Recovered & Reintegrated</p></div>
+        <div class="stat-item"><h3 class="stat-number">2005</h3><p class="stat-label">Year Established</p></div>
+        <div class="stat-item"><h3 class="stat-number">Addis Ababa</h3><p class="stat-label">Area of Operation</p></div>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card"><div class="value-icon"><i class="fas fa-heart"></i></div><h4 class="value-title">Compassionate Care</h4><p class="value-text">We treat every individual with dignity, empathy, and respect, creating a safe space for healing and growth.</p></div>
+        <div class="value-card"><div class="value-icon"><i class="fas fa-globe"></i></div><h4 class="value-title">Community Empowerment</h4><p class="value-text">We work with families, churches, and local partners to raise awareness and reduce stigma.</p></div>
+        <div class="value-card"><div class="value-icon"><i class="fas fa-bolt"></i></div><h4 class="value-title">Innovative Rehabilitation</h4><p class="value-text">Our programs combine evidence-based therapy with traditional compassion for effective reintegration.</p></div>
       </div>
     </div>
   </section>
 
- 
-  <!-- Impact -->
-  <section id="impact">
+  <!-- Timeline Section -->
+  <section style="background:var(--brand-light); padding:4rem 0;">
     <div class="container">
-      <div class="section-title">
-        <h2 data-i18n="impact_title">Our Impact</h2>
-        <span class="muted" data-i18n="impact_kicker">Real results. Real change.</span>
+      <div class="section-header text-center">
+        <h2 class="section-title">Our Journey</h2>
+        <p class="section-subtitle">A decade of service and growth in mental health care</p>
       </div>
-      <div class="cards">
-        <article class="card span-6">
-          <h3 data-i18n="impact_numbers_h">By the Numbers</h3>
-          <div>
-            <span class="tag" data-i18n="impact_families">2,000+ families served</span>
-            <span class="tag" data-i18n="impact_housing">85% housing success rate</span>
-            <span class="tag" data-i18n="impact_education">500+ children in education programs</span>
-            <span class="tag" data-i18n="impact_volunteers">200+ active volunteers</span>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">2005</div>
+          <div class="timeline-content">
+            <h4>Foundation</h4>
+            <p>Gergesenon Mental Rehabilitation Center was founded in Addis Ababa, focusing on support and rehabilitation for individuals with severe mental illnesses.</p>
           </div>
-        </article>
-        <article class="card span-6">
-          <h3 data-i18n="impact_stories_h">Success Stories</h3>
-          <p class="quote" data-i18n="impact_story">"Community Hope didn't just give us a place to stay—they gave us the tools to build a new life."</p>
-          <div class="muted small" data-i18n="impact_story_attr">— Maria and her family, now in stable housing</div>
-        </article>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2010</div>
+          <div class="timeline-content">
+            <h4>Community Outreach</h4>
+            <p>Expanded services to include family education programs, awareness campaigns, and partnerships with local clinics.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-year">2020</div>
+          <div class="timeline-content">
+            <h4>Rehabilitation Programs</h4>
+            <p>Introduced structured rehabilitation plans, integrating traditional and modern mental health therapies for long-term recovery.</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Founder -->
-  <section id="founder">
-    <div class="container">
-      <div class="section-title">
-        <h2>Founder</h2>
-        <span class="muted">Meet the founder and visionary behind our work</span>
-      </div>
-      <div class="cards">
-        <article class="card founder span-4">
-          <div class="founder-wrap">
-            <img src="./meles.jpg" alt="Meles, Founder" class="founder-photo" loading="lazy" width="160" height="160">
-            <div class="founder-info">
-              <h3>Meles Gergesenon</h3>
-              <p class="muted small">Meles Gergesenon is the founder and director of the shelter, leading its mission with empathy and purpose. He is dedicated to creating a space where recovery, respect, and renewal guide every aspect of care. Through his leadership, Meles continues to champion mental health awareness and ensure every resident receives the support they need to rebuild their lives with dignity.</p>
-            </div>
+  <!-- Founder Section -->
+  <section id="founder" class="founder-section">
+    <div class="founder-card">
+      <div class="founder-content">
+        <div class="founder-header">
+          <img src="meles.jpg" alt="Meles Gergesenon" class="founder-photo">
+          <div class="founder-info">
+            <h2>Meles Gergesenon</h2>
+            <p class="founder-title">Founder & Director</p>
+            <p class="founder-bio">Driven by compassion and a vision for accessible mental health care, Meles established Gergesenon Mental Rehabilitation Center to provide shelter, treatment, and dignity for those facing severe mental challenges. His leadership emphasizes culturally-sensitive care and community integration.</p>
           </div>
-        </article>
+        </div>
+        <div class="founder-highlights">
+          <div class="founder-highlight"><h4>Professional Recognition</h4><p>Acclaimed for mental health advocacy and community rehabilitation in Ethiopia.</p></div>
+          <div class="founder-highlight"><h4>Mission Focus</h4><p>Committed to expanding mental health services and raising awareness nationwide.</p></div>
+          <div class="founder-highlight"><h4>Community Impact</h4><p>Instrumental in assisting hundreds of individuals to recover and reintegrate into society with dignity.</p></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact / Footer -->
+  <!-- Footer (copied from index.html for consistency) -->
   <footer id="contact">
     <div class="container">
       <div class="footergrid">
@@ -150,10 +259,9 @@
           </div>
         </div>
       </div>
-      <div class="small" style="margin-top:1rem;color:var(--muted)">© <span id="year"></span> <span data-i18n="brand">Gergesenon Mental Institute</span>. <span data-i18n="rights">All rights reserved.</span></div>
+      <div class="small" style="margin-top:1rem;color:var(--muted)">© <span id="year"></span> <span data-i18n="brand">Gergesenon Mental Rehabilitation Center</span>. <span data-i18n="rights">All rights reserved.</span></div>
     </div>
   </footer>
-
   <script src="js/main.js"></script>
   <script src="js/i18n.js"></script>
 </body>

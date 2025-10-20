@@ -3,7 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Gergesenon Mental Instituite— Center for Support and Rehabilitation of People with Mental Disorder</title>
+  <title>Gergesenon Mental Institute - Mental Health Support & Rehabilitation in Ethiopia</title>
+  <meta name="description" content="Gergesenon Mental Institute provides comprehensive mental health services, rehabilitation programs, and community support in Ethiopia. Helping individuals and families thrive.">
+  <meta name="keywords" content="mental health Ethiopia, rehabilitation center, mental health support, psychiatric care, community mental health, mental health services Addis Ababa">
+  <meta name="author" content="Gergesenon Mental Institute">
+  <meta property="og:title" content="Gergesenon Mental Institute - Mental Health Support in Ethiopia">
+  <meta property="og:description" content="Comprehensive mental health services and rehabilitation programs in Ethiopia. Supporting individuals and families with professional care.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gergesenon.org">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gergesenon Mental Institute - Mental Health Support">
+  <meta name="twitter:description" content="Professional mental health services and rehabilitation in Ethiopia">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="/logo.png">
@@ -296,6 +306,79 @@
       position: relative;
       z-index: 10;
     }
+    
+    /* Our Approach Section */
+    .approach-section {
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      padding: 6rem 0;
+    }
+    
+    .approach-lead {
+      font-size: 1.2rem;
+      font-weight: 500;
+      line-height: 1.6;
+      margin-bottom: 3rem;
+      color: var(--text);
+      text-align: center;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+    
+    .approach-card {
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    
+    .approach-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+    
+    .approach-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    
+    .approach-card h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--brand);
+      margin-bottom: 1rem;
+    }
+    
+    .approach-card p {
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+    }
+    
+    /* Secondary Button Style */
+    .btn.secondary {
+      background: #21BAE4;
+      color: white;
+      border: 2px solid #21BAE4;
+    }
+    
+    .btn.secondary:hover {
+      background: #1a9bc4;
+      border-color: #1a9bc4;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
   </style>
 </head>
 <body>
@@ -313,7 +396,7 @@
     <div class="container nav">
       <div class="brand">
         <div class="logo">
-          <img src="logo.png" alt="Gergesenon Mental Institute Logo">
+          <img src="logo.png" alt="Gergesenon Mental Institute Logo - Mental Health Support and Rehabilitation Center in Ethiopia" width="50" height="50">
         </div>
         <div>
           <div data-i18n="brand">Gergesenon Mental Institute</div>
@@ -338,7 +421,7 @@
   <!-- Hero -->
   <section id="home" class="hero">
     <div class="media">
-      <img alt="Mental health support and community care" src="bg.jpg"/>
+      <img alt="Mental health support and community care - Gergesenon Mental Institute providing professional care and rehabilitation services in Ethiopia" src="bg.jpg" loading="eager" width="1920" height="1080"/>
       <div class="shade"></div>
     </div>
     <div class="container content">
@@ -354,15 +437,15 @@
       <div class="hero-stats">
   <div class="stat-card">
     <div class="stat-value">500+</div>
-    <div class="stat-label">People Helped</div>
+    <div class="stat-label" data-i18n="stat_people_helped">People Helped</div>
   </div>
   <div class="stat-card">
     <div class="stat-value">15+</div>
-    <div class="stat-label">Years of Service</div>
+    <div class="stat-label" data-i18n="stat_years_service">Years of Service</div>
   </div>
   <div class="stat-card">
     <div class="stat-value">95%</div>
-    <div class="stat-label">Success Rate</div>
+    <div class="stat-label" data-i18n="stat_success_rate">Success Rate</div>
   </div>
 </div>
 
@@ -402,6 +485,7 @@
       </div>
     </div>
   </section>
+
 
   <!-- Floating CTA Button -->
   <button class="floating-cta" onclick="window.location.href='donate.html'">
